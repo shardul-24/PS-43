@@ -33,7 +33,7 @@ export async function PATCH(
   try {
     const { id } = await params;
     const body = await request.json();
-    const { status, assignedDepartment, assignedUniversityId, assignedUniversityName, actor } = body;
+    const { status, assignedDepartment, assignedUniversityId, assignedUniversityName, assignedUniversities, actor } = body;
 
     const updates: any = {};
     if (status) updates.status = status;
@@ -41,6 +41,9 @@ export async function PATCH(
     if (assignedUniversityId) {
       updates.assignedUniversityId = assignedUniversityId;
       updates.assignedUniversityName = assignedUniversityName;
+    }
+    if (assignedUniversities) {
+      updates.assignedUniversities = assignedUniversities;
     }
 
     const updated = updateChallenge(id, updates, actor);

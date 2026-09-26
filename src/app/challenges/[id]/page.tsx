@@ -34,9 +34,12 @@ export default function ChallengeDetailPage() {
   const [hasSupported, setHasSupported] = useState(false);
   const [supportCount, setSupportCount] = useState(0);
   const [isSupporting, setIsSupporting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     if (!challengeId) return;
+    setIsLoading(true);
     fetch(`/api/challenges/${challengeId}`)
       .then((res) => res.json())
       .then((json) => {
@@ -46,9 +49,16 @@ export default function ChallengeDetailPage() {
             json.data.communitySupport.supportersCount +
               json.data.communitySupport.originalReportsCount
           );
+        } else {
+          setNotFound(true);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        setNotFound(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [challengeId]);
 
   const handleSupportClick = async () => {
@@ -75,11 +85,42 @@ export default function ChallengeDetailPage() {
     }
   };
 
-  if (!challenge) {
+  if (isLoading) {
     return (
-      <div className="mx-auto max-w-7xl px-4 py-16 text-center text-slate-500">
-        <Sparkles className="h-6 w-6 text-emerald-500 animate-spin mx-auto mb-2" />
-        Loading challenge data...
+      <div className="mx-auto max-w-7xl px-4 py-24 text-center text-slate-500">
+        <Sparkles className="h-8 w-8 text-emerald-500 animate-spin mx-auto mb-3" />
+        <p className="text-sm font-medium">Retrieving verified challenge records...</p>
+      </div>
+    );
+  }
+
+  if (notFound || !challenge) {
+    return (
+      <div className="mx-auto max-w-3xl px-4 py-16 text-center">
+        <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-xs space-y-4">
+          <div className="inline-flex rounded-full bg-amber-100 p-3 text-amber-800">
+            <AlertTriangle className="h-6 w-6" />
+          </div>
+          <h2 className="text-2xl font-bold text-slate-900">Challenge Record Not Found</h2>
+          <p className="text-sm text-slate-600 max-w-md mx-auto">
+            The challenge identifier <code className="rounded bg-slate-100 px-2 py-0.5 font-mono font-bold text-slate-800">{challengeId}</code> could not be located in the current database.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
+            <Link
+              href="/challenges"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white hover:bg-emerald-700 transition"
+            >
+              <span>Browse All Active Challenges</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+            <Link
+              href="/citizen/report"
+              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
+            >
+              Report a New Challenge
+            </Link>
+          </div>
+        </div>
       </div>
     );
   }
@@ -352,14 +393,24 @@ export default function ChallengeDetailPage() {
               <p className="text-xs text-slate-500">Pending university matching calculation.</p>
             )}
 
-            {challenge.projectId && (
+            {challenge.projectId ? (
               <div className="pt-3 border-t border-slate-100">
                 <Link
                   href={`/projects/${challenge.projectId}`}
-                  className="w-full flex items-center justify-center gap-1.5 rounded-lg bg-[#0B192C] py-2.5 text-xs font-bold text-white hover:bg-[#1E3E62] transition"
+                  className="w-full flex items-center justify-center gap-1.5 rounded-lg bg-[#0B192C] py-2.5 text-xs font-bold text-white hover:bg-emerald-700 transition"
                 >
                   <span>Inspect Active Solution Project ({challenge.projectId})</span>
                   <ArrowRight className="h-3.5 w-3.5 text-emerald-400" />
+                </Link>
+              </div>
+            ) : (
+              <div className="pt-3 border-t border-slate-100">
+                <Link
+                  href="/university"
+                  className="w-full flex items-center justify-center gap-1.5 rounded-lg bg-emerald-600 py-2.5 text-xs font-bold text-white hover:bg-emerald-700 transition"
+                >
+                  <GraduationCap className="h-4 w-4" />
+                  <span>Accept in University Portal →</span>
                 </Link>
               </div>
             )}
