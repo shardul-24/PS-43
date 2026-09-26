@@ -18,7 +18,7 @@
         "isAnonymous": false
       },
       "submittedAt": "2026-09-25T13:29:42.201Z",
-      "status": "Submitted",
+      "status": "Routed",
       "priority": {
         "score": 79,
         "level": "HIGH",
@@ -99,7 +99,7 @@
         "immediateRisk": true,
         "affectsPublicServices": true
       },
-      "updatedAt": "2026-09-25T13:29:42.201Z",
+      "updatedAt": "2026-09-26T18:42:13.364Z",
       "matchedUniversities": [
         {
           "universityId": "UNIV-JH-01",
@@ -382,7 +382,10 @@
             "Soil & Water Analysis Testing Lab"
           ]
         }
-      ]
+      ],
+      "assignedDepartment": "Drinking Water & Sanitation Department (DWSD), Govt of Jharkhand",
+      "assignedUniversityId": "UNIV-JH-01",
+      "assignedUniversityName": "Birla Institute of Technology, Mesra"
     },
     {
       "id": "CH-9939",
@@ -402,7 +405,7 @@
         "isAnonymous": false
       },
       "submittedAt": "2026-09-14T17:50:59.939Z",
-      "status": "Submitted",
+      "status": "Routed",
       "priority": {
         "score": 79,
         "level": "HIGH",
@@ -477,7 +480,7 @@
         "immediateRisk": true,
         "affectsPublicServices": true
       },
-      "updatedAt": "2026-09-14T17:50:59.939Z",
+      "updatedAt": "2026-09-26T19:09:54.966Z",
       "matchedUniversities": [
         {
           "universityId": "UNIV-JH-01",
@@ -760,6 +763,31 @@
             "Soil & Water Analysis Testing Lab"
           ]
         }
+      ],
+      "assignedDepartment": "Drinking Water & Sanitation Department (DWSD), Govt of Jharkhand",
+      "assignedUniversityId": "UNIV-JH-01, UNIV-JH-02, UNIV-JH-05, UNIV-JH-08, UNIV-JH-10",
+      "assignedUniversityName": "Birla Institute of Technology, Mesra; Indian Institute of Technology (Indian School of Mines), Dhanbad; Sido Kanhu Murmu University, Dumka; Vinoba Bhave University, Hazaribagh; Central University of Jharkhand, Brambe",
+      "assignedUniversities": [
+        {
+          "id": "UNIV-JH-01",
+          "name": "Birla Institute of Technology, Mesra"
+        },
+        {
+          "id": "UNIV-JH-02",
+          "name": "Indian Institute of Technology (Indian School of Mines), Dhanbad"
+        },
+        {
+          "id": "UNIV-JH-05",
+          "name": "Sido Kanhu Murmu University, Dumka"
+        },
+        {
+          "id": "UNIV-JH-08",
+          "name": "Vinoba Bhave University, Hazaribagh"
+        },
+        {
+          "id": "UNIV-JH-10",
+          "name": "Central University of Jharkhand, Brambe"
+        }
       ]
     },
     {
@@ -780,7 +808,7 @@
         "isAnonymous": false
       },
       "submittedAt": "2026-09-10T09:30:00Z",
-      "status": "Submitted",
+      "status": "Solution Development",
       "priority": {
         "score": 88,
         "level": "HIGH",
@@ -973,7 +1001,10 @@
           ]
         }
       ],
-      "updatedAt": "2026-09-10T09:30:00Z"
+      "updatedAt": "2026-09-26T18:27:59.300Z",
+      "assignedUniversityId": "UNIV-JH-01",
+      "assignedUniversityName": "Birla Institute of Technology, Mesra",
+      "projectId": "PRJ-9295"
     },
     {
       "id": "CH-1025",
@@ -1065,7 +1096,7 @@
         "district": "Dhanbad"
       },
       "submittedAt": "2026-07-21T08:15:00Z",
-      "status": "Pilot",
+      "status": "Accepted",
       "priority": {
         "score": 95,
         "level": "CRITICAL",
@@ -1117,10 +1148,10 @@
         "immediateRisk": true,
         "affectsPublicServices": true
       },
-      "assignedUniversityId": "UNIV-JH-02",
-      "assignedUniversityName": "Indian Institute of Technology (ISM) Dhanbad",
+      "assignedUniversityId": "UNIV-JH-01",
+      "assignedUniversityName": "Birla Institute of Technology, Mesra",
       "projectId": "PRJ-203",
-      "updatedAt": "2026-09-08T10:00:00Z"
+      "updatedAt": "2026-09-26T18:44:14.805Z"
     },
     {
       "id": "CH-1027",
@@ -2277,6 +2308,129 @@
   ],
   "projects": [
     {
+      "id": "PRJ-9295",
+      "challengeId": "CH-1024",
+      "challengeTitle": "Drinking water contamination affecting villages near Dumka",
+      "title": "IoT-Enabled Water Quality Telemetry & Biosorption Pilot",
+      "district": "Dumka",
+      "universityId": "UNIV-JH-01",
+      "universityName": "Birla Institute of Technology, Mesra",
+      "facultyMentor": {
+        "id": "FAC-01",
+        "name": "Dr. Priya Sharma",
+        "department": "Environmental Engineering",
+        "designation": "Professor & Head",
+        "email": "priya.sharma@bitmesra.ac.in",
+        "specializations": [
+          "Water Contamination Biosorption"
+        ],
+        "patentsCount": 3,
+        "completedProjectsCount": 12
+      },
+      "students": [
+        {
+          "name": "Ananya Verma",
+          "department": "Computer Science & Engineering",
+          "year": "Final Year B.Tech",
+          "roleInProject": "IoT Firmware & Cloud Lead",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+          "email": "ananya.verma@bitmesra.ac.in"
+        },
+        {
+          "name": "Rohan Soren",
+          "department": "Environmental Engineering",
+          "year": "3rd Year B.Tech",
+          "roleInProject": "Water Sampling & Biosorption Filter Testing",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+          "email": "rohan.soren@bitmesra.ac.in"
+        },
+        {
+          "name": "Aditya Raj",
+          "department": "Civil Engineering",
+          "year": "Final Year B.Tech",
+          "roleInProject": "Rural Cistern Hydraulics & Piping",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+          "email": "aditya.raj@bitmesra.ac.in"
+        },
+        {
+          "name": "Kavita Kumari",
+          "department": "Electronics & Communication",
+          "year": "3rd Year B.Tech",
+          "roleInProject": "Low-power LoRaWAN Node Assembly",
+          "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&auto=format&fit=crop&q=80",
+          "email": "kavita.kumari@bitmesra.ac.in"
+        }
+      ],
+      "proposal": {
+        "problemUnderstanding": "The drinking water supplied through handpumps and the piped village reservoir in Shikaripara and adjoining hamlets has a foul metallic smell, yellowish discoloration, and chemical froth. Over 1,240 villagers are experiencing frequent gastrointestinal pain, skin rashes, and dental fluorosis. The water table has turned hazardous after unlined stone-crusher slurry washed into the local feeder stream during pre-monsoon rains.",
+        "proposedSolution": "IoT-Enabled Water Quality Telemetry & Biosorption Pilot",
+        "detailedDescription": "Our multidisciplinary solution combines a solar-buffered multi-probe telemetry station with a locally deployable Moringa oleifera biosorption column. Low-cost optical sensors continuously measure fluoride, turbidity, and TDS at community intake points in Dumka hamlets, sending alerts via LoRaWAN to village water committees. Biosorption gravity filtration columns provide safe potable water (<1.0 ppm fluoride) adhering to BIS 10500 standards.",
+        "presentationDeckName": "BIT_Mesra_Water_Biosorption_Pilot_Deck_v1.pptx",
+        "presentationDeckUrl": "/uploads/proposals/BIT_Mesra_Water_Biosorption_Pilot_Deck_v1.pptx",
+        "technologyStack": [
+          "ESP32",
+          "Optical Turbidity Sensor",
+          "LoRaWAN",
+          "Moringa Biosorption Columns"
+        ],
+        "expectedImpact": "Supply 10,000 L/day certified potable water (<1.0 ppm fluoride) across 4 hamlets.",
+        "estimatedCostInr": 285000,
+        "timelineMonths": 4,
+        "prototypeDescription": "Our multidisciplinary solution combines a solar-buffered multi-probe telemetry station with a locally deployable Moringa oleifera biosorption column. Low-cost optical sensors continuously measure fluoride, turbidity, and TDS at community intake points in Dumka hamlets, sending alerts via LoRaWAN to village water committees. Biosorption gravity filtration columns provide safe potable water (<1.0 ppm fluoride) adhering to BIS 10500 standards.",
+        "submittedAt": "2026-09-26T18:44:39.249Z",
+        "approvedByGovernment": true,
+        "approvedAt": "2026-09-26T18:44:39.249Z"
+      },
+      "stage": "Proposal",
+      "milestones": [
+        {
+          "id": "M-01-1790448279295",
+          "title": "Problem Validation & Baseline Community Survey",
+          "description": "Engage with local Panchayat and collect baseline ground samples and interviews.",
+          "progressPercent": 100,
+          "status": "COMPLETED",
+          "deadline": "2026-10-03",
+          "completedAt": "2026-09-26",
+          "responsibleLead": "Ananya Verma",
+          "deliverables": [
+            "Baseline Community Survey Report"
+          ]
+        },
+        {
+          "id": "M-02-1790448279295",
+          "title": "Benchtop Prototype Assembly & Laboratory Testing",
+          "description": "Build functional engineering prototype and test parameters in university laboratory.",
+          "progressPercent": 65,
+          "status": "IN_PROGRESS",
+          "deadline": "2026-10-17",
+          "responsibleLead": "Dr. Priya Sharma",
+          "deliverables": [
+            "Laboratory Validation Certificate"
+          ]
+        },
+        {
+          "id": "M-03-1790448279295",
+          "title": "Field Pilot Deployment in Affected Village",
+          "description": "Deploy hardware and train community operators for continuous operation.",
+          "progressPercent": 0,
+          "status": "PENDING",
+          "deadline": "2026-11-10",
+          "responsibleLead": "Team Lead"
+        }
+      ],
+      "collaborations": [],
+      "impactMetrics": {
+        "peopleBenefited": 1240,
+        "villagesCovered": 2,
+        "costSavedInr": 200000,
+        "beforeCondition": "High contamination, distress, and health risks.",
+        "afterCondition": "Remediated infrastructure and restored community safety.",
+        "impactScore": 85
+      },
+      "createdAt": "2026-09-26T18:44:39.295Z",
+      "updatedAt": "2026-09-26T18:44:39.295Z"
+    },
+    {
       "id": "PRJ-301",
       "challengeId": "CH-1024",
       "challengeTitle": "Drinking water contamination affecting villages near Dumka",
@@ -2686,6 +2840,60 @@
     }
   ],
   "auditLogs": [
+    {
+      "id": "LOG-1790449794966",
+      "challengeId": "CH-9939",
+      "timestamp": "2026-09-26T19:09:54.966Z",
+      "actorRole": "government",
+      "actorName": "Dr. Arvind Sinha (Director, Higher & Tech Ed)",
+      "action": "STATUS_UPDATED_TO_ROUTED",
+      "details": "Challenge verified and assigned to Birla Institute of Technology, Mesra, Indian Institute of Technology (Indian School of Mines), Dhanbad, Sido Kanhu Murmu University, Dumka, Vinoba Bhave University, Hazaribagh, Central University of Jharkhand, Brambe based on technical background matching."
+    },
+    {
+      "id": "LOG-1790448279299",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-26T18:44:39.299Z",
+      "actorRole": "university",
+      "actorName": "Birla Institute of Technology, Mesra",
+      "action": "PROJECT_INITIALIZED",
+      "details": "Multidisciplinary team initialized under Dr. Priya Sharma. Solution proposal: \"IoT-Enabled Water Quality Telemetry & Biosorption Pilot\"."
+    },
+    {
+      "id": "LOG-1790448254805",
+      "challengeId": "CH-1026",
+      "timestamp": "2026-09-26T18:44:14.805Z",
+      "actorRole": "university",
+      "actorName": "Dr. Priya Sharma (BIT Mesra)",
+      "action": "STATUS_UPDATED_TO_ACCEPTED",
+      "details": "BIT Mesra Department of Environmental Engineering accepted challenge."
+    },
+    {
+      "id": "LOG-1790448133364",
+      "challengeId": "CH-2201",
+      "timestamp": "2026-09-26T18:42:13.364Z",
+      "actorRole": "government",
+      "actorName": "Dr. Arvind Sinha (Director, Higher & Tech Ed)",
+      "action": "STATUS_UPDATED_TO_ROUTED",
+      "details": "Challenge verified and assigned to Birla Institute of Technology, Mesra based on technical background matching."
+    },
+    {
+      "id": "LOG-1790447279300",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-26T18:27:59.300Z",
+      "actorRole": "university",
+      "actorName": "Dr. Priya Sharma (BIT Mesra)",
+      "action": "STATUS_UPDATED_TO_ACCEPTED",
+      "details": "BIT Mesra Department of Environmental Engineering accepted challenge."
+    },
+    {
+      "id": "LOG-1790446817517",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-26T18:20:17.517Z",
+      "actorRole": "university",
+      "actorName": "Dr. Priya Sharma (BIT Mesra)",
+      "action": "STATUS_UPDATED_TO_ACCEPTED",
+      "details": "BIT Mesra Department of Environmental Engineering accepted challenge."
+    },
     {
       "id": "LOG-1790342982206",
       "challengeId": "CH-2201",

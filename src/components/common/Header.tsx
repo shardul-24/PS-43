@@ -16,6 +16,7 @@ import {
   ChevronDown,
   ShieldCheck,
   CheckCircle2,
+  Layers,
 } from 'lucide-react';
 import { NotificationItem } from '@/types';
 
@@ -225,6 +226,18 @@ export function Header({ onOpenTour, onOpenAi }: HeaderProps) {
                 <div>
                   <div>Startup Hub</div>
                   <div className="text-[10px] text-slate-400 font-normal">Pledge & scale pilots</div>
+                </div>
+              </Link>
+              <Link
+                href="/projects"
+                className={`flex items-center gap-2 rounded-lg p-2 text-xs font-semibold transition ${
+                  pathname.startsWith('/projects') ? 'bg-indigo-50 text-indigo-900 font-bold' : 'text-slate-700 hover:bg-slate-50'
+                }`}
+              >
+                <Layers className="h-4 w-4 text-indigo-600 shrink-0" />
+                <div>
+                  <div>Applied Projects</div>
+                  <div className="text-[10px] text-slate-400 font-normal">Prototypes & telemetry</div>
                 </div>
               </Link>
             </div>

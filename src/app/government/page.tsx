@@ -19,6 +19,13 @@ import {
   Flame,
   Layers,
   Sparkles,
+  X,
+  Globe,
+  MapPin,
+  Clock,
+  Image as ImageIcon,
+  Check,
+  CheckSquare,
 } from 'lucide-react';
 import { JharkhandMap } from '@/components/map/JharkhandMap';
 import { StatusBadge } from '@/components/ui/StatusBadge';
@@ -34,6 +41,16 @@ export default function GovernmentCommandCenter() {
   const [filterStatus, setFilterStatus] = useState('All');
   const [filterPriority, setFilterPriority] = useState('All');
   const [actionInProgress, setActionInProgress] = useState<string | null>(null);
+
+  // Verification & University Assignment Modal State
+  const [reviewingChallenge, setReviewingChallenge] = useState<Challenge | null>(null);
+  const [verificationStep, setVerificationStep] = useState<'review' | 'assign'>('review');
+  const [rankedUniversities, setRankedUniversities] = useState<UniversityMatch[]>([]);
+  const [selectedUniversities, setSelectedUniversities] = useState<Array<{ id: string; name: string }>>([]);
+  const [isAllUniversitiesSelected, setIsAllUniversitiesSelected] = useState<boolean>(false);
+  const [isAssigning, setIsAssigning] = useState(false);
+  const [assignSuccessMessage, setAssignSuccessMessage] = useState<string | null>(null);
+  const [loadingMatches, setLoadingMatches] = useState(false);
 
   const fetchAllData = () => {
     fetch('/api/challenges?status=All')
@@ -70,34 +87,147 @@ export default function GovernmentCommandCenter() {
     fetchAllData();
   }, []);
 
-  // Action: Verify Challenge
-  const handleVerify = async (challengeId: string) => {
-    setActionInProgress(challengeId);
+  // Open Verification & Assignment Modal
+  const openVerificationModal = (ch: Challenge) => {
+    setReviewingChallenge(ch);
+    setVerificationStep('review');
+    setSelectedUniversities([]);
+    setIsAllUniversitiesSelected(false);
+    setAssignSuccessMessage(null);
+
+    // Load top 5 ranked universities for this issue
+    if (ch.matchedUniversities && ch.matchedUniversities.length >= 5) {
+      setRankedUniversities(ch.matchedUniversities.slice(0, 5));
+    } else {
+      setLoadingMatches(true);
+      fetch(`/api/universities?challengeId=${ch.id}`)
+        .then((res) => res.json())
+        .then((json) => {
+          if (json.success && Array.isArray(json.data)) {
+            setRankedUniversities(json.data.slice(0, 5));
+          } else if (ch.matchedUniversities) {
+            setRankedUniversities(ch.matchedUniversities.slice(0, 5));
+          }
+        })
+        .catch(() => {
+          if (ch.matchedUniversities) setRankedUniversities(ch.matchedUniversities.slice(0, 5));
+        })
+        .finally(() => setLoadingMatches(false));
+    }
+  };
+
+  // Toggle individual university in multi-selection
+  const toggleUniversity = (univ: { id: string; name: string }) => {
+    setIsAllUniversitiesSelected(false);
+    setSelectedUniversities((prev) => {
+      const exists = prev.some((u) => u.id === univ.id);
+      if (exists) {
+        return prev.filter((u) => u.id !== univ.id);
+      } else {
+        return [...prev, univ];
+      }
+    });
+  };
+
+  // Toggle all Top 5 in one click
+  const allTop5Selected =
+    rankedUniversities.length > 0 &&
+    rankedUniversities.every((r) => selectedUniversities.some((u) => u.id === r.universityId));
+
+  const toggleSelectTop5 = () => {
+    if (allTop5Selected) {
+      setSelectedUniversities([]);
+    } else {
+      setIsAllUniversitiesSelected(false);
+      setSelectedUniversities(
+        rankedUniversities.map((r) => ({
+          id: r.universityId,
+          name: r.universityName,
+        }))
+      );
+    }
+  };
+
+  // Toggle "Assign to All Universities"
+  const toggleSelectAllUniversities = () => {
+    if (isAllUniversitiesSelected) {
+      setIsAllUniversitiesSelected(false);
+    } else {
+      setIsAllUniversitiesSelected(true);
+      setSelectedUniversities([]);
+    }
+  };
+
+  // Action: Verify & Assign Challenge to Selected Universities or All
+  const handleAssignAndVerify = async (challengeId: string) => {
+    setIsAssigning(true);
     try {
+      let univId = '';
+      let univName = '';
+      let assignedList: Array<{ id: string; name: string }> = [];
+      let actionDesc = '';
+
+      if (isAllUniversitiesSelected) {
+        univId = 'ALL_UNIVERSITIES';
+        univName = 'All Universities (Open Statewide Challenge)';
+        assignedList = [{ id: 'ALL_UNIVERSITIES', name: 'All Universities (Open Statewide Challenge)' }];
+        actionDesc = 'Challenge verified and broadcasted as an Open Statewide Challenge to all accredited universities in Jharkhand.';
+      } else if (selectedUniversities.length > 0) {
+        univId = selectedUniversities.map((u) => u.id).join(', ');
+        univName = selectedUniversities.map((u) => u.name).join('; ');
+        assignedList = selectedUniversities;
+        actionDesc = `Challenge verified and assigned to ${selectedUniversities.map((u) => u.name).join(', ')} based on technical background matching.`;
+      } else {
+        return;
+      }
+
       const res = await fetch(`/api/challenges/${challengeId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          status: 'Verified',
+          status: 'Routed',
           assignedDepartment: 'Drinking Water & Sanitation Department (DWSD), Govt of Jharkhand',
+          assignedUniversityId: univId,
+          assignedUniversityName: univName,
+          assignedUniversities: assignedList,
           actor: {
             role: 'government',
             name: 'Dr. Arvind Sinha (Director, Higher & Tech Ed)',
-            actionDescription: 'Challenge verified following ground validation by District Collectorate.',
+            actionDescription: actionDesc,
           },
         }),
       });
       const data = await res.json();
       if (data.success) {
+        const displayLabel = isAllUniversitiesSelected
+          ? 'All Universities (Open Statewide Challenge)'
+          : selectedUniversities.length === 5
+          ? 'All Top 5 Universities'
+          : selectedUniversities.length > 1
+          ? `${selectedUniversities.length} Universities (${selectedUniversities[0].name.split(',')[0]} + ${selectedUniversities.length - 1} more)`
+          : selectedUniversities[0].name;
+
+        setAssignSuccessMessage(`Issue verified and successfully assigned to ${displayLabel}!`);
         fetchAllData();
-        if (selectedChallenge?.id === challengeId) {
-          setSelectedChallenge(data.data);
-        }
+        setTimeout(() => {
+          setAssignSuccessMessage(null);
+          setReviewingChallenge(null);
+          setSelectedUniversities([]);
+          setIsAllUniversitiesSelected(false);
+        }, 1500);
       }
     } catch (e) {
       console.error(e);
     } finally {
-      setActionInProgress(null);
+      setIsAssigning(false);
+    }
+  };
+
+  // Fallback simple verify
+  const handleVerify = async (challengeId: string) => {
+    const target = challenges.find((c) => c.id === challengeId);
+    if (target) {
+      openVerificationModal(target);
     }
   };
 
@@ -308,12 +438,11 @@ export default function GovernmentCommandCenter() {
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            handleVerify(ch.id);
+                            openVerificationModal(ch);
                           }}
-                          disabled={actionInProgress === ch.id}
                           className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-emerald-700 shadow-xs cursor-pointer"
                         >
-                          Verify
+                          Verify Issue
                         </button>
                       ) : ch.status === 'Verified' ? (
                         <button
@@ -380,12 +509,11 @@ export default function GovernmentCommandCenter() {
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
-                                handleVerify(ch.id);
+                                openVerificationModal(ch);
                               }}
-                              disabled={actionInProgress === ch.id}
-                              className="rounded bg-emerald-600 px-2.5 py-1 text-[11px] font-bold text-white hover:bg-emerald-700 shadow-xs"
+                              className="rounded bg-emerald-600 px-2.5 py-1 text-[11px] font-bold text-white hover:bg-emerald-700 shadow-xs cursor-pointer"
                             >
-                              Verify
+                              Verify Issue
                             </button>
                           ) : ch.status === 'Verified' ? (
                             <button
@@ -465,11 +593,10 @@ export default function GovernmentCommandCenter() {
                 <div className="pt-2 flex flex-col gap-2">
                   {selectedChallenge.status === 'Submitted' || selectedChallenge.status === 'Under Review' ? (
                     <button
-                      onClick={() => handleVerify(selectedChallenge.id)}
-                      disabled={actionInProgress === selectedChallenge.id}
+                      onClick={() => openVerificationModal(selectedChallenge)}
                       className="w-full rounded-xl bg-emerald-600 py-2.5 text-xs font-bold text-white hover:bg-emerald-700 shadow-xs transition cursor-pointer text-center"
                     >
-                      ✓ Formally Verify Challenge
+                      ✓ Review & Verify Issue
                     </button>
                   ) : (
                     <button
@@ -657,6 +784,601 @@ export default function GovernmentCommandCenter() {
                 </span>
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {/* VERIFICATION & UNIVERSITY ASSIGNMENT POPUP WINDOW */}
+      {reviewingChallenge && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-3 sm:p-4 backdrop-blur-xs transition-opacity animate-in fade-in duration-200">
+          <div
+            className="relative flex max-h-[92vh] w-full max-w-4xl flex-col rounded-2xl bg-white shadow-2xl overflow-hidden border border-slate-200"
+            role="dialog"
+            aria-modal="true"
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between border-b border-slate-200 bg-slate-50/90 px-5 py-4">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-mono text-xs font-bold bg-slate-200 text-slate-800 px-2.5 py-1 rounded-md">
+                  {reviewingChallenge.id}
+                </span>
+                <StatusBadge status={reviewingChallenge.status} />
+                <PriorityBadge
+                  level={reviewingChallenge.priority.level}
+                  score={reviewingChallenge.priority.score}
+                />
+                <span className="text-xs text-slate-500 font-medium">
+                  • {reviewingChallenge.district} District
+                </span>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setReviewingChallenge(null);
+                  setSelectedUniversities([]);
+                  setIsAllUniversitiesSelected(false);
+                }}
+                className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-200 hover:text-slate-700 transition cursor-pointer"
+                aria-label="Close Verification Modal"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Step Navigation Tabs */}
+            <div className="flex items-center border-b border-slate-200 bg-slate-100/70 px-5 text-xs font-bold">
+              <button
+                type="button"
+                onClick={() => setVerificationStep('review')}
+                className={`py-3 px-4 border-b-2 transition cursor-pointer ${
+                  verificationStep === 'review'
+                    ? 'border-emerald-600 text-emerald-800 bg-white shadow-2xs font-extrabold'
+                    : 'border-transparent text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                1. Review Issue & Ground Evidence
+              </button>
+              <button
+                type="button"
+                onClick={() => setVerificationStep('assign')}
+                className={`py-3 px-4 border-b-2 transition cursor-pointer flex items-center gap-1.5 ${
+                  verificationStep === 'assign'
+                    ? 'border-emerald-600 text-emerald-800 bg-white shadow-2xs font-extrabold'
+                    : 'border-transparent text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                <span>2. Assign to University</span>
+                <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] px-2 py-0.5 font-bold">
+                  HEI Selection
+                </span>
+              </button>
+            </div>
+
+            {/* Success Alert Banner */}
+            {assignSuccessMessage && (
+              <div className="bg-emerald-600 text-white text-xs font-bold py-2.5 px-5 flex items-center gap-2 animate-in fade-in">
+                <CheckCircle2 className="h-4 w-4 shrink-0" />
+                <span>{assignSuccessMessage}</span>
+              </div>
+            )}
+
+            {/* Scrollable Modal Body */}
+            <div className="flex-1 overflow-y-auto p-5 sm:p-6 space-y-6">
+              {verificationStep === 'review' && (
+                <div className="space-y-6 animate-in fade-in duration-150">
+                  {/* Title & Core Metadata */}
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 block">
+                      {reviewingChallenge.category} • Grassroots Civic Issue
+                    </span>
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1 leading-snug">
+                      {reviewingChallenge.title}
+                    </h2>
+                    <div className="mt-2.5 flex flex-wrap items-center gap-4 text-xs text-slate-500">
+                      <span className="flex items-center gap-1 font-medium">
+                        <MapPin className="h-3.5 w-3.5 text-slate-400" />
+                        {reviewingChallenge.block ? `${reviewingChallenge.block} Block, ` : ''}{reviewingChallenge.district} District, Jharkhand
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="h-3.5 w-3.5 text-slate-400" />
+                        Submitted on {new Date(reviewingChallenge.submittedAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Users className="h-3.5 w-3.5 text-slate-400" />
+                        Reported by: <strong>{reviewingChallenge.submittedBy?.name || 'Local Citizen'}</strong>
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-blue-500" />
+                        {reviewingChallenge.communitySupport.supportersCount + reviewingChallenge.communitySupport.originalReportsCount} Community Backers
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Ground Truth Problem Statement */}
+                  <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block">
+                      Ground Truth Citizen Description
+                    </span>
+                    <p className="text-sm text-slate-800 leading-relaxed">
+                      {reviewingChallenge.description}
+                    </p>
+                  </div>
+
+                  {/* FIELD EVIDENCE IMAGES SECTION */}
+                  <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                        <ImageIcon className="h-4 w-4 text-emerald-600" />
+                        <span>Submitted Field Visual Evidence</span>
+                      </span>
+                      <span className="text-[11px] font-bold text-slate-500">
+                        {reviewingChallenge.evidence?.length || 2} Images Attached
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-1">
+                      {reviewingChallenge.evidence && reviewingChallenge.evidence.length > 0 ? (
+                        reviewingChallenge.evidence.map((ev, i) => (
+                          <div key={ev.id || i} className="group relative overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-2xs">
+                            <img
+                              src={ev.url}
+                              alt={ev.caption || 'Field evidence'}
+                              className="h-36 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2 text-white">
+                              <span className="text-[10px] font-medium block truncate">
+                                {ev.caption || `Field Corroboration #${i + 1}`}
+                              </span>
+                              <span className="text-[9px] text-slate-300 block">
+                                Photo evidence verified
+                              </span>
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        <>
+                          <div className="group relative overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-2xs">
+                            <img
+                              src="https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=600&auto=format&fit=crop&q=80"
+                              alt="Ground water sample test site"
+                              className="h-36 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2 text-white">
+                              <span className="text-[10px] font-medium block truncate">
+                                Field Site Visual Corroboration
+                              </span>
+                              <span className="text-[9px] text-slate-300 block">
+                                Panchayat Inspector Photo Evidence
+                              </span>
+                            </div>
+                          </div>
+                          <div className="group relative overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-2xs">
+                            <img
+                              src="https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?w=600&auto=format&fit=crop&q=80"
+                              alt="Village public water source"
+                              className="h-36 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2 text-white">
+                              <span className="text-[10px] font-medium block truncate">
+                                Community Water Point Inspection
+                              </span>
+                              <span className="text-[9px] text-slate-300 block">
+                                Affected Hamlet Borewell Structure
+                              </span>
+                            </div>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Field Impact Assessment Data */}
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-2.5">
+                      Ground Impact Assessment Survey
+                    </span>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-2xs">
+                        <span className="text-[11px] text-slate-500 block">Citizens Affected</span>
+                        <span className="text-base sm:text-lg font-bold text-slate-900 mt-0.5 block">
+                          {reviewingChallenge.impactQuestions.peopleAffectedApprox.toLocaleString()}
+                        </span>
+                        <span className="text-[10px] text-slate-400">Directly exposed</span>
+                      </div>
+
+                      <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-2xs">
+                        <span className="text-[11px] text-slate-500 block">Occurrence Frequency</span>
+                        <span className="text-sm sm:text-base font-bold text-slate-900 mt-0.5 block capitalize">
+                          {reviewingChallenge.impactQuestions.frequency}
+                        </span>
+                        <span className="text-[10px] text-slate-400">Continuous risk</span>
+                      </div>
+
+                      <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-2xs">
+                        <span className="text-[11px] text-slate-500 block">Immediate Health Hazard</span>
+                        <span className={`text-sm sm:text-base font-bold mt-0.5 block ${
+                          reviewingChallenge.impactQuestions.immediateRisk ? 'text-rose-700' : 'text-slate-800'
+                        }`}>
+                          {reviewingChallenge.impactQuestions.immediateRisk ? 'Critical Hazard' : 'Monitored'}
+                        </span>
+                        <span className="text-[10px] text-slate-400">Requires lab testing</span>
+                      </div>
+
+                      <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-2xs">
+                        <span className="text-[11px] text-slate-500 block">Civic Disruption</span>
+                        <span className={`text-sm sm:text-base font-bold mt-0.5 block ${
+                          reviewingChallenge.impactQuestions.affectsPublicServices ? 'text-amber-700' : 'text-slate-800'
+                        }`}>
+                          {reviewingChallenge.impactQuestions.affectsPublicServices ? 'Public Services' : 'Local Community'}
+                        </span>
+                        <span className="text-[10px] text-slate-400">Over {reviewingChallenge.impactQuestions.durationMonths} months</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Sangam AI Problem Comprehension */}
+                  <div className="rounded-xl border border-teal-200 bg-gradient-to-br from-teal-50/70 to-emerald-50/40 p-4 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1.5">
+                        <Sparkles className="h-4 w-4 text-teal-600" />
+                        <span className="text-xs font-bold uppercase tracking-wider text-teal-900">
+                          Sangam AI Problem Comprehension
+                        </span>
+                      </div>
+                      <span className="rounded-full bg-teal-100 px-2.5 py-0.5 text-[11px] font-bold text-teal-800">
+                        {reviewingChallenge.aiAnalysis.confidence}% AI Confidence
+                      </span>
+                    </div>
+
+                    <div className="text-xs text-slate-700 space-y-2">
+                      <div>
+                        <span className="font-semibold text-slate-900">Domain Taxonomy: </span>
+                        <span className="rounded-md bg-white/80 px-2 py-0.5 font-mono text-[11px] border border-teal-200">
+                          {reviewingChallenge.category} • {reviewingChallenge.aiAnalysis.subcategory || reviewingChallenge.aiAnalysis.affectedDomain}
+                        </span>
+                      </div>
+
+                      {reviewingChallenge.aiAnalysis.problemSummary && (
+                        <div>
+                          <span className="font-semibold text-slate-900">Problem Summary: </span>
+                          <span>{reviewingChallenge.aiAnalysis.problemSummary}</span>
+                        </div>
+                      )}
+
+                      {reviewingChallenge.aiAnalysis.recommendedExpertise && reviewingChallenge.aiAnalysis.recommendedExpertise.length > 0 && (
+                        <div>
+                          <span className="font-semibold text-slate-900">Recommended Academic Expertise: </span>
+                          <span className="text-teal-900 font-medium">
+                            {reviewingChallenge.aiAnalysis.recommendedExpertise.join(', ')}
+                          </span>
+                        </div>
+                      )}
+
+                      {reviewingChallenge.aiAnalysis.keywords && reviewingChallenge.aiAnalysis.keywords.length > 0 && (
+                        <div className="flex flex-wrap items-center gap-1 pt-1">
+                          <span className="font-semibold text-slate-900 text-[11px]">Keywords: </span>
+                          {reviewingChallenge.aiAnalysis.keywords.map((kw, i) => (
+                            <span key={i} className="rounded-md bg-white px-2 py-0.5 text-[10px] font-medium text-teal-800 border border-teal-100">
+                              #{kw}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Priority Engine Breakdown */}
+                  <div className="rounded-xl border border-orange-200 bg-orange-50/50 p-4 text-xs space-y-2">
+                    <div className="flex items-center justify-between font-bold text-orange-950">
+                      <span className="flex items-center gap-1.5">
+                        <Flame className="h-4 w-4 text-orange-600" />
+                        <span>State Priority Engine Calculation</span>
+                      </span>
+                      <span className="font-mono text-sm">{reviewingChallenge.priority.score}/100 ({reviewingChallenge.priority.level})</span>
+                    </div>
+                    <div className="space-y-1 text-slate-700 text-[11px] pt-1">
+                      {reviewingChallenge.priority.reasons.map((r, i) => (
+                        <div key={i} className="flex items-start gap-1.5">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-orange-600 mt-0.5 shrink-0" />
+                          <span>{r}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* STEP 2: ASSIGN TO UNIVERSITY (TOP 5 HEIS WITH MULTI-SELECT & SELECT ALL IN ONE CLICK, WITH ASSIGN TO ALL UNIVERSITIES AT THE END) */}
+              {verificationStep === 'assign' && (
+                <div className="space-y-5 animate-in fade-in duration-150">
+                  <div className="border-b border-slate-100 pb-3">
+                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 block">
+                      Institutional Routing Decision
+                    </span>
+                    <h3 className="text-lg font-bold text-slate-900 mt-0.5">
+                      Assign Verified Issue to University Ecosystem
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-1">
+                      Select one or multiple universities from the <strong>Top 5 HEIs</strong> matched by academic domain and laboratory capabilities, select all Top 5 in one click, or broadcast statewide to <strong>All Universities</strong> at the bottom.
+                    </p>
+                  </div>
+
+                  {/* SECTION 1: TOP 5 MATCHED UNIVERSITIES */}
+                  <div className="space-y-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                        <GraduationCap className="h-4 w-4 text-emerald-600" />
+                        <span>Top 5 Universities with Relevant Academic Background</span>
+                      </span>
+                      {loadingMatches && (
+                        <span className="text-[11px] text-slate-400 font-medium animate-pulse">
+                          Computing affinity scores...
+                        </span>
+                      )}
+                    </div>
+
+                    {/* QUICK ACTION / MASTER CHECKBOX: SELECT ALL TOP 5 IN ONE CLICK */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border-2 border-emerald-200 bg-gradient-to-r from-emerald-50/70 via-white to-teal-50/50 p-3.5 sm:p-4 shadow-2xs">
+                      <label className="flex items-center gap-3 cursor-pointer select-none">
+                        <input
+                          type="checkbox"
+                          checked={allTop5Selected}
+                          onChange={toggleSelectTop5}
+                          className="h-5 w-5 rounded-md border-emerald-400 text-emerald-600 focus:ring-emerald-500 cursor-pointer accent-emerald-600"
+                        />
+                        <div>
+                          <div className="flex items-center gap-1.5">
+                            <CheckSquare className="h-4 w-4 text-emerald-700" />
+                            <span className="text-sm font-bold text-slate-900">
+                              Select Top 5 in one check box click
+                            </span>
+                          </div>
+                          <p className="text-[11px] text-slate-500 mt-0.5">
+                            Simultaneously invite all 5 matched Jharkhand institutions to formulate cross-university or squad solutions
+                          </p>
+                        </div>
+                      </label>
+
+                      <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
+                        <span className="rounded-full bg-emerald-100 border border-emerald-300 px-3 py-1 text-xs font-bold text-emerald-900">
+                          {selectedUniversities.length} of {rankedUniversities.length} Selected
+                        </span>
+                        {selectedUniversities.length > 0 && (
+                          <button
+                            type="button"
+                            onClick={() => setSelectedUniversities([])}
+                            className="text-xs font-semibold text-rose-600 hover:text-rose-700 underline cursor-pointer"
+                          >
+                            Deselect All
+                          </button>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* TOP 5 UNIVERSITY CARDS WITH MULTI-SELECT CHECKBOXES */}
+                    <div className="space-y-3 pt-1">
+                      {rankedUniversities.map((match, idx) => {
+                        const isSelected = selectedUniversities.some((u) => u.id === match.universityId);
+                        return (
+                          <div
+                            key={match.universityId}
+                            onClick={() =>
+                              toggleUniversity({
+                                id: match.universityId,
+                                name: match.universityName,
+                              })
+                            }
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                toggleUniversity({
+                                  id: match.universityId,
+                                  name: match.universityName,
+                                });
+                              }
+                            }}
+                            className={`rounded-xl border p-4 transition cursor-pointer text-left select-none relative ${
+                              isSelected
+                                ? 'border-emerald-600 bg-emerald-50/70 shadow-sm ring-2 ring-emerald-500/20'
+                                : 'border-slate-200 bg-white hover:border-slate-300 hover:shadow-xs'
+                            }`}
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                              <div className="flex items-start gap-3">
+                                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#0B192C] text-white font-bold text-xs">
+                                  #{idx + 1}
+                                </div>
+                                <div>
+                                  <div className="flex flex-wrap items-center gap-2">
+                                    <h4 className="text-sm font-bold text-slate-900 leading-snug">
+                                      {match.universityName}
+                                    </h4>
+                                    {match.isJharkhand && (
+                                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
+                                        Tier 1 State HEI
+                                      </span>
+                                    )}
+                                    <span className="text-xs text-slate-400 font-medium">
+                                      • Campus in {match.district}
+                                    </span>
+                                  </div>
+
+                                  <div className="mt-1.5 flex flex-wrap gap-2 text-[11px] text-slate-600">
+                                    <span className="rounded bg-slate-100 px-2 py-0.5 font-medium">
+                                      Dept: {match.reasons[0]?.replace('Aligned department: ', '') || 'Engineering & Applied Sciences'}
+                                    </span>
+                                    {match.recommendedFaculty && match.recommendedFaculty.length > 0 && (
+                                      <span className="rounded bg-slate-100 px-2 py-0.5 font-medium">
+                                        Faculty Lead: {match.recommendedFaculty[0]}
+                                      </span>
+                                    )}
+                                    {match.relevantLabs && match.relevantLabs.length > 0 && (
+                                      <span className="rounded bg-emerald-50 px-2 py-0.5 text-emerald-900 font-semibold border border-emerald-200/50">
+                                        Lab: {match.relevantLabs[0]}
+                                      </span>
+                                    )}
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+                                <div className="text-right">
+                                  <span className="text-base font-black text-emerald-600 block leading-tight">
+                                    {match.overallMatchScore}%
+                                  </span>
+                                  <span className="text-[10px] text-slate-400 uppercase font-bold">
+                                    Match Affinity
+                                  </span>
+                                </div>
+
+                                <div
+                                  className={`h-5 w-5 rounded-md border-2 flex items-center justify-center transition ${
+                                    isSelected
+                                      ? 'border-emerald-600 bg-emerald-600 text-white shadow-2xs'
+                                      : 'border-slate-300 bg-white hover:border-slate-400'
+                                  }`}
+                                >
+                                  {isSelected && <Check className="h-3.5 w-3.5 stroke-[3]" />}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* DIVIDER: OR BROADCAST STATEWIDE */}
+                  <div className="relative py-2 flex items-center justify-center">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-slate-200" />
+                    </div>
+                    <span className="relative bg-white px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                      OR Statewide Public Challenge
+                    </span>
+                  </div>
+
+                  {/* OPTION: ASSIGN TO ALL UNIVERSITIES (KEPT AT THE END BELOW TOP 5) */}
+                  <div
+                    onClick={toggleSelectAllUniversities}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        toggleSelectAllUniversities();
+                      }
+                    }}
+                    className={`rounded-2xl border-2 p-4 sm:p-5 transition cursor-pointer text-left select-none relative ${
+                      isAllUniversitiesSelected
+                        ? 'border-purple-600 bg-purple-50/80 shadow-md ring-2 ring-purple-500/20'
+                        : 'border-purple-200 bg-gradient-to-r from-purple-50/40 via-white to-indigo-50/30 hover:border-purple-300'
+                    }`}
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="flex items-start gap-3">
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-purple-600 text-white font-bold shadow-xs">
+                          <Globe className="h-6 w-6" />
+                        </div>
+                        <div>
+                          <div className="flex flex-wrap items-center gap-2">
+                            <h4 className="text-base font-bold text-slate-900">
+                              Assign to All Universities (Open Statewide Challenge)
+                            </h4>
+                            <span className="rounded-full bg-purple-100 text-purple-900 font-bold px-2.5 py-0.5 text-[10px]">
+                              Open to All Institutions
+                            </span>
+                          </div>
+                          <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                            Broadcast this verified issue publicly across the entire Higher Education portal for all universities, colleges, and polytechnics in Jharkhand rather than restricting to matching disciplines. Any student squad can accept and submit innovation proposals.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="shrink-0 self-end sm:self-center">
+                        <div
+                          className={`h-6 w-6 rounded-md border-2 flex items-center justify-center transition ${
+                            isAllUniversitiesSelected
+                              ? 'border-purple-600 bg-purple-600 text-white shadow-2xs'
+                              : 'border-slate-300 bg-white hover:border-purple-300'
+                          }`}
+                        >
+                          {isAllUniversitiesSelected && <Check className="h-4 w-4 stroke-[3]" />}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Action Footer */}
+            <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-3 border-t border-slate-200 bg-slate-50 px-5 py-4">
+              {verificationStep === 'review' ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setReviewingChallenge(null);
+                      setSelectedUniversities([]);
+                      setIsAllUniversitiesSelected(false);
+                    }}
+                    className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 transition cursor-pointer text-center"
+                  >
+                    Close Preview
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setVerificationStep('assign')}
+                    className="flex items-center justify-center gap-1.5 rounded-xl bg-emerald-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-emerald-700 shadow-xs transition cursor-pointer"
+                  >
+                    <span>Proceed to Assign to Universities →</span>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => setVerificationStep('review')}
+                    className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 transition cursor-pointer text-center"
+                  >
+                    ← Back to Review Details
+                  </button>
+
+                  <button
+                    type="button"
+                    disabled={(!isAllUniversitiesSelected && selectedUniversities.length === 0) || isAssigning}
+                    onClick={() => {
+                      if (isAllUniversitiesSelected || selectedUniversities.length > 0) {
+                        handleAssignAndVerify(reviewingChallenge.id);
+                      }
+                    }}
+                    className="flex items-center justify-center gap-1.5 rounded-xl bg-[#0B192C] px-6 py-2.5 text-xs font-bold text-white hover:bg-[#1E3E62] shadow-md disabled:opacity-50 transition cursor-pointer text-center"
+                  >
+                    {isAssigning ? (
+                      <>Assigning & Routing Issue...</>
+                    ) : (
+                      <>
+                        <ShieldCheck className="h-4 w-4 text-emerald-400" />
+                        <span>
+                          {isAllUniversitiesSelected
+                            ? 'Confirm & Assign to All Universities (Statewide Open)'
+                            : selectedUniversities.length === 5
+                            ? 'Confirm & Assign to All Top 5 Universities'
+                            : selectedUniversities.length > 1
+                            ? `Confirm & Assign to ${selectedUniversities.length} Selected Universities`
+                            : selectedUniversities.length === 1
+                            ? `Confirm & Assign to ${selectedUniversities[0].name.split(',')[0]}`
+                            : 'Select University or Open Statewide to Confirm'}
+                        </span>
+                      </>
+                    )}
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}

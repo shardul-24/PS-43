@@ -31,6 +31,11 @@ export function Footer() {
             </h4>
             <ul className="mt-3 space-y-2 text-xs">
               <li>
+                <Link href="/challenges" className="hover:text-emerald-400 transition">
+                  Verified Civic Challenges
+                </Link>
+              </li>
+              <li>
                 <Link href="/citizen" className="hover:text-emerald-400 transition">
                   Citizen Hub & Report Wizard
                 </Link>
@@ -48,6 +53,11 @@ export function Footer() {
               <li>
                 <Link href="/startup" className="hover:text-emerald-400 transition">
                   Startup & Industry Hub
+                </Link>
+              </li>
+              <li>
+                <Link href="/projects" className="hover:text-emerald-400 transition">
+                  Applied R&D Projects
                 </Link>
               </li>
               <li>

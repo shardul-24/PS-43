@@ -17,6 +17,7 @@ import {
   PlayCircle,
   ShieldCheck,
   ChevronRight,
+  Layers,
 } from 'lucide-react';
 
 interface MobileBottomNavProps {
@@ -149,14 +150,22 @@ export function MobileBottomNav({ onOpenTour, onOpenAi }: MobileBottomNavProps) 
               </Link>
             </div>
 
-            <div className="mt-3 grid grid-cols-2 gap-2 pt-2 border-t border-slate-100">
+            <div className="mt-3 grid grid-cols-3 gap-2 pt-2 border-t border-slate-100">
+              <Link
+                href="/projects"
+                onClick={() => setShowRoleDrawer(false)}
+                className="flex items-center justify-center gap-1.5 rounded-xl bg-slate-100 p-2 text-xs font-semibold text-slate-800"
+              >
+                <Layers className="h-3.5 w-3.5 text-indigo-600" />
+                <span>Projects</span>
+              </Link>
               <Link
                 href="/citizen/leaderboard"
                 onClick={() => setShowRoleDrawer(false)}
-                className="flex items-center gap-2 rounded-xl bg-slate-100 p-2.5 text-xs font-semibold text-slate-800"
+                className="flex items-center justify-center gap-1.5 rounded-xl bg-slate-100 p-2 text-xs font-semibold text-slate-800"
               >
-                <Award className="h-4 w-4 text-amber-500" />
-                <span>Leaderboard</span>
+                <Award className="h-3.5 w-3.5 text-amber-500" />
+                <span>Ranks</span>
               </Link>
               {onOpenTour && (
                 <button
@@ -164,9 +173,9 @@ export function MobileBottomNav({ onOpenTour, onOpenAi }: MobileBottomNavProps) 
                     setShowRoleDrawer(false);
                     onOpenTour();
                   }}
-                  className="flex items-center gap-2 rounded-xl bg-amber-500/10 border border-amber-300/40 p-2.5 text-xs font-semibold text-amber-800"
+                  className="flex items-center justify-center gap-1.5 rounded-xl bg-amber-500/10 border border-amber-300/40 p-2 text-xs font-semibold text-amber-800"
                 >
-                  <PlayCircle className="h-4 w-4 text-amber-600" />
+                  <PlayCircle className="h-3.5 w-3.5 text-amber-600" />
                   <span>5-Min Tour</span>
                 </button>
               )}

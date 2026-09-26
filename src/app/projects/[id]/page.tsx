@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   Heart,
   Droplets,
+  AlertTriangle,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { StatusBadge } from '@/components/ui/StatusBadge';
@@ -29,16 +30,26 @@ export default function ProjectDetailPage() {
   const [project, setProject] = useState<Project | null>(null);
   const [activeTab, setActiveTab] = useState<'milestones' | 'team' | 'proposal' | 'impact'>('milestones');
   const [updatingMilestone, setUpdatingMilestone] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
   const loadProject = () => {
+    setIsLoading(true);
     fetch(`/api/projects/${projectId}`)
       .then((res) => res.json())
       .then((json) => {
         if (json.success && json.data) {
           setProject(json.data);
+        } else {
+          setNotFound(true);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        setNotFound(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -78,11 +89,42 @@ export default function ProjectDetailPage() {
     }
   };
 
-  if (!project) {
+  if (isLoading) {
     return (
-      <div className="mx-auto max-w-7xl px-4 py-16 text-center text-slate-500">
-        <Sparkles className="h-6 w-6 text-emerald-500 animate-spin mx-auto mb-2" />
-        Loading project details...
+      <div className="mx-auto max-w-7xl px-4 py-24 text-center text-slate-500">
+        <Sparkles className="h-8 w-8 text-emerald-500 animate-spin mx-auto mb-3" />
+        <p className="text-sm font-medium">Loading project details & telemetry...</p>
+      </div>
+    );
+  }
+
+  if (notFound || !project) {
+    return (
+      <div className="mx-auto max-w-3xl px-4 py-16 text-center">
+        <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-xs space-y-4">
+          <div className="inline-flex rounded-full bg-amber-100 p-3 text-amber-800">
+            <AlertTriangle className="h-6 w-6" />
+          </div>
+          <h2 className="text-2xl font-bold text-slate-900">Project Not Found</h2>
+          <p className="text-sm text-slate-600 max-w-md mx-auto">
+            The innovation project ID <code className="rounded bg-slate-100 px-2 py-0.5 font-mono font-bold text-slate-800">{projectId}</code> could not be located.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white hover:bg-emerald-700 transition"
+            >
+              <span>Browse All Applied Projects</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+            <Link
+              href="/university"
+              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
+            >
+              University Innovation Hub
+            </Link>
+          </div>
+        </div>
       </div>
     );
   }
@@ -92,7 +134,7 @@ export default function ProjectDetailPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4 mb-6">
         <div className="flex items-center gap-2 text-xs text-slate-500">
-          <Link href="/university" className="hover:underline">
+          <Link href="/projects" className="hover:underline">
             Projects
           </Link>
           <span>/</span>
@@ -330,12 +372,45 @@ export default function ProjectDetailPage() {
             </div>
           </div>
 
+          {project.proposal.detailedDescription && (
+            <div>
+              <span className="font-bold text-slate-700 block mb-1">Detailed Technical Methodology:</span>
+              <p className="text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-100">
+                {project.proposal.detailedDescription}
+              </p>
+            </div>
+          )}
+
           <div>
             <span className="font-bold text-slate-700 block mb-1">Prototype Architecture:</span>
             <p className="text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-100">
               {project.proposal.prototypeDescription}
             </p>
           </div>
+
+          {(project.proposal.presentationDeckName || project.proposal.presentationDeckUrl) && (
+            <div>
+              <span className="font-bold text-slate-700 block mb-1">Attached Solution Presentation Deck:</span>
+              <div className="flex items-center justify-between rounded-xl border border-emerald-200 bg-emerald-50/60 p-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-500 text-white font-bold text-xs">
+                    PPT
+                  </div>
+                  <div>
+                    <span className="font-semibold text-slate-900 block text-xs">
+                      {project.proposal.presentationDeckName || 'Solution_Pitch_Deck.pptx'}
+                    </span>
+                    <span className="text-[10px] text-emerald-800 font-medium">
+                      Verified Pitch Deck • Submitted to State R&D Committee
+                    </span>
+                  </div>
+                </div>
+                <span className="rounded-lg bg-white border border-slate-200 px-2.5 py-1 text-xs font-semibold text-slate-700">
+                  Attached Deck ✓
+                </span>
+              </div>
+            </div>
+          )}
         </div>
       )}
 

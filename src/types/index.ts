@@ -135,6 +135,7 @@ export interface Challenge {
   assignedDepartment?: string;
   assignedUniversityId?: string;
   assignedUniversityName?: string;
+  assignedUniversities?: Array<{ id: string; name: string }>;
   matchedUniversities?: UniversityMatch[];
   projectId?: string;
   updatedAt: string;
@@ -252,11 +253,16 @@ export interface StudentTeamMember {
   year: string;
   rollNumber?: string;
   roleInProject: string;
+  avatar?: string;
+  email?: string;
 }
 
 export interface SolutionProposal {
   problemUnderstanding: string;
   proposedSolution: string;
+  detailedDescription?: string;
+  presentationDeckName?: string;
+  presentationDeckUrl?: string;
   technologyStack: string[];
   expectedImpact: string;
   estimatedCostInr: number;
