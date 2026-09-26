@@ -1,0 +1,2861 @@
+{
+  "challenges": [
+    {
+      "id": "CH-2201",
+      "title": "Drinking water contamination",
+      "description": "The drinking water has bad smell.",
+      "category": "Water Resources",
+      "subcategory": "Groundwater contamination",
+      "district": "Dumka",
+      "block": "Shikaripara",
+      "villageOrCity": "Banjhi Hamlet",
+      "latitude": 24.2677,
+      "longitude": 87.2497,
+      "submittedBy": {
+        "id": "USR-CIT-01",
+        "name": "Rameshwar Tudu",
+        "district": "Dumka",
+        "isAnonymous": false
+      },
+      "submittedAt": "2026-09-25T13:29:42.201Z",
+      "status": "Submitted",
+      "priority": {
+        "score": 79,
+        "level": "HIGH",
+        "factors": {
+          "populationAffected": 22,
+          "healthSafetyRisk": 30,
+          "communitySupport": 8,
+          "geoSpread": 10,
+          "urgencyDuration": 9
+        },
+        "reasons": [
+          "1,350 people affected in the locality (+22 pts)",
+          "Acute immediate danger to community health, safety, or life (+30 pts)",
+          "Initial verified report from community (+8 pts)",
+          "Localized to specific village cluster or ward (+10 pts)",
+          "Persistent ongoing distress for 6+ months (+9 pts)"
+        ]
+      },
+      "aiAnalysis": {
+        "category": "Water Resources",
+        "subcategory": "Water Resources Grassroots Intervention",
+        "keywords": [
+          "water",
+          "smell"
+        ],
+        "affectedDomain": "Public Health & Rural Safe Drinking Water Infrastructure",
+        "estimatedPriority": "HIGH",
+        "affectedPopulationEstimate": 1350,
+        "problemSummary": "AI-structured report: Grassroots challenge identified in Water Resources affecting an estimated 1350 citizens. Key focus areas include water, smell.",
+        "confidence": 92,
+        "recommendedExpertise": [
+          "Environmental Engineering (Water Quality & Toxicology)",
+          "Civil Engineering (Rural Hydraulics & Piping)",
+          "IoT & Embedded Sensors",
+          "Biochemical Membrane Filtration"
+        ],
+        "missingInformation": []
+      },
+      "similarChallenges": [
+        {
+          "challengeId": "CH-1024",
+          "title": "Drinking water contamination affecting villages near Dumka",
+          "similarityScore": 73,
+          "distanceKm": 0,
+          "reportedByCount": 112,
+          "status": "Submitted"
+        },
+        {
+          "challengeId": "CH-9939",
+          "title": "Drinking water contamination affecting villages near Dumka",
+          "similarityScore": 73,
+          "distanceKm": 0,
+          "reportedByCount": 2,
+          "status": "Submitted"
+        }
+      ],
+      "communitySupport": {
+        "originalReportsCount": 1,
+        "supportersCount": 1,
+        "followersCount": 1,
+        "evidenceContributorsCount": 1,
+        "hasUserSupported": true
+      },
+      "evidence": [
+        {
+          "id": "EVD-1790342982201-0",
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=800&q=80",
+          "caption": "Citizen uploaded evidence photo",
+          "uploadedAt": "2026-09-25T13:29:42.201Z",
+          "uploadedBy": "Rameshwar Tudu"
+        }
+      ],
+      "impactQuestions": {
+        "peopleAffectedApprox": 1350,
+        "frequency": "Continuous",
+        "durationMonths": 6,
+        "immediateRisk": true,
+        "affectsPublicServices": true
+      },
+      "updatedAt": "2026-09-25T13:29:42.201Z",
+      "matchedUniversities": [
+        {
+          "universityId": "UNIV-JH-01",
+          "universityName": "Birla Institute of Technology, Mesra",
+          "district": "Ranchi",
+          "isJharkhand": true,
+          "overallMatchScore": 94,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 24,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 5,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Environmental Engineering specializing in Water Quality Sensors, Effluent Remediation",
+            "Faculty expert: Dr. Priya Sharma (Drinking Water Contamination)",
+            "Faculty expert: Dr. Sunita Kujur (Groundwater Recharge)",
+            "Accredited facilities: Water Quality & Toxicology Testing Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Priya Sharma",
+            "Dr. Sunita Kujur"
+          ],
+          "relevantLabs": [
+            "Water Quality & Toxicology Testing Lab",
+            "Advanced IoT & Embedded Systems Facility",
+            "Environmental Microbiology Lab"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-02",
+          "universityName": "Indian Institute of Technology (Indian School of Mines), Dhanbad",
+          "district": "Dhanbad",
+          "isJharkhand": true,
+          "overallMatchScore": 91,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 5,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Environmental Science & Engineering specializing in Mine Water Acid Drainage, Fly Ash Management",
+            "Faculty expert: Dr. Rajeshwar Singh (Coal Belt Groundwater Contamination)",
+            "Accredited facilities: Water & Wastewater Analytical Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Rajeshwar Singh"
+          ],
+          "relevantLabs": [
+            "Water & Wastewater Analytical Lab",
+            "Mine Safety & Environment Simulators"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-05",
+          "universityName": "Sido Kanhu Murmu University, Dumka",
+          "district": "Dumka",
+          "isJharkhand": true,
+          "overallMatchScore": 89,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 1,
+            "geographicRelevance": 4,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Botany & Environmental Studies specializing in Santhal Pargana Ecology, Medicinal Plants",
+            "Faculty expert: Dr. Shailendra Kumar Marandi (Drinking Water Fluoride Mapping in Santhal Pargana)",
+            "Accredited facilities: Santhal Pargana Regional Water Quality Monitoring Facility",
+            "Local District Proximity: Campus in Dumka (Dumka)",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Shailendra Kumar Marandi"
+          ],
+          "relevantLabs": [
+            "Santhal Pargana Regional Water Quality Monitoring Facility"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-08",
+          "universityName": "Vinoba Bhave University, Hazaribagh",
+          "district": "Hazaribagh",
+          "isJharkhand": true,
+          "overallMatchScore": 88,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 2,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Biotechnology & Environmental Science specializing in Bio-fertilizers, Heavy Metal Bioremediation",
+            "Faculty expert: Dr. Vandana Kumari (Bacterial Water Filtration)",
+            "Accredited facilities: Biotechnology & Water Microbial Analysis Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Vandana Kumari"
+          ],
+          "relevantLabs": [
+            "Biotechnology & Water Microbial Analysis Lab"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-10",
+          "universityName": "Central University of Jharkhand, Brambe",
+          "district": "Ranchi",
+          "isJharkhand": true,
+          "overallMatchScore": 88,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 2,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Water Engineering & Management specializing in Watershed Hydrology, Smart Water Meters",
+            "Faculty expert: Dr. Hemant Kumar Gupta (IoT Groundwater Level Monitoring)",
+            "Accredited facilities: Water Engineering & Hydraulics Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Hemant Kumar Gupta"
+          ],
+          "relevantLabs": [
+            "Water Engineering & Hydraulics Lab",
+            "Solar Photovoltaic Testing Station"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-09",
+          "universityName": "Kolhan University, Chaibasa",
+          "district": "West Singhbhum",
+          "isJharkhand": true,
+          "overallMatchScore": 87,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 1,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Zoology & Environmental Studies specializing in Iron Ore Basin Ecology, Bio-indicators of Water Pollution",
+            "Faculty expert: Dr. Anita Purty (River Karo Water Quality)",
+            "Accredited facilities: Aquatic Toxicology & Water Testing Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Anita Purty"
+          ],
+          "relevantLabs": [
+            "Aquatic Toxicology & Water Testing Lab"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-06",
+          "universityName": "AIIMS Deoghar",
+          "district": "Deoghar",
+          "isJharkhand": true,
+          "overallMatchScore": 82,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 5,
+            "previousProjects": 1,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Community & Family Medicine specializing in Epidemiology of Water-borne Illnesses, Rural Telemedicine",
+            "Faculty expert: Dr. Ananya Roy (Water Contamination Gastrointestinal Surveys)",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Ananya Roy"
+          ],
+          "relevantLabs": []
+        },
+        {
+          "universityId": "UNIV-JH-07",
+          "universityName": "Ranchi University, Ranchi",
+          "district": "Ranchi",
+          "isJharkhand": true,
+          "overallMatchScore": 77,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 14,
+            "researchCapability": 14,
+            "labFacilities": 10,
+            "previousProjects": 3,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Geology & Water Management specializing in Aquifer Mapping of Chotanagpur, Springshed Management",
+            "Accredited facilities: Hydrogeology & Geochemistry Testing Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Birendra Singh"
+          ],
+          "relevantLabs": [
+            "Hydrogeology & Geochemistry Testing Lab"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-03",
+          "universityName": "National Institute of Technology, Jamshedpur",
+          "district": "East Singhbhum",
+          "isJharkhand": true,
+          "overallMatchScore": 76,
+          "breakdown": {
+            "departmentExpertise": 14,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 4,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Faculty expert: Dr. Sandeep Soren (Solar-powered Village Water Purification)",
+            "Accredited facilities: Renewable Energy Innovation Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Sandeep Soren"
+          ],
+          "relevantLabs": [
+            "Renewable Energy Innovation Lab",
+            "Water & Hydraulic Systems Testing Facility"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-04",
+          "universityName": "Birsa Agricultural University, Kanke",
+          "district": "Ranchi",
+          "isJharkhand": true,
+          "overallMatchScore": 64,
+          "breakdown": {
+            "departmentExpertise": 14,
+            "facultyExpertise": 14,
+            "researchCapability": 14,
+            "labFacilities": 10,
+            "previousProjects": 4,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Accredited facilities: Soil & Water Analysis Testing Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Madan Mohan Prasad"
+          ],
+          "relevantLabs": [
+            "Soil & Water Analysis Testing Lab"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CH-9939",
+      "title": "Drinking water contamination affecting villages near Dumka",
+      "description": "The drinking water supplied through handpumps and the piped village reservoir in Shikaripara and adjoining hamlets has a foul metallic smell, yellowish discoloration, and chemical froth. Over 1,240 villagers are experiencing frequent gastrointestinal pain, skin rashes, and dental fluorosis. The water table has turned hazardous after unlined stone-crusher slurry washed into the local feeder stream during pre-monsoon rains.",
+      "category": "Water Resources",
+      "subcategory": "Groundwater Contamination & Fluorosis",
+      "district": "Dumka",
+      "block": "Shikaripara",
+      "villageOrCity": "Banjhi Hamlet & Mohulpahari Cluster",
+      "latitude": 24.2677,
+      "longitude": 87.2497,
+      "submittedBy": {
+        "id": "USR-CIT-01",
+        "name": "Rameshwar Tudu",
+        "district": "Dumka",
+        "isAnonymous": false
+      },
+      "submittedAt": "2026-09-14T17:50:59.939Z",
+      "status": "Submitted",
+      "priority": {
+        "score": 79,
+        "level": "HIGH",
+        "factors": {
+          "populationAffected": 22,
+          "healthSafetyRisk": 30,
+          "communitySupport": 8,
+          "geoSpread": 10,
+          "urgencyDuration": 9
+        },
+        "reasons": [
+          "1,240 people affected in the locality (+22 pts)",
+          "Acute immediate danger to community health, safety, or life (+30 pts)",
+          "Initial verified report from community (+8 pts)",
+          "Localized to specific village cluster or ward (+10 pts)",
+          "Persistent ongoing distress for 6+ months (+9 pts)"
+        ]
+      },
+      "aiAnalysis": {
+        "category": "Water Resources",
+        "subcategory": "Water Resources Grassroots Intervention",
+        "keywords": [
+          "water",
+          "smell",
+          "stone",
+          "slurry"
+        ],
+        "affectedDomain": "Public Health & Rural Safe Drinking Water Infrastructure",
+        "estimatedPriority": "HIGH",
+        "affectedPopulationEstimate": 1240,
+        "problemSummary": "AI-structured report: Grassroots challenge identified in Water Resources affecting an estimated 1240 citizens. Key focus areas include water, smell, stone, slurry.",
+        "confidence": 96,
+        "recommendedExpertise": [
+          "Environmental Engineering (Water Quality & Toxicology)",
+          "Civil Engineering (Rural Hydraulics & Piping)",
+          "IoT & Embedded Sensors",
+          "Biochemical Membrane Filtration"
+        ],
+        "missingInformation": []
+      },
+      "similarChallenges": [
+        {
+          "challengeId": "CH-1024",
+          "title": "Drinking water contamination affecting villages near Dumka",
+          "similarityScore": 98,
+          "distanceKm": 0,
+          "reportedByCount": 112,
+          "status": "Submitted"
+        }
+      ],
+      "communitySupport": {
+        "originalReportsCount": 1,
+        "supportersCount": 1,
+        "followersCount": 1,
+        "evidenceContributorsCount": 1,
+        "hasUserSupported": true
+      },
+      "evidence": [
+        {
+          "id": "EVD-1789408259939-0",
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=800&q=80",
+          "caption": "Citizen uploaded evidence photo",
+          "uploadedAt": "2026-09-14T17:50:59.939Z",
+          "uploadedBy": "Rameshwar Tudu"
+        }
+      ],
+      "impactQuestions": {
+        "peopleAffectedApprox": 1240,
+        "frequency": "Continuous",
+        "durationMonths": 6,
+        "immediateRisk": true,
+        "affectsPublicServices": true
+      },
+      "updatedAt": "2026-09-14T17:50:59.939Z",
+      "matchedUniversities": [
+        {
+          "universityId": "UNIV-JH-01",
+          "universityName": "Birla Institute of Technology, Mesra",
+          "district": "Ranchi",
+          "isJharkhand": true,
+          "overallMatchScore": 94,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 24,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 5,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Environmental Engineering specializing in Water Quality Sensors, Effluent Remediation",
+            "Faculty expert: Dr. Priya Sharma (Drinking Water Contamination)",
+            "Faculty expert: Dr. Sunita Kujur (Groundwater Recharge)",
+            "Accredited facilities: Water Quality & Toxicology Testing Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Priya Sharma",
+            "Dr. Sunita Kujur"
+          ],
+          "relevantLabs": [
+            "Water Quality & Toxicology Testing Lab",
+            "Advanced IoT & Embedded Systems Facility",
+            "Environmental Microbiology Lab"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-02",
+          "universityName": "Indian Institute of Technology (Indian School of Mines), Dhanbad",
+          "district": "Dhanbad",
+          "isJharkhand": true,
+          "overallMatchScore": 91,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 5,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Environmental Science & Engineering specializing in Mine Water Acid Drainage, Fly Ash Management",
+            "Faculty expert: Dr. Rajeshwar Singh (Coal Belt Groundwater Contamination)",
+            "Accredited facilities: Water & Wastewater Analytical Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Rajeshwar Singh"
+          ],
+          "relevantLabs": [
+            "Water & Wastewater Analytical Lab",
+            "Mine Safety & Environment Simulators"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-05",
+          "universityName": "Sido Kanhu Murmu University, Dumka",
+          "district": "Dumka",
+          "isJharkhand": true,
+          "overallMatchScore": 89,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 1,
+            "geographicRelevance": 4,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Botany & Environmental Studies specializing in Santhal Pargana Ecology, Medicinal Plants",
+            "Faculty expert: Dr. Shailendra Kumar Marandi (Drinking Water Fluoride Mapping in Santhal Pargana)",
+            "Accredited facilities: Santhal Pargana Regional Water Quality Monitoring Facility",
+            "Local District Proximity: Campus in Dumka (Dumka)",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Shailendra Kumar Marandi"
+          ],
+          "relevantLabs": [
+            "Santhal Pargana Regional Water Quality Monitoring Facility"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-08",
+          "universityName": "Vinoba Bhave University, Hazaribagh",
+          "district": "Hazaribagh",
+          "isJharkhand": true,
+          "overallMatchScore": 88,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 2,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Biotechnology & Environmental Science specializing in Bio-fertilizers, Heavy Metal Bioremediation",
+            "Faculty expert: Dr. Vandana Kumari (Bacterial Water Filtration)",
+            "Accredited facilities: Biotechnology & Water Microbial Analysis Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Vandana Kumari"
+          ],
+          "relevantLabs": [
+            "Biotechnology & Water Microbial Analysis Lab"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-10",
+          "universityName": "Central University of Jharkhand, Brambe",
+          "district": "Ranchi",
+          "isJharkhand": true,
+          "overallMatchScore": 88,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 2,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Water Engineering & Management specializing in Watershed Hydrology, Smart Water Meters",
+            "Faculty expert: Dr. Hemant Kumar Gupta (IoT Groundwater Level Monitoring)",
+            "Accredited facilities: Water Engineering & Hydraulics Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Hemant Kumar Gupta"
+          ],
+          "relevantLabs": [
+            "Water Engineering & Hydraulics Lab",
+            "Solar Photovoltaic Testing Station"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-09",
+          "universityName": "Kolhan University, Chaibasa",
+          "district": "West Singhbhum",
+          "isJharkhand": true,
+          "overallMatchScore": 87,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 1,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Zoology & Environmental Studies specializing in Iron Ore Basin Ecology, Bio-indicators of Water Pollution",
+            "Faculty expert: Dr. Anita Purty (River Karo Water Quality)",
+            "Accredited facilities: Aquatic Toxicology & Water Testing Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Anita Purty"
+          ],
+          "relevantLabs": [
+            "Aquatic Toxicology & Water Testing Lab"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-06",
+          "universityName": "AIIMS Deoghar",
+          "district": "Deoghar",
+          "isJharkhand": true,
+          "overallMatchScore": 82,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 5,
+            "previousProjects": 1,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Community & Family Medicine specializing in Epidemiology of Water-borne Illnesses, Rural Telemedicine",
+            "Faculty expert: Dr. Ananya Roy (Water Contamination Gastrointestinal Surveys)",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Ananya Roy"
+          ],
+          "relevantLabs": []
+        },
+        {
+          "universityId": "UNIV-JH-07",
+          "universityName": "Ranchi University, Ranchi",
+          "district": "Ranchi",
+          "isJharkhand": true,
+          "overallMatchScore": 77,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 14,
+            "researchCapability": 14,
+            "labFacilities": 10,
+            "previousProjects": 3,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Aligned department: Geology & Water Management specializing in Aquifer Mapping of Chotanagpur, Springshed Management",
+            "Accredited facilities: Hydrogeology & Geochemistry Testing Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Birendra Singh"
+          ],
+          "relevantLabs": [
+            "Hydrogeology & Geochemistry Testing Lab"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-03",
+          "universityName": "National Institute of Technology, Jamshedpur",
+          "district": "East Singhbhum",
+          "isJharkhand": true,
+          "overallMatchScore": 76,
+          "breakdown": {
+            "departmentExpertise": 14,
+            "facultyExpertise": 21,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 4,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Faculty expert: Dr. Sandeep Soren (Solar-powered Village Water Purification)",
+            "Accredited facilities: Renewable Energy Innovation Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Sandeep Soren"
+          ],
+          "relevantLabs": [
+            "Renewable Energy Innovation Lab",
+            "Water & Hydraulic Systems Testing Facility"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-04",
+          "universityName": "Birsa Agricultural University, Kanke",
+          "district": "Ranchi",
+          "isJharkhand": true,
+          "overallMatchScore": 64,
+          "breakdown": {
+            "departmentExpertise": 14,
+            "facultyExpertise": 14,
+            "researchCapability": 14,
+            "labFacilities": 10,
+            "previousProjects": 4,
+            "geographicRelevance": 2,
+            "tierPriority": 6
+          },
+          "reasons": [
+            "Accredited facilities: Soil & Water Analysis Testing Lab",
+            "Jharkhand-First Tier 1 Routing Priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Madan Mohan Prasad"
+          ],
+          "relevantLabs": [
+            "Soil & Water Analysis Testing Lab"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CH-1024",
+      "title": "Drinking water contamination affecting villages near Dumka",
+      "description": "The drinking water supplied through handpumps and the piped village reservoir in Shikaripara and adjoining hamlets has a foul metallic smell, yellowish discoloration, and chemical froth. Over 1,240 villagers are experiencing frequent gastrointestinal pain, skin rashes, and dental fluorosis. The water table has turned hazardous after unlined stone-crusher slurry washed into the local feeder stream during pre-monsoon rains.",
+      "category": "Water Resources",
+      "subcategory": "Groundwater Contamination & Fluorosis",
+      "district": "Dumka",
+      "block": "Shikaripara",
+      "villageOrCity": "Banjhi Hamlet & Mohulpahari Cluster",
+      "latitude": 24.2677,
+      "longitude": 87.2497,
+      "submittedBy": {
+        "id": "USR-CIT-01",
+        "name": "Rameshwar Tudu",
+        "district": "Dumka",
+        "isAnonymous": false
+      },
+      "submittedAt": "2026-09-10T09:30:00Z",
+      "status": "Submitted",
+      "priority": {
+        "score": 88,
+        "level": "HIGH",
+        "factors": {
+          "populationAffected": 25,
+          "healthSafetyRisk": 30,
+          "communitySupport": 18,
+          "geoSpread": 8,
+          "urgencyDuration": 7
+        },
+        "reasons": [
+          "Over 1,240 people directly affected across 4 hamlets",
+          "Acute health risk with gastrointestinal and fluorosis symptoms",
+          "87 community reports and 127 citizens supporting this issue",
+          "Problem active for over 6 months without remediation"
+        ]
+      },
+      "aiAnalysis": {
+        "category": "Water Resources",
+        "subcategory": "Groundwater Contamination & Heavy Metal Leaching",
+        "keywords": [
+          "drinking water",
+          "metallic smell",
+          "fluorosis",
+          "stone crusher slurry",
+          "handpump contamination",
+          "Dumka",
+          "Shikaripara"
+        ],
+        "affectedDomain": "Public Health & Rural Safe Drinking Water Supply",
+        "estimatedPriority": "HIGH",
+        "affectedPopulationEstimate": 1240,
+        "problemSummary": "Grassroots report of toxic runoff and mineral contamination in community handpumps and piped supply in Dumka district, causing immediate waterborne and fluorotic illnesses in over 1,200 villagers.",
+        "confidence": 94,
+        "recommendedExpertise": [
+          "Environmental Engineering (Water Quality & Toxicology)",
+          "Civil Engineering (Rural Piping & Low-Cost Filtration)",
+          "IoT Telemetry & Chemical Sensor Systems",
+          "Community Medicine (Water-borne Epidemiology)"
+        ],
+        "missingInformation": [
+          "Exact TDS and Fluoride lab test values",
+          "Chemical test of stone crusher runoff"
+        ]
+      },
+      "similarChallenges": [
+        {
+          "challengeId": "CH-1019",
+          "title": "High fluoride and iron concentrations in Masalia borewells",
+          "similarityScore": 92,
+          "distanceKm": 8.4,
+          "reportedByCount": 43,
+          "status": "Verified"
+        },
+        {
+          "challengeId": "CH-1008",
+          "title": "Stone quarry runoff washing into Mayurakshi feeder canal",
+          "similarityScore": 86,
+          "distanceKm": 12.1,
+          "reportedByCount": 29,
+          "status": "Under Review"
+        },
+        {
+          "challengeId": "CH-1012",
+          "title": "Turbid contaminated tap water during rains in Kathikund block",
+          "similarityScore": 78,
+          "distanceKm": 15.6,
+          "reportedByCount": 19,
+          "status": "Submitted"
+        }
+      ],
+      "communitySupport": {
+        "originalReportsCount": 34,
+        "supportersCount": 78,
+        "followersCount": 52,
+        "evidenceContributorsCount": 15,
+        "hasUserSupported": false,
+        "hasUserFollowed": false
+      },
+      "evidence": [
+        {
+          "id": "EVD-01",
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=800&q=80",
+          "caption": "Yellowish tinted water collected directly from Shikaripara community handpump",
+          "uploadedAt": "2026-09-10T09:32:00Z",
+          "uploadedBy": "Rameshwar Tudu"
+        },
+        {
+          "id": "EVD-02",
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1584467735815-f778f274e296?auto=format&fit=crop&w=800&q=80",
+          "caption": "Unlined slurry pool near crusher boundary leaking towards water table",
+          "uploadedAt": "2026-09-10T09:34:00Z",
+          "uploadedBy": "Gram Vikas Samiti"
+        }
+      ],
+      "impactQuestions": {
+        "peopleAffectedApprox": 1240,
+        "frequency": "Continuous",
+        "durationMonths": 6,
+        "immediateRisk": true,
+        "affectsPublicServices": true
+      },
+      "assignedDepartment": "Drinking Water & Sanitation Department (DWSD), Govt of Jharkhand",
+      "matchedUniversities": [
+        {
+          "universityId": "UNIV-JH-01",
+          "universityName": "Birla Institute of Technology, Mesra",
+          "district": "Ranchi",
+          "isJharkhand": true,
+          "overallMatchScore": 94,
+          "breakdown": {
+            "departmentExpertise": 30,
+            "facultyExpertise": 25,
+            "researchCapability": 19,
+            "labFacilities": 10,
+            "previousProjects": 5,
+            "geographicRelevance": 2,
+            "tierPriority": 3
+          },
+          "reasons": [
+            "Direct department fit: Environmental & Civil Engineering (Water Quality Specialization)",
+            "Faculty match: Dr. Priya Sharma (3 patents in community fluoride/arsenic biosorption filters)",
+            "Lab capability: Water Quality & Toxicology Testing Lab with ISO-calibrated spectrophotometers",
+            "Tier 1 Jharkhand institution priority applied (+6% state focus)"
+          ],
+          "recommendedFaculty": [
+            "Dr. Priya Sharma",
+            "Dr. Amitav Mukhopadhyay",
+            "Dr. Sunita Kujur"
+          ],
+          "relevantLabs": [
+            "Water Quality & Toxicology Testing Lab",
+            "IoT & Embedded Systems Facility"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-05",
+          "universityName": "Sido Kanhu Murmu University, Dumka",
+          "district": "Dumka",
+          "isJharkhand": true,
+          "overallMatchScore": 89,
+          "breakdown": {
+            "departmentExpertise": 24,
+            "facultyExpertise": 21,
+            "researchCapability": 16,
+            "labFacilities": 9,
+            "previousProjects": 5,
+            "geographicRelevance": 4,
+            "tierPriority": 10
+          },
+          "reasons": [
+            "Immediate local proximity: Campus located inside Dumka district (0 km travel latency)",
+            "Active regional study on Santhal Pargana groundwater fluorosis",
+            "High community trust with local tribal panchayats"
+          ],
+          "recommendedFaculty": [
+            "Dr. Shailendra Kumar Marandi"
+          ],
+          "relevantLabs": [
+            "Santhal Pargana Regional Water Quality Monitoring Facility"
+          ]
+        },
+        {
+          "universityId": "UNIV-JH-02",
+          "universityName": "Indian Institute of Technology (ISM) Dhanbad",
+          "district": "Dhanbad",
+          "isJharkhand": true,
+          "overallMatchScore": 87,
+          "breakdown": {
+            "departmentExpertise": 28,
+            "facultyExpertise": 22,
+            "researchCapability": 20,
+            "labFacilities": 10,
+            "previousProjects": 5,
+            "geographicRelevance": 1,
+            "tierPriority": 1
+          },
+          "reasons": [
+            "World-class chemical membrane separation laboratory",
+            "Extensive patent portfolio in mining slurry neutralization"
+          ],
+          "recommendedFaculty": [
+            "Dr. Rajeshwar Singh",
+            "Dr. Alok Ranjan"
+          ],
+          "relevantLabs": [
+            "Advanced Membrane Technology Facility"
+          ]
+        }
+      ],
+      "updatedAt": "2026-09-10T09:30:00Z"
+    },
+    {
+      "id": "CH-1025",
+      "title": "Post-harvest vegetable rotting due to lack of cold storage in Kanke-Ormanjhi block",
+      "description": "Over 2,200 smallholder tribal farmers producing tomatoes, green chillies, and peas in Ormanjhi are forced to distress-sell at ₹2/kg or dump hundreds of quintals because grid power outages spoil local perishable produce within 48 hours in summer.",
+      "category": "Agriculture",
+      "district": "Ranchi",
+      "block": "Ormanjhi",
+      "villageOrCity": "Chutupalu & Kuchu Cluster",
+      "latitude": 23.4841,
+      "longitude": 85.4796,
+      "submittedBy": {
+        "id": "USR-CIT-02",
+        "name": "Birsa Munda Jr.",
+        "district": "Ranchi"
+      },
+      "submittedAt": "2026-08-14T11:00:00Z",
+      "status": "Solution Development",
+      "priority": {
+        "score": 82,
+        "level": "HIGH",
+        "factors": {
+          "populationAffected": 23,
+          "healthSafetyRisk": 15,
+          "communitySupport": 22,
+          "geoSpread": 12,
+          "urgencyDuration": 10
+        },
+        "reasons": [
+          "2,200+ marginal tribal farming families affected",
+          "Heavy seasonal economic distress",
+          "140+ community supporters"
+        ]
+      },
+      "aiAnalysis": {
+        "category": "Agriculture",
+        "subcategory": "Post-Harvest Losses & Cold Chain Infrastructure",
+        "keywords": [
+          "vegetable spoilage",
+          "cold room",
+          "distress sale",
+          "tomatoes",
+          "solar refrigeration",
+          "Ormanjhi"
+        ],
+        "affectedDomain": "Agrarian Rural Economy & Food Security",
+        "estimatedPriority": "HIGH",
+        "affectedPopulationEstimate": 2200,
+        "problemSummary": "Need for decentralized, low-cost solar-powered evaporative cold rooms for tribal vegetable clusters to prevent massive post-harvest wastage.",
+        "confidence": 96,
+        "recommendedExpertise": [
+          "Agricultural Engineering (Post Harvest Cold Storage)",
+          "Solar PV Engineering",
+          "Rural Cooperative Models"
+        ]
+      },
+      "communitySupport": {
+        "originalReportsCount": 28,
+        "supportersCount": 142,
+        "followersCount": 89,
+        "evidenceContributorsCount": 18
+      },
+      "evidence": [],
+      "impactQuestions": {
+        "peopleAffectedApprox": 2200,
+        "frequency": "Seasonal",
+        "durationMonths": 12,
+        "immediateRisk": false,
+        "affectsPublicServices": false
+      },
+      "assignedUniversityId": "UNIV-JH-04",
+      "assignedUniversityName": "Birsa Agricultural University, Kanke",
+      "projectId": "PRJ-202",
+      "updatedAt": "2026-09-02T14:20:00Z"
+    },
+    {
+      "id": "CH-1026",
+      "title": "Severe coal dust inhalation and black water runoff in Jharia settlements",
+      "description": "Underground coal seam fires and open-cast coal transit cause dense PM2.5/PM10 haze and acidic runoff contaminating local Pokhari ponds used by 4,500 slum residents in Lodna and Bastacola.",
+      "category": "Mining Impact & Remediation",
+      "district": "Dhanbad",
+      "block": "Jharia",
+      "villageOrCity": "Bastacola & Lodna Colliery Slums",
+      "latitude": 23.7431,
+      "longitude": 86.4172,
+      "submittedBy": {
+        "id": "USR-CIT-03",
+        "name": "Sanjay Gorai",
+        "district": "Dhanbad"
+      },
+      "submittedAt": "2026-07-21T08:15:00Z",
+      "status": "Pilot",
+      "priority": {
+        "score": 95,
+        "level": "CRITICAL",
+        "factors": {
+          "populationAffected": 25,
+          "healthSafetyRisk": 30,
+          "communitySupport": 20,
+          "geoSpread": 10,
+          "urgencyDuration": 10
+        },
+        "reasons": [
+          "Over 4,500 people in critical danger zone",
+          "High prevalence of pneumoconiosis and asthma",
+          "Chronic environmental catastrophe"
+        ]
+      },
+      "aiAnalysis": {
+        "category": "Mining Impact & Remediation",
+        "subcategory": "Coal Seam Dust Suppression & Acid Drainage",
+        "keywords": [
+          "Jharia fire",
+          "coal dust",
+          "respiratory illness",
+          "mine water runoff",
+          "Dhanbad"
+        ],
+        "affectedDomain": "Environmental Health & Industrial Remediation",
+        "estimatedPriority": "CRITICAL",
+        "affectedPopulationEstimate": 4500,
+        "problemSummary": "Urgent need for automated dust suppression fogging canons and biochar filtration buffers for runoff into community reservoirs.",
+        "confidence": 97,
+        "recommendedExpertise": [
+          "Mining Environmental Engineering",
+          "Aerosol Dynamics",
+          "Biochar Adsorption"
+        ]
+      },
+      "communitySupport": {
+        "originalReportsCount": 55,
+        "supportersCount": 230,
+        "followersCount": 160,
+        "evidenceContributorsCount": 32
+      },
+      "evidence": [],
+      "impactQuestions": {
+        "peopleAffectedApprox": 4500,
+        "frequency": "Continuous",
+        "durationMonths": 36,
+        "immediateRisk": true,
+        "affectsPublicServices": true
+      },
+      "assignedUniversityId": "UNIV-JH-02",
+      "assignedUniversityName": "Indian Institute of Technology (ISM) Dhanbad",
+      "projectId": "PRJ-203",
+      "updatedAt": "2026-09-08T10:00:00Z"
+    },
+    {
+      "id": "CH-1027",
+      "title": "Washed-out culvert isolating 6 tribal hamlets during monsoon in Latehar",
+      "description": "The mud-and-log culvert over Sukri river washed away in heavy rain, cutting off 1,800 villagers in Manika block from the nearest primary health sub-center and high school for 4 months every year.",
+      "category": "Infrastructure & Connectivity",
+      "district": "Latehar",
+      "block": "Manika",
+      "villageOrCity": "Kechki & Matlong Border",
+      "latitude": 23.8421,
+      "longitude": 84.3821,
+      "submittedBy": {
+        "id": "USR-CIT-04",
+        "name": "Sunita Baitha",
+        "district": "Latehar"
+      },
+      "submittedAt": "2026-08-01T15:20:00Z",
+      "status": "Solution Development",
+      "priority": {
+        "score": 84,
+        "level": "HIGH",
+        "factors": {
+          "populationAffected": 20,
+          "healthSafetyRisk": 25,
+          "communitySupport": 19,
+          "geoSpread": 10,
+          "urgencyDuration": 10
+        },
+        "reasons": [
+          "Complete physical isolation for pregnant women and schoolchildren",
+          "1,800 people cut off",
+          "School dropout spike"
+        ]
+      },
+      "aiAnalysis": {
+        "category": "Infrastructure & Connectivity",
+        "subcategory": "Modular Fast-assembly Rural Bridges",
+        "keywords": [
+          "culvert collapsed",
+          "river crossing",
+          "Manika",
+          "pregnant women emergency",
+          "Latehar"
+        ],
+        "affectedDomain": "Emergency Access & Rural Infrastructure",
+        "estimatedPriority": "HIGH",
+        "affectedPopulationEstimate": 1800,
+        "problemSummary": "Design and construction of low-cost, prefabricated composite pedestrian-and-two-wheeler suspension bridge that withstands flash floods.",
+        "confidence": 93,
+        "recommendedExpertise": [
+          "Structural Engineering",
+          "Composite Materials",
+          "Geotechnical Soil Anchoring"
+        ]
+      },
+      "communitySupport": {
+        "originalReportsCount": 22,
+        "supportersCount": 110,
+        "followersCount": 75,
+        "evidenceContributorsCount": 14
+      },
+      "evidence": [],
+      "impactQuestions": {
+        "peopleAffectedApprox": 1800,
+        "frequency": "Seasonal",
+        "durationMonths": 5,
+        "immediateRisk": true,
+        "affectsPublicServices": true
+      },
+      "assignedUniversityId": "UNIV-JH-03",
+      "assignedUniversityName": "National Institute of Technology, Jamshedpur",
+      "projectId": "PRJ-204",
+      "updatedAt": "2026-09-04T12:00:00Z"
+    },
+    {
+      "id": "CH-1028",
+      "title": "High maternal anemia and delay in emergency diagnostics in Santhal Pargana",
+      "description": "ASHA workers across 18 remote sub-centers in Godda and Deoghar struggle with non-functional hemoglobinometers and zero rapid blood centrifuge tools, causing late detection of high-risk obstetric emergencies.",
+      "category": "Healthcare",
+      "district": "Deoghar",
+      "block": "Sarwan",
+      "villageOrCity": "Bhurkunda & Chanddih",
+      "latitude": 24.3912,
+      "longitude": 86.8123,
+      "submittedBy": {
+        "id": "USR-CIT-05",
+        "name": "Malti Murmu (ASHA Facilitator)",
+        "district": "Deoghar"
+      },
+      "submittedAt": "2026-07-10T10:00:00Z",
+      "status": "Implemented",
+      "priority": {
+        "score": 89,
+        "level": "HIGH",
+        "factors": {
+          "populationAffected": 24,
+          "healthSafetyRisk": 30,
+          "communitySupport": 18,
+          "geoSpread": 9,
+          "urgencyDuration": 8
+        },
+        "reasons": [
+          "Direct danger to pregnant mothers and infants",
+          "Affects over 3,000 women yearly",
+          "High infant mortality risk"
+        ]
+      },
+      "aiAnalysis": {
+        "category": "Healthcare",
+        "subcategory": "Point-of-Care Maternal Diagnostics & Telemedicine",
+        "keywords": [
+          "maternal anemia",
+          "ASHA worker diagnostic kit",
+          "hemoglobin strip",
+          "Deoghar"
+        ],
+        "affectedDomain": "Public Health & Reproductive Child Health",
+        "estimatedPriority": "HIGH",
+        "affectedPopulationEstimate": 3200,
+        "problemSummary": "Deployment of ruggedized, non-invasive digital hemoglobin scanners connected via bluetooth to ASHA mobile tablets for instant specialist triage.",
+        "confidence": 95,
+        "recommendedExpertise": [
+          "Biomedical Engineering",
+          "Public Health Epidemiology",
+          "Mobile Telehealth Systems"
+        ]
+      },
+      "communitySupport": {
+        "originalReportsCount": 40,
+        "supportersCount": 185,
+        "followersCount": 130,
+        "evidenceContributorsCount": 25
+      },
+      "evidence": [],
+      "impactQuestions": {
+        "peopleAffectedApprox": 3200,
+        "frequency": "Continuous",
+        "durationMonths": 18,
+        "immediateRisk": true,
+        "affectsPublicServices": true
+      },
+      "assignedUniversityId": "UNIV-JH-06",
+      "assignedUniversityName": "AIIMS Deoghar",
+      "projectId": "PRJ-205",
+      "updatedAt": "2026-09-01T16:00:00Z"
+    },
+    {
+      "id": "CH-1029",
+      "title": "Lack of value-addition and lac processing tools for Khunti tribal collectors",
+      "description": "Tribal families in Khunti harvest raw sticklac from Ber and Kusum trees but sell it at rock-bottom prices (₹180/kg) to middlemen due to the lack of small-scale deseeders and washing machines that can upgrade it to button lac (worth ₹750/kg).",
+      "category": "Rural Livelihoods",
+      "district": "Khunti",
+      "block": "Torpa",
+      "villageOrCity": "Dorma & Rania Belt",
+      "latitude": 22.9512,
+      "longitude": 85.1245,
+      "submittedBy": {
+        "id": "USR-CIT-06",
+        "name": "Mangra Munda",
+        "district": "Khunti"
+      },
+      "submittedAt": "2026-06-18T14:00:00Z",
+      "status": "Impact Measured",
+      "priority": {
+        "score": 79,
+        "level": "MEDIUM",
+        "factors": {
+          "populationAffected": 21,
+          "healthSafetyRisk": 10,
+          "communitySupport": 22,
+          "geoSpread": 14,
+          "urgencyDuration": 12
+        },
+        "reasons": [
+          "Over 1,600 tribal families dependent on lac forestry",
+          "Opportunity to triple household income",
+          "Sustainable minor forest produce"
+        ]
+      },
+      "aiAnalysis": {
+        "category": "Rural Livelihoods",
+        "subcategory": "Forest Produce Mechanization & Tribal Value Chains",
+        "keywords": [
+          "lac farming",
+          "sticklac processing",
+          "Khunti",
+          "tribal women SHG",
+          "value addition"
+        ],
+        "affectedDomain": "Minor Forest Produce & Tribal Livelihoods",
+        "estimatedPriority": "MEDIUM",
+        "affectedPopulationEstimate": 1600,
+        "problemSummary": "Development of women-friendly solar motorized lac scraping and filtration mini-mills for tribal Self Help Groups.",
+        "confidence": 94,
+        "recommendedExpertise": [
+          "Mechanical Engineering (Agro-machinery)",
+          "Tribal Enterprise Development",
+          "Solar Motors"
+        ]
+      },
+      "communitySupport": {
+        "originalReportsCount": 35,
+        "supportersCount": 160,
+        "followersCount": 95,
+        "evidenceContributorsCount": 20
+      },
+      "evidence": [],
+      "impactQuestions": {
+        "peopleAffectedApprox": 1600,
+        "frequency": "Seasonal",
+        "durationMonths": 24,
+        "immediateRisk": false,
+        "affectsPublicServices": false
+      },
+      "assignedUniversityId": "UNIV-JH-04",
+      "assignedUniversityName": "Birsa Agricultural University, Kanke",
+      "projectId": "PRJ-206",
+      "updatedAt": "2026-09-12T11:00:00Z"
+    },
+    {
+      "id": "CH-1030",
+      "title": "Severe fluoride poisoning crippling joints in Garhwa and Palamu villages",
+      "description": "Groundwater from over 60 handpumps in Daltonganj and Ranka blocks contains fluoride levels exceeding 4.8 mg/L (WHO limit: 1.5 mg/L), causing severe skeletal fluorosis, bent limbs, and tooth decay in 3,800 residents.",
+      "category": "Water Resources",
+      "district": "Garhwa",
+      "block": "Ranka",
+      "villageOrCity": "Pipra & Bishunpur",
+      "latitude": 24.0812,
+      "longitude": 83.9124,
+      "submittedBy": {
+        "id": "USR-CIT-07",
+        "name": "Kameshwar Yadav",
+        "district": "Garhwa"
+      },
+      "submittedAt": "2026-08-20T09:00:00Z",
+      "status": "Verified",
+      "priority": {
+        "score": 91,
+        "level": "CRITICAL",
+        "factors": {
+          "populationAffected": 24,
+          "healthSafetyRisk": 30,
+          "communitySupport": 19,
+          "geoSpread": 10,
+          "urgencyDuration": 8
+        },
+        "reasons": [
+          "Permanent skeletal fluorosis crippling young children",
+          "3,800+ people drinking toxic water",
+          "Lack of alternative pipeline"
+        ]
+      },
+      "aiAnalysis": {
+        "category": "Water Resources",
+        "subcategory": "Fluoride Remediation & Activated Alumina/Bio-filters",
+        "keywords": [
+          "skeletal fluorosis",
+          "fluoride in borewell",
+          "crippled legs",
+          "Garhwa",
+          "Palamu"
+        ],
+        "affectedDomain": "Public Health & Safe Water",
+        "estimatedPriority": "CRITICAL",
+        "affectedPopulationEstimate": 3800,
+        "problemSummary": "Installation of community-scale activated alumina/moringa biochar defluoridation units on deep tube wells.",
+        "confidence": 96,
+        "recommendedExpertise": [
+          "Chemical Engineering",
+          "Environmental Toxicology",
+          "Community Water Infrastructure"
+        ]
+      },
+      "communitySupport": {
+        "originalReportsCount": 42,
+        "supportersCount": 198,
+        "followersCount": 112,
+        "evidenceContributorsCount": 22
+      },
+      "evidence": [],
+      "impactQuestions": {
+        "peopleAffectedApprox": 3800,
+        "frequency": "Continuous",
+        "durationMonths": 48,
+        "immediateRisk": true,
+        "affectsPublicServices": true
+      },
+      "updatedAt": "2026-09-14T17:51:25.049Z",
+      "assignedDepartment": "Drinking Water & Sanitation Department (DWSD), Govt of Jharkhand"
+    },
+    {
+      "id": "CH-1031",
+      "title": "Erratic power cuts shutting down rural oxygen concentrators in Gumla",
+      "description": "Community health centres in Chainpur and Raidih face 14-hour blackouts, putting critical asthma and tuberculosis patients at extreme risk due to lack of battery-backed emergency solar switchovers.",
+      "category": "Energy",
+      "district": "Gumla",
+      "block": "Chainpur",
+      "villageOrCity": "Chainpur CHC & Kurdeg",
+      "latitude": 23.1245,
+      "longitude": 84.2412,
+      "submittedBy": {
+        "id": "USR-CIT-08",
+        "name": "Dr. Lucas Tirkey",
+        "district": "Gumla"
+      },
+      "submittedAt": "2026-08-28T14:10:00Z",
+      "status": "Verified",
+      "priority": {
+        "score": 87,
+        "level": "HIGH",
+        "factors": {
+          "populationAffected": 18,
+          "healthSafetyRisk": 30,
+          "communitySupport": 20,
+          "geoSpread": 10,
+          "urgencyDuration": 9
+        },
+        "reasons": [
+          "Direct life-safety hazard for respiratory patients",
+          "Health centre operations halted",
+          "Frequent grid collapse"
+        ]
+      },
+      "aiAnalysis": {
+        "category": "Energy",
+        "subcategory": "Solar Hybrid Healthcare Backup Microgrids",
+        "keywords": [
+          "oxygen concentrator",
+          "CHC hospital blackout",
+          "solar inverter backup",
+          "Gumla"
+        ],
+        "affectedDomain": "Rural Healthcare Infrastructure",
+        "estimatedPriority": "HIGH",
+        "affectedPopulationEstimate": 1400,
+        "problemSummary": "Design of automated intelligent solar-lithium hybrid power cabinets dedicated to primary health centre ICU and baby warmers.",
+        "confidence": 95,
+        "recommendedExpertise": [
+          "Electrical Engineering",
+          "Power Electronics",
+          "Renewable Energy Storage"
+        ]
+      },
+      "communitySupport": {
+        "originalReportsCount": 18,
+        "supportersCount": 94,
+        "followersCount": 65,
+        "evidenceContributorsCount": 10
+      },
+      "evidence": [],
+      "impactQuestions": {
+        "peopleAffectedApprox": 1400,
+        "frequency": "Daily",
+        "durationMonths": 14,
+        "immediateRisk": true,
+        "affectsPublicServices": true
+      },
+      "assignedDepartment": "Jharkhand Renewable Energy Development Agency (JREDA)",
+      "updatedAt": "2026-09-05T12:00:00Z"
+    }
+  ],
+  "universities": [
+    {
+      "id": "UNIV-JH-01",
+      "name": "Birla Institute of Technology, Mesra",
+      "shortName": "BIT Mesra",
+      "district": "Ranchi",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "type": "Deemed",
+      "departments": [
+        {
+          "name": "Environmental Engineering",
+          "hodName": "Dr. R. K. Dey",
+          "facultyCount": 14,
+          "specializations": [
+            "Water Quality Sensors",
+            "Effluent Remediation",
+            "GIS Hydrology"
+          ]
+        },
+        {
+          "name": "Computer Science & Engineering",
+          "hodName": "Dr. G. Sahoo",
+          "facultyCount": 28,
+          "specializations": [
+            "IoT Architectures",
+            "Edge Computing",
+            "AI Analytics"
+          ]
+        },
+        {
+          "name": "Civil Engineering",
+          "hodName": "Dr. A. K. Sinha",
+          "facultyCount": 18,
+          "specializations": [
+            "Rural Water Networks",
+            "Low Cost Filtration",
+            "Hydraulics"
+          ]
+        },
+        {
+          "name": "Electronics & Communication",
+          "hodName": "Dr. S. K. Ghorai",
+          "facultyCount": 22,
+          "specializations": [
+            "Telemetry",
+            "Low Power Sensor Networks",
+            "Microcontrollers"
+          ]
+        }
+      ],
+      "faculty": [
+        {
+          "id": "FAC-01",
+          "name": "Dr. Priya Sharma",
+          "department": "Environmental Engineering",
+          "designation": "Professor & Head",
+          "email": "priya.sharma@bitmesra.ac.in",
+          "specializations": [
+            "Drinking Water Contamination",
+            "Heavy Metal Biosorption",
+            "Community Water Filtration"
+          ],
+          "patentsCount": 3,
+          "completedProjectsCount": 12
+        },
+        {
+          "id": "FAC-02",
+          "name": "Dr. Amitav Mukhopadhyay",
+          "department": "Computer Science & Engineering",
+          "designation": "Associate Professor",
+          "email": "amukhopadhyay@bitmesra.ac.in",
+          "specializations": [
+            "IoT Sensor Grids",
+            "Edge AI",
+            "Low-power LoRaWAN"
+          ],
+          "patentsCount": 2,
+          "completedProjectsCount": 8
+        },
+        {
+          "id": "FAC-03",
+          "name": "Dr. Sunita Kujur",
+          "department": "Civil Engineering",
+          "designation": "Assistant Professor",
+          "email": "skujur@bitmesra.ac.in",
+          "specializations": [
+            "Groundwater Recharge",
+            "Rural Piping",
+            "Rainwater Harvesting"
+          ],
+          "patentsCount": 1,
+          "completedProjectsCount": 5
+        }
+      ],
+      "labs": [
+        "Water Quality & Toxicology Testing Lab",
+        "Advanced IoT & Embedded Systems Facility",
+        "Remote Sensing & GIS Research Center",
+        "Environmental Microbiology Lab"
+      ],
+      "incubationCenter": "BIT Mesra Center for Innovation, Incubation & Entrepreneurship (CIIE)",
+      "researchFocus": [
+        "IoT Rural Water Security",
+        "Air Quality Monitoring",
+        "Smart Solar Microgrids",
+        "Biomass Valorization"
+      ],
+      "activeProjectsCount": 9,
+      "completedProjectsCount": 42,
+      "rating": 4.8
+    },
+    {
+      "id": "UNIV-JH-02",
+      "name": "Indian Institute of Technology (Indian School of Mines), Dhanbad",
+      "shortName": "IIT (ISM) Dhanbad",
+      "district": "Dhanbad",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "type": "Institute of National Importance",
+      "departments": [
+        {
+          "name": "Environmental Science & Engineering",
+          "hodName": "Dr. V. M. S. R. Murthy",
+          "facultyCount": 20,
+          "specializations": [
+            "Mine Water Acid Drainage",
+            "Fly Ash Management",
+            "Industrial Effluents"
+          ]
+        },
+        {
+          "name": "Mining Engineering",
+          "hodName": "Dr. D. C. Panigrahi",
+          "facultyCount": 24,
+          "specializations": [
+            "Mine Subsidence",
+            "Community Resettlement",
+            "Eco-restoration"
+          ]
+        },
+        {
+          "name": "Chemical Engineering",
+          "hodName": "Dr. I. M. Mishra",
+          "facultyCount": 16,
+          "specializations": [
+            "Membrane Separation",
+            "Arsenic & Fluoride Removal",
+            "Biofuels"
+          ]
+        }
+      ],
+      "faculty": [
+        {
+          "id": "FAC-04",
+          "name": "Dr. Rajeshwar Singh",
+          "department": "Environmental Science & Engineering",
+          "designation": "Professor",
+          "email": "rsingh@iitism.ac.in",
+          "specializations": [
+            "Coal Belt Groundwater Contamination",
+            "Acid Mine Drainage Neutralization"
+          ],
+          "patentsCount": 5,
+          "completedProjectsCount": 18
+        },
+        {
+          "id": "FAC-05",
+          "name": "Dr. Alok Ranjan",
+          "department": "Chemical Engineering",
+          "designation": "Associate Professor",
+          "email": "aranjan@iitism.ac.in",
+          "specializations": [
+            "Ceramic Membrane Filtration",
+            "Low-cost Fluoride Scrubbers"
+          ],
+          "patentsCount": 2,
+          "completedProjectsCount": 9
+        }
+      ],
+      "labs": [
+        "Water & Wastewater Analytical Lab",
+        "Mine Safety & Environment Simulators",
+        "Advanced Membrane Technology Facility"
+      ],
+      "incubationCenter": "IIT (ISM) TexMin Incubation Hub",
+      "researchFocus": [
+        "Mining Environmental Impact",
+        "Groundwater Remediation",
+        "Geo-spatial Hazard Mapping"
+      ],
+      "activeProjectsCount": 11,
+      "completedProjectsCount": 55,
+      "rating": 4.9
+    },
+    {
+      "id": "UNIV-JH-03",
+      "name": "National Institute of Technology, Jamshedpur",
+      "shortName": "NIT Jamshedpur",
+      "district": "East Singhbhum",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "type": "Institute of National Importance",
+      "departments": [
+        {
+          "name": "Civil & Environmental Engineering",
+          "hodName": "Dr. R. R. Suman",
+          "facultyCount": 18,
+          "specializations": [
+            "Solid Waste Processing",
+            "River Basin Hydrology",
+            "Piped Drinking Schemes"
+          ]
+        },
+        {
+          "name": "Mechanical Engineering",
+          "hodName": "Dr. M. K. Paswan",
+          "facultyCount": 22,
+          "specializations": [
+            "Appropriate Rural Technology",
+            "Solar Thermal Pumps",
+            "Low-cost Machinery"
+          ]
+        },
+        {
+          "name": "Electrical Engineering",
+          "hodName": "Dr. N. K. Sharma",
+          "facultyCount": 20,
+          "specializations": [
+            "Decentralized Microgrids",
+            "Smart Grid Monitoring",
+            "Battery Energy Systems"
+          ]
+        }
+      ],
+      "faculty": [
+        {
+          "id": "FAC-06",
+          "name": "Dr. Sandeep Soren",
+          "department": "Mechanical Engineering",
+          "designation": "Professor",
+          "email": "ssoren@nitjsr.ac.in",
+          "specializations": [
+            "Solar-powered Village Water Purification",
+            "Farm Machinery for Hilly Terrain"
+          ],
+          "patentsCount": 4,
+          "completedProjectsCount": 14
+        }
+      ],
+      "labs": [
+        "Renewable Energy Innovation Lab",
+        "Water & Hydraulic Systems Testing Facility",
+        "Automotive & Robotics Lab"
+      ],
+      "incubationCenter": "NIT Jamshedpur Start-Up Cell",
+      "researchFocus": [
+        "Clean Energy for Rural Jharkhand",
+        "Low-cost Water Disinfection",
+        "Subarnarekha River Basin Ecology"
+      ],
+      "activeProjectsCount": 8,
+      "completedProjectsCount": 38,
+      "rating": 4.7
+    },
+    {
+      "id": "UNIV-JH-04",
+      "name": "Birsa Agricultural University, Kanke",
+      "shortName": "BAU Kanke",
+      "district": "Ranchi",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "type": "State University",
+      "departments": [
+        {
+          "name": "Soil Science & Agricultural Chemistry",
+          "hodName": "Dr. D. K. Shahi",
+          "facultyCount": 16,
+          "specializations": [
+            "Soil Health Cards",
+            "Acidic Soil Amendments",
+            "Organic Biofertilizers"
+          ]
+        },
+        {
+          "name": "Agricultural Engineering",
+          "hodName": "Dr. R. B. Sharma",
+          "facultyCount": 14,
+          "specializations": [
+            "Micro-irrigation",
+            "Solar Cold Stores",
+            "Post-harvest Processing"
+          ]
+        },
+        {
+          "name": "Horticulture & Agroforestry",
+          "hodName": "Dr. K. K. Prasad",
+          "facultyCount": 12,
+          "specializations": [
+            "Minor Forest Produce",
+            "Lac & Honey Farming",
+            "Drought-tolerant Crops"
+          ]
+        }
+      ],
+      "faculty": [
+        {
+          "id": "FAC-07",
+          "name": "Dr. Madan Mohan Prasad",
+          "department": "Agricultural Engineering",
+          "designation": "Head & Principal Scientist",
+          "email": "mmprasad@baujharkhand.org",
+          "specializations": [
+            "Solar Powered Cold Rooms for Tribal Farmers",
+            "Drip Irrigation Automation"
+          ],
+          "patentsCount": 2,
+          "completedProjectsCount": 16
+        }
+      ],
+      "labs": [
+        "Soil & Water Analysis Testing Lab",
+        "Biocontrol & Biofertilizer Facility",
+        "Post-Harvest Agro Processing Plant"
+      ],
+      "incubationCenter": "BAU Agri-Business Incubation Centre (R-ABI)",
+      "researchFocus": [
+        "Dryland Rainfed Agriculture",
+        "Tribal Farmer Income Augmentation",
+        "Soil Acid Remediation"
+      ],
+      "activeProjectsCount": 6,
+      "completedProjectsCount": 32,
+      "rating": 4.6
+    },
+    {
+      "id": "UNIV-JH-05",
+      "name": "Sido Kanhu Murmu University, Dumka",
+      "shortName": "SKMU Dumka",
+      "district": "Dumka",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "type": "State University",
+      "departments": [
+        {
+          "name": "Botany & Environmental Studies",
+          "hodName": "Dr. S. C. Hansda",
+          "facultyCount": 10,
+          "specializations": [
+            "Santhal Pargana Ecology",
+            "Medicinal Plants",
+            "Groundwater Arsenic/Fluoride Studies"
+          ]
+        },
+        {
+          "name": "Chemistry",
+          "hodName": "Dr. B. K. Soren",
+          "facultyCount": 8,
+          "specializations": [
+            "Water Testing",
+            "Phytoremediation",
+            "Natural Coagulants"
+          ]
+        }
+      ],
+      "faculty": [
+        {
+          "id": "FAC-08",
+          "name": "Dr. Shailendra Kumar Marandi",
+          "department": "Chemistry",
+          "designation": "Associate Professor",
+          "email": "skmarandi@skmu.ac.in",
+          "specializations": [
+            "Drinking Water Fluoride Mapping in Santhal Pargana",
+            "Moringa Seed Coagulation Filters"
+          ],
+          "patentsCount": 1,
+          "completedProjectsCount": 7
+        }
+      ],
+      "labs": [
+        "Santhal Pargana Regional Water Quality Monitoring Facility",
+        "Plant Herbarium & Phytochemistry Lab"
+      ],
+      "incubationCenter": "SKMU Rural Innovation Cell",
+      "researchFocus": [
+        "Tribal Community Health & Safe Drinking Water",
+        "Forest Resource Conservation"
+      ],
+      "activeProjectsCount": 4,
+      "completedProjectsCount": 15,
+      "rating": 4.3
+    },
+    {
+      "id": "UNIV-JH-06",
+      "name": "AIIMS Deoghar",
+      "shortName": "AIIMS Deoghar",
+      "district": "Deoghar",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "type": "Institute of National Importance",
+      "departments": [
+        {
+          "name": "Community & Family Medicine",
+          "hodName": "Dr. Santosh Kumar",
+          "facultyCount": 12,
+          "specializations": [
+            "Epidemiology of Water-borne Illnesses",
+            "Rural Telemedicine",
+            "Fluorosis Diagnostics"
+          ]
+        }
+      ],
+      "faculty": [
+        {
+          "id": "FAC-09",
+          "name": "Dr. Ananya Roy",
+          "department": "Community & Family Medicine",
+          "designation": "Additional Professor",
+          "email": "ananya.roy@aiimsdeoghar.edu.in",
+          "specializations": [
+            "Water Contamination Gastrointestinal Surveys",
+            "Mobile Rural Health Clinics"
+          ],
+          "patentsCount": 1,
+          "completedProjectsCount": 9
+        }
+      ],
+      "labs": [
+        "Microbiology & Pathogen Detection Lab",
+        "Public Health Epidemiological Field Station"
+      ],
+      "incubationCenter": "AIIMS Deoghar MedTech Incubator",
+      "researchFocus": [
+        "Endemic Waterborne Diseases in Santhal Pargana",
+        "Nutritional Interventions"
+      ],
+      "activeProjectsCount": 5,
+      "completedProjectsCount": 14,
+      "rating": 4.8
+    },
+    {
+      "id": "UNIV-JH-07",
+      "name": "Ranchi University, Ranchi",
+      "shortName": "Ranchi University",
+      "district": "Ranchi",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "type": "State University",
+      "departments": [
+        {
+          "name": "Geology & Water Management",
+          "hodName": "Dr. U. C. Singh",
+          "facultyCount": 11,
+          "specializations": [
+            "Aquifer Mapping of Chotanagpur",
+            "Springshed Management",
+            "Hydrogeology"
+          ]
+        },
+        {
+          "name": "Sociology & Rural Development",
+          "hodName": "Dr. M. L. Oraon",
+          "facultyCount": 9,
+          "specializations": [
+            "Participatory Rural Appraisal",
+            "Tribal Community Engagement"
+          ]
+        }
+      ],
+      "faculty": [
+        {
+          "id": "FAC-10",
+          "name": "Dr. Birendra Singh",
+          "department": "Geology",
+          "designation": "Professor",
+          "email": "bsingh@ranchiuniversity.ac.in",
+          "specializations": [
+            "Hard Rock Aquifer Hydrochemistry",
+            "Spring Revival in Pat Region"
+          ],
+          "patentsCount": 1,
+          "completedProjectsCount": 11
+        }
+      ],
+      "labs": [
+        "Hydrogeology & Geochemistry Testing Lab",
+        "GIS Mapping Studio"
+      ],
+      "incubationCenter": "RU Center for Entrepreneurship & Skill",
+      "researchFocus": [
+        "Chotanagpur Hydro-geology",
+        "Tribal Livelihood Systems"
+      ],
+      "activeProjectsCount": 4,
+      "completedProjectsCount": 26,
+      "rating": 4.4
+    },
+    {
+      "id": "UNIV-JH-08",
+      "name": "Vinoba Bhave University, Hazaribagh",
+      "shortName": "VBU Hazaribagh",
+      "district": "Hazaribagh",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "type": "State University",
+      "departments": [
+        {
+          "name": "Biotechnology & Environmental Science",
+          "hodName": "Dr. M. K. Sinha",
+          "facultyCount": 10,
+          "specializations": [
+            "Bio-fertilizers",
+            "Heavy Metal Bioremediation",
+            "Water Pathogen Analysis"
+          ]
+        }
+      ],
+      "faculty": [
+        {
+          "id": "FAC-11",
+          "name": "Dr. Vandana Kumari",
+          "department": "Biotechnology",
+          "designation": "Associate Professor",
+          "email": "vkumari@vbu.ac.in",
+          "specializations": [
+            "Bacterial Water Filtration",
+            "Microbial Biosensors"
+          ],
+          "patentsCount": 1,
+          "completedProjectsCount": 8
+        }
+      ],
+      "labs": [
+        "Biotechnology & Water Microbial Analysis Lab"
+      ],
+      "incubationCenter": "VBU Incubation & Innovation Cell",
+      "researchFocus": [
+        "Microbial Water Safety",
+        "Agri-Biotech for North Chotanagpur"
+      ],
+      "activeProjectsCount": 3,
+      "completedProjectsCount": 19,
+      "rating": 4.3
+    },
+    {
+      "id": "UNIV-JH-09",
+      "name": "Kolhan University, Chaibasa",
+      "shortName": "Kolhan University",
+      "district": "West Singhbhum",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "type": "State University",
+      "departments": [
+        {
+          "name": "Zoology & Environmental Studies",
+          "hodName": "Dr. P. K. Murmu",
+          "facultyCount": 8,
+          "specializations": [
+            "Iron Ore Basin Ecology",
+            "Bio-indicators of Water Pollution"
+          ]
+        }
+      ],
+      "faculty": [
+        {
+          "id": "FAC-12",
+          "name": "Dr. Anita Purty",
+          "department": "Zoology",
+          "designation": "Assistant Professor",
+          "email": "apurty@kolhanuniversity.ac.in",
+          "specializations": [
+            "River Karo Water Quality",
+            "Impact of Heavy Metals on Tribal Health"
+          ],
+          "patentsCount": 0,
+          "completedProjectsCount": 5
+        }
+      ],
+      "labs": [
+        "Aquatic Toxicology & Water Testing Lab"
+      ],
+      "incubationCenter": "Kolhan Tribal Innovation Hub",
+      "researchFocus": [
+        "West Singhbhum Iron Ore Belt Water Studies"
+      ],
+      "activeProjectsCount": 2,
+      "completedProjectsCount": 12,
+      "rating": 4.2
+    },
+    {
+      "id": "UNIV-JH-10",
+      "name": "Central University of Jharkhand, Brambe",
+      "shortName": "CUJ Brambe",
+      "district": "Ranchi",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "type": "Central University",
+      "departments": [
+        {
+          "name": "Water Engineering & Management",
+          "hodName": "Dr. Manoj Kumar",
+          "facultyCount": 12,
+          "specializations": [
+            "Watershed Hydrology",
+            "Smart Water Meters",
+            "Subsurface Dams"
+          ]
+        },
+        {
+          "name": "Energy Engineering",
+          "hodName": "Dr. S. K. Samdarshi",
+          "facultyCount": 14,
+          "specializations": [
+            "Solar PV Water Pumping",
+            "Biomass Gasification",
+            "Energy Storage"
+          ]
+        }
+      ],
+      "faculty": [
+        {
+          "id": "FAC-13",
+          "name": "Dr. Hemant Kumar Gupta",
+          "department": "Water Engineering & Management",
+          "designation": "Associate Professor",
+          "email": "hk.gupta@cuj.ac.in",
+          "specializations": [
+            "IoT Groundwater Level Monitoring",
+            "Rural Decentralized Filtration Units"
+          ],
+          "patentsCount": 2,
+          "completedProjectsCount": 10
+        }
+      ],
+      "labs": [
+        "Water Engineering & Hydraulics Lab",
+        "Solar Photovoltaic Testing Station"
+      ],
+      "incubationCenter": "CUJ Innovation & Incubation Council",
+      "researchFocus": [
+        "Sustainable Water Infrastructure",
+        "Clean Energy Transitions in Tribal Belts"
+      ],
+      "activeProjectsCount": 5,
+      "completedProjectsCount": 21,
+      "rating": 4.6
+    }
+  ],
+  "startups": [
+    {
+      "id": "STP-01",
+      "name": "JalRakshak IoT Technologies Pvt Ltd",
+      "district": "Ranchi",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "sector": "CleanTech / Water Security",
+      "expertise": [
+        "IoT Water Quality Sensors",
+        "Telemetry & GSM Modems",
+        "Solar Powered Water Purifiers",
+        "Real-time Contamination Alarms"
+      ],
+      "availableOfferings": [
+        "Prototype Development",
+        "Testing & Certification",
+        "Pilot Deployment",
+        "Funding"
+      ],
+      "teamSize": 18,
+      "fundingStage": "Seed",
+      "website": "https://jalrakshak.example.in",
+      "activeCollaborationsCount": 4,
+      "description": "Jharkhand-based startup developing ruggedized, solar-backed IoT probes for village water tanks, measuring TDS, turbidity, pH, and bacterial indicators with instant SMS alerts to Panchayats."
+    },
+    {
+      "id": "STP-02",
+      "name": "Chotanagpur Agro Innovations",
+      "district": "Hazaribagh",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "sector": "AgriTech & Cold Chain",
+      "expertise": [
+        "Micro Solar Cold Storage",
+        "Porous Ceramic Evaporative Coolers",
+        "Farm-to-Market Mobile Platform"
+      ],
+      "availableOfferings": [
+        "Prototype Development",
+        "Mentorship",
+        "Pilot Deployment"
+      ],
+      "teamSize": 12,
+      "fundingStage": "Govt Supported MSME",
+      "website": "https://chotanagpuragro.example.in",
+      "activeCollaborationsCount": 3,
+      "description": "Empowers tribal vegetable farmers with zero-electricity evaporative cooling rooms and low-cost solar cold rooms, reducing post-harvest tomato and pea spoilage by 65%."
+    },
+    {
+      "id": "STP-03",
+      "name": "Tata Steel CSR Foundation Innovation Lab",
+      "district": "East Singhbhum",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "sector": "CSR & Industrial Tech",
+      "expertise": [
+        "Slag-based Water Filters",
+        "Rural Infrastructure Engineering",
+        "Community Health Logistics",
+        "Scale Grants"
+      ],
+      "availableOfferings": [
+        "Funding",
+        "Mentorship",
+        "Manufacturing",
+        "Distribution & Scale"
+      ],
+      "teamSize": 45,
+      "fundingStage": "CSR Partner",
+      "website": "https://tatasteelcsr.example.in",
+      "activeCollaborationsCount": 8,
+      "description": "Corporate innovation wing sponsoring scalable engineering solutions for drinking water, rural bridges, and mobile healthcare vans across East & West Singhbhum districts."
+    },
+    {
+      "id": "STP-04",
+      "name": "UrjaSangam Renewables MSME",
+      "district": "Bokaro",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "sector": "Clean Energy",
+      "expertise": [
+        "Decentralized DC Microgrids",
+        "Solar Water Pump Automation",
+        "Lithium Battery Repurposing"
+      ],
+      "availableOfferings": [
+        "Technology",
+        "Prototype Development",
+        "Pilot Deployment"
+      ],
+      "teamSize": 15,
+      "fundingStage": "Govt Supported MSME",
+      "website": "https://urjasangam.example.in",
+      "activeCollaborationsCount": 2,
+      "description": "Builds micro-grids for un-electrified hamlet pump-houses, ensuring continuous water pumping even during grid power outages."
+    },
+    {
+      "id": "STP-05",
+      "name": "KoylaMukt EcoSensors Dhanbad",
+      "district": "Dhanbad",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "sector": "Environmental Sensing",
+      "expertise": [
+        "Particulate Matter Sensors",
+        "Acid Mine Drainage Neutralizers",
+        "Biochar Adsorbents"
+      ],
+      "availableOfferings": [
+        "Testing & Certification",
+        "Technology",
+        "Pilot Deployment"
+      ],
+      "teamSize": 10,
+      "fundingStage": "Seed",
+      "website": "https://koylamukt.example.in",
+      "activeCollaborationsCount": 3,
+      "description": "IIT ISM incubated startup creating affordable air and water monitoring beacons for coal-belt villages subject to heavy dust and acid runoff."
+    },
+    {
+      "id": "STP-06",
+      "name": "GraminSwasthya TeleMed Solutions",
+      "district": "Deoghar",
+      "state": "Jharkhand",
+      "isJharkhand": true,
+      "sector": "HealthTech & Diagnostic Devices",
+      "expertise": [
+        "Point-of-Care Blood & Urine Analyzers",
+        "Offline Telemedicine Tablet Kits",
+        "ASHA Worker Digital Workflows"
+      ],
+      "availableOfferings": [
+        "Prototype Development",
+        "Mentorship",
+        "Pilot Deployment"
+      ],
+      "teamSize": 14,
+      "fundingStage": "Seed",
+      "website": "https://graminswasthya.example.in",
+      "activeCollaborationsCount": 2,
+      "description": "Ruggedized diagnostic kits connecting remote Santhal Pargana health sub-centers directly with AIIMS Deoghar specialist doctors."
+    }
+  ],
+  "projects": [
+    {
+      "id": "PRJ-301",
+      "challengeId": "CH-1024",
+      "challengeTitle": "Drinking water contamination affecting villages near Dumka",
+      "title": "IoT-Enabled Continuous Water Quality Monitoring & Rapid Filtration Pilot",
+      "district": "Dumka",
+      "universityId": "UNIV-JH-01",
+      "universityName": "Birla Institute of Technology, Mesra",
+      "facultyMentor": {
+        "id": "FAC-01",
+        "name": "Dr. Priya Sharma",
+        "department": "Environmental Engineering",
+        "designation": "Professor & Head",
+        "email": "priya.sharma@bitmesra.ac.in",
+        "specializations": [
+          "Drinking Water Contamination",
+          "Heavy Metal Biosorption"
+        ],
+        "patentsCount": 3,
+        "completedProjectsCount": 12
+      },
+      "students": [
+        {
+          "name": "Ananya Verma",
+          "department": "Computer Science & Engineering",
+          "year": "Final Year B.Tech",
+          "roleInProject": "IoT Firmware & Cloud Telemetry Lead"
+        },
+        {
+          "name": "Rohan Soren",
+          "department": "Environmental Engineering",
+          "year": "3rd Year B.Tech",
+          "roleInProject": "Water Sampling & Biosorption Filter Testing"
+        },
+        {
+          "name": "Aditya Raj",
+          "department": "Civil Engineering",
+          "year": "Final Year B.Tech",
+          "roleInProject": "Community Cistern Hydraulics & Piping Integration"
+        },
+        {
+          "name": "Kavita Kumari",
+          "department": "Electronics & Communication",
+          "year": "3rd Year B.Tech",
+          "roleInProject": "Low-power Sensor Hub & LoRaWAN Node"
+        }
+      ],
+      "proposal": {
+        "problemUnderstanding": "Runoff from unlined stone-crusher operations in Shikaripara has contaminated the local aquifer with toxic mineral leachates and high fluoride, threatening 1,240 villagers with severe gastrointestinal and fluorosis illnesses.",
+        "proposedSolution": "Deploy solar-powered IoT multi-parameter telemetry buoys on village cisterns and tube-wells, paired with decentralized dual-stage Moringa/Activated Alumina biosorption filtration kiosks that dispense verified safe drinking water.",
+        "technologyStack": [
+          "ESP32 Microcontrollers",
+          "Optical Turbidity & Ion-Selective Fluoride Sensors",
+          "LoRaWAN Long-range Telemetry",
+          "Solar PV 12V Buffering",
+          "Next.js Alert Dashboard"
+        ],
+        "expectedImpact": "Supply 10,000+ liters/day of certified potable water (<1.0 ppm fluoride, 0 E.coli) across 4 hamlets, preventing waterborne disease in 1,240+ residents.",
+        "estimatedCostInr": 285000,
+        "timelineMonths": 4,
+        "prototypeDescription": "Working benchtop multi-probe sensor array with cellular modem transmitting live TDS, pH, and fluorometric readings to central dashboard every 15 minutes, coupled with gravity biosorption columns.",
+        "submittedAt": "2026-09-12T10:00:00Z",
+        "approvedByGovernment": true,
+        "approvedAt": "2026-09-13T14:30:00Z"
+      },
+      "stage": "Pilot",
+      "milestones": [
+        {
+          "id": "M-01",
+          "title": "Aquifer Sampling & Chemical Speciation Analysis",
+          "description": "Collect 50 groundwater samples across 4 Shikaripara hamlets and establish baseline chemical toxicity indices.",
+          "progressPercent": 100,
+          "status": "COMPLETED",
+          "deadline": "2026-09-18",
+          "completedAt": "2026-09-17",
+          "responsibleLead": "Rohan Soren",
+          "deliverables": [
+            "Baseline Dumka Aquifer Quality Report",
+            "Laboratory Mass Spectrometry Results"
+          ]
+        },
+        {
+          "id": "M-02",
+          "title": "IoT Sensor Node Prototyping & Calibration",
+          "description": "Build weatherproof sensor probe housing with solar battery bank and GSM/LoRa module.",
+          "progressPercent": 100,
+          "status": "COMPLETED",
+          "deadline": "2026-09-25",
+          "completedAt": "2026-09-24",
+          "responsibleLead": "Ananya Verma",
+          "deliverables": [
+            "Calibrated IoT Probe Hardware Unit",
+            "Firmware Repository"
+          ]
+        },
+        {
+          "id": "M-03",
+          "title": "Pilot Community Filtration Kiosk Installation",
+          "description": "Erect first gravity-assisted biosorption filter unit in Banjhi village and connect telemetry node.",
+          "progressPercent": 75,
+          "status": "IN_PROGRESS",
+          "deadline": "2026-10-10",
+          "responsibleLead": "Aditya Raj",
+          "deliverables": [
+            "Physical Kiosk Commissioning Certificate",
+            "Live Data Stream Verification"
+          ]
+        },
+        {
+          "id": "M-04",
+          "title": "Community Impact Validation & Panchayat Handover",
+          "description": "Conduct health follow-up survey of 300 households and train youth Gram Jal Mitras for routine upkeep.",
+          "progressPercent": 20,
+          "status": "PENDING",
+          "deadline": "2026-10-30",
+          "responsibleLead": "Dr. Priya Sharma",
+          "deliverables": [
+            "Social Impact Assessment Report",
+            "Panchayat Operation Manual"
+          ]
+        }
+      ],
+      "collaborations": [
+        {
+          "id": "COL-01",
+          "startupId": "STP-01",
+          "startupName": "JalRakshak IoT Technologies Pvt Ltd",
+          "types": [
+            "Prototype Development",
+            "Testing & Certification",
+            "Pilot Deployment",
+            "Funding"
+          ],
+          "contributionDetails": "Committed 4 commercial-grade optical probe housings, free SIM telemetry for 2 years, and ₹1.5 Lakhs matching grant for kiosk fabrication.",
+          "fundingCommittedInr": 150000,
+          "status": "ACTIVE",
+          "offeredAt": "2026-09-13T16:00:00Z",
+          "acceptedAt": "2026-09-14T09:00:00Z"
+        }
+      ],
+      "impactMetrics": {
+        "peopleBenefited": 1050,
+        "villagesCovered": 4,
+        "costSavedInr": 420000,
+        "timeSavedDescription": "Saved 2.5 hours daily per household previously spent walking to distant unpolluted streams",
+        "healthSafetyImprovementPercent": 85,
+        "environmentalReductionPercent": 90,
+        "beforeCondition": "Severe metallic odor, 4.2 mg/L fluoride, 850 TDS, recurrent gastrointestinal infection in 68% of households",
+        "afterCondition": "Safe clear drinking water, 0.8 mg/L fluoride (well under WHO 1.5 mg/L threshold), 180 TDS, zero coliform bacteria",
+        "impactScore": 92,
+        "verifiedByAuthority": "Dumka District Drinking Water & Sanitation Division (Govt of Jharkhand)"
+      },
+      "createdAt": "2026-09-11T12:00:00Z",
+      "updatedAt": "2026-09-14T10:00:00Z"
+    },
+    {
+      "id": "PRJ-202",
+      "challengeId": "CH-1025",
+      "challengeTitle": "Post-harvest vegetable rotting due to lack of cold storage in Kanke-Ormanjhi block",
+      "title": "Solar-Assisted Zero Energy Evaporative Cool Chambers for Tribal Vegetable Clusters",
+      "district": "Ranchi",
+      "universityId": "UNIV-JH-04",
+      "universityName": "Birsa Agricultural University, Kanke",
+      "facultyMentor": {
+        "id": "FAC-07",
+        "name": "Dr. Madan Mohan Prasad",
+        "department": "Agricultural Engineering",
+        "designation": "Head & Principal Scientist",
+        "email": "mmprasad@baujharkhand.org",
+        "specializations": [
+          "Solar Cold Rooms",
+          "Drip Irrigation Automation"
+        ],
+        "patentsCount": 2,
+        "completedProjectsCount": 16
+      },
+      "students": [
+        {
+          "name": "Deepak Mahto",
+          "department": "Agricultural Engineering",
+          "year": "Final Year",
+          "roleInProject": "Thermodynamic Chamber Design"
+        },
+        {
+          "name": "Puja Oraon",
+          "department": "Horticulture",
+          "year": "M.Sc Ag",
+          "roleInProject": "Produce Shelf Life Testing"
+        }
+      ],
+      "proposal": {
+        "problemUnderstanding": "Marginal tribal farmers dump perishable tomato and pea harvests due to lack of cold storage during peak heat waves.",
+        "proposedSolution": "Fabricate decentralized 5-metric-ton solar evaporative cooling rooms with double-walled porous brick insulation and solar forced ventilation.",
+        "technologyStack": [
+          "Solar DC Fans",
+          "Smart Humidistat",
+          "Porous Ceramic Bricks"
+        ],
+        "expectedImpact": "Extend tomato shelf life from 3 days to 18 days, boosting farmer realization by ₹14/kg.",
+        "estimatedCostInr": 320000,
+        "timelineMonths": 6,
+        "prototypeDescription": "5-ton functioning pilot installed at Ormanjhi village center.",
+        "submittedAt": "2026-08-20T11:00:00Z",
+        "approvedByGovernment": true,
+        "approvedAt": "2026-08-25T15:00:00Z"
+      },
+      "stage": "Testing",
+      "milestones": [
+        {
+          "id": "M-11",
+          "title": "Civil & Insulation Construction",
+          "description": "Complete double brick wall structure with sand insulation.",
+          "progressPercent": 100,
+          "status": "COMPLETED",
+          "deadline": "2026-08-30",
+          "completedAt": "2026-08-29",
+          "responsibleLead": "Deepak Mahto"
+        },
+        {
+          "id": "M-12",
+          "title": "Solar PV & Ventilation Integration",
+          "description": "Install 1.2 kW solar array and misting pumps.",
+          "progressPercent": 100,
+          "status": "COMPLETED",
+          "deadline": "2026-09-08",
+          "completedAt": "2026-09-07",
+          "responsibleLead": "Dr. Madan Mohan Prasad"
+        },
+        {
+          "id": "M-13",
+          "title": "Trial Storage of 2 Tons Tomatoes",
+          "description": "Log temperature and humidity across 14-day cycle.",
+          "progressPercent": 60,
+          "status": "IN_PROGRESS",
+          "deadline": "2026-09-28",
+          "responsibleLead": "Puja Oraon"
+        }
+      ],
+      "collaborations": [
+        {
+          "id": "COL-02",
+          "startupId": "STP-02",
+          "startupName": "Chotanagpur Agro Innovations",
+          "types": [
+            "Mentorship",
+            "Pilot Deployment"
+          ],
+          "contributionDetails": "Supplied high-efficiency DC atomizing mist nozzles and connected local farmer producer company.",
+          "status": "ACTIVE",
+          "offeredAt": "2026-08-22T10:00:00Z",
+          "acceptedAt": "2026-08-24T12:00:00Z"
+        }
+      ],
+      "createdAt": "2026-08-16T10:00:00Z",
+      "updatedAt": "2026-09-10T12:00:00Z"
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "userId": "USR-CIT-01",
+      "name": "Rameshwar Tudu",
+      "district": "Dumka",
+      "verifiedReportsCount": 14,
+      "peopleSupportedCount": 1240,
+      "impactScore": 842,
+      "rankBadge": "Civic Innovator"
+    },
+    {
+      "rank": 2,
+      "userId": "USR-CIT-05",
+      "name": "Malti Murmu",
+      "district": "Deoghar",
+      "verifiedReportsCount": 12,
+      "peopleSupportedCount": 980,
+      "impactScore": 780,
+      "rankBadge": "Impact Leader"
+    },
+    {
+      "rank": 3,
+      "userId": "USR-CIT-02",
+      "name": "Birsa Munda Jr.",
+      "district": "Ranchi",
+      "verifiedReportsCount": 10,
+      "peopleSupportedCount": 860,
+      "impactScore": 715,
+      "rankBadge": "Impact Leader"
+    },
+    {
+      "rank": 4,
+      "userId": "USR-CIT-03",
+      "name": "Sanjay Gorai",
+      "district": "Dhanbad",
+      "verifiedReportsCount": 9,
+      "peopleSupportedCount": 750,
+      "impactScore": 660,
+      "rankBadge": "Impact Leader"
+    },
+    {
+      "rank": 5,
+      "userId": "USR-CIT-04",
+      "name": "Sunita Baitha",
+      "district": "Latehar",
+      "verifiedReportsCount": 8,
+      "peopleSupportedCount": 620,
+      "impactScore": 590,
+      "rankBadge": "Impact Leader"
+    },
+    {
+      "rank": 6,
+      "userId": "USR-CIT-07",
+      "name": "Kameshwar Yadav",
+      "district": "Garhwa",
+      "verifiedReportsCount": 7,
+      "peopleSupportedCount": 540,
+      "impactScore": 510,
+      "rankBadge": "Impact Leader"
+    },
+    {
+      "rank": 7,
+      "userId": "USR-CIT-06",
+      "name": "Mangra Munda",
+      "district": "Khunti",
+      "verifiedReportsCount": 6,
+      "peopleSupportedCount": 480,
+      "impactScore": 460,
+      "rankBadge": "Community Champion"
+    },
+    {
+      "rank": 8,
+      "userId": "USR-CIT-09",
+      "name": "Fatima Khatun",
+      "district": "Bokaro",
+      "verifiedReportsCount": 5,
+      "peopleSupportedCount": 390,
+      "impactScore": 410,
+      "rankBadge": "Community Champion"
+    },
+    {
+      "rank": 9,
+      "userId": "USR-CIT-10",
+      "name": "Amit Gope",
+      "district": "East Singhbhum",
+      "verifiedReportsCount": 5,
+      "peopleSupportedCount": 340,
+      "impactScore": 375,
+      "rankBadge": "Community Champion"
+    },
+    {
+      "rank": 10,
+      "userId": "USR-CIT-11",
+      "name": "Reena Tirkey",
+      "district": "Gumla",
+      "verifiedReportsCount": 4,
+      "peopleSupportedCount": 290,
+      "impactScore": 330,
+      "rankBadge": "Community Champion"
+    },
+    {
+      "rank": 11,
+      "userId": "USR-CIT-12",
+      "name": "Babulal Marandi (Civil Society)",
+      "district": "Giridih",
+      "verifiedReportsCount": 4,
+      "peopleSupportedCount": 260,
+      "impactScore": 295,
+      "rankBadge": "Community Champion"
+    },
+    {
+      "rank": 12,
+      "userId": "USR-CIT-13",
+      "name": "Deepak Kumar Sahu",
+      "district": "Hazaribagh",
+      "verifiedReportsCount": 3,
+      "peopleSupportedCount": 210,
+      "impactScore": 245,
+      "rankBadge": "Community Champion"
+    },
+    {
+      "rank": 13,
+      "userId": "USR-CIT-14",
+      "name": "Seema Hembrom",
+      "district": "Pakur",
+      "verifiedReportsCount": 3,
+      "peopleSupportedCount": 180,
+      "impactScore": 195,
+      "rankBadge": "Community Contributor"
+    },
+    {
+      "rank": 14,
+      "userId": "USR-CIT-15",
+      "name": "Praveen Keshri",
+      "district": "Palamu",
+      "verifiedReportsCount": 2,
+      "peopleSupportedCount": 140,
+      "impactScore": 160,
+      "rankBadge": "Community Contributor"
+    },
+    {
+      "rank": 15,
+      "userId": "USR-CIT-16",
+      "name": "Alka Minz",
+      "district": "Simdega",
+      "verifiedReportsCount": 2,
+      "peopleSupportedCount": 120,
+      "impactScore": 140,
+      "rankBadge": "Community Contributor"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "LOG-1790342982206",
+      "challengeId": "CH-2201",
+      "timestamp": "2026-09-25T13:29:42.207Z",
+      "actorRole": "citizen",
+      "actorName": "Rameshwar Tudu",
+      "action": "CHALLENGE_SUBMITTED",
+      "details": "Reported issue in Dumka (Water Resources). Priority assessed as HIGH."
+    },
+    {
+      "id": "LOG-1789408285049",
+      "challengeId": "CH-1030",
+      "timestamp": "2026-09-14T17:51:25.049Z",
+      "actorRole": "government",
+      "actorName": "Dr. Arvind Sinha (Director, Higher & Tech Ed)",
+      "action": "STATUS_UPDATED_TO_VERIFIED",
+      "details": "Challenge verified following ground validation by District Collectorate."
+    },
+    {
+      "id": "LOG-1789408259946",
+      "challengeId": "CH-9939",
+      "timestamp": "2026-09-14T17:50:59.946Z",
+      "actorRole": "citizen",
+      "actorName": "Rameshwar Tudu",
+      "action": "CHALLENGE_SUBMITTED",
+      "details": "Reported issue in Dumka (Water Resources). Priority assessed as HIGH."
+    },
+    {
+      "id": "LOG-101",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-10T09:30:00Z",
+      "actorRole": "citizen",
+      "actorName": "Rameshwar Tudu",
+      "action": "CHALLENGE_SUBMITTED",
+      "details": "Reported water contamination issue in Shikaripara, Dumka with 2 geotagged images."
+    },
+    {
+      "id": "LOG-102",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-10T09:30:05Z",
+      "actorRole": "System",
+      "actorName": "Sangam AI Engine",
+      "action": "AI_PROCESSED",
+      "details": "Assigned category Water Resources, detected 94% confidence, flagged 3 similar challenges in Dumka district."
+    },
+    {
+      "id": "LOG-103",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-11T10:42:00Z",
+      "actorRole": "government",
+      "actorName": "Dr. Arvind Sinha (Director, Higher & Tech Ed)",
+      "action": "CHALLENGE_VERIFIED",
+      "details": "Verified challenge following field verification by Dumka District Collectorate."
+    },
+    {
+      "id": "LOG-104",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-11T11:03:00Z",
+      "actorRole": "government",
+      "actorName": "Dr. Arvind Sinha",
+      "action": "JHARKHAND_FIRST_ROUTING",
+      "details": "Routed challenge with 94% match affinity to Birla Institute of Technology, Mesra (Tier 1 Jharkhand HEI)."
+    },
+    {
+      "id": "LOG-105",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-11T14:15:00Z",
+      "actorRole": "university",
+      "actorName": "Dr. Priya Sharma (BIT Mesra)",
+      "action": "CHALLENGE_ACCEPTED",
+      "details": "BIT Mesra Department of Environmental Engineering accepted challenge and initialized multidisciplinary project team."
+    },
+    {
+      "id": "LOG-106",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-12T10:00:00Z",
+      "actorRole": "university",
+      "actorName": "Dr. Priya Sharma",
+      "action": "PROPOSAL_SUBMITTED",
+      "details": "Submitted solution proposal PRJ-301 for IoT water telemetry & biosorption filtration pilot."
+    },
+    {
+      "id": "LOG-107",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-13T14:30:00Z",
+      "actorRole": "government",
+      "actorName": "Dept of Higher & Technical Education",
+      "action": "PROPOSAL_APPROVED",
+      "details": "Government approved solution proposal PRJ-301 with pilot milestone budget of ₹2.85 Lakhs."
+    },
+    {
+      "id": "LOG-108",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-13T16:00:00Z",
+      "actorRole": "startup",
+      "actorName": "JalRakshak IoT Technologies",
+      "action": "COLLABORATION_OFFERED",
+      "details": "Offered prototype probes, IoT telemetry, and ₹1.5 Lakhs matching grant."
+    },
+    {
+      "id": "LOG-109",
+      "challengeId": "CH-1024",
+      "timestamp": "2026-09-14T09:00:00Z",
+      "actorRole": "university",
+      "actorName": "Dr. Priya Sharma",
+      "action": "COLLABORATION_ACCEPTED",
+      "details": "Accepted industry partnership with JalRakshak IoT Technologies."
+    }
+  ],
+  "notifications": [
+    {
+      "id": "NOTIF-1790342982207",
+      "targetRole": "government",
+      "title": "New Challenge in Dumka",
+      "message": "Drinking water contamination reported with HIGH priority score.",
+      "timestamp": "2026-09-25T13:29:42.207Z",
+      "read": false,
+      "linkUrl": "/challenges/CH-2201",
+      "type": "ALERT"
+    },
+    {
+      "id": "NOTIF-1789408259946",
+      "targetRole": "government",
+      "title": "New Challenge in Dumka",
+      "message": "Drinking water contamination affecting villages near Dumka reported with HIGH priority score.",
+      "timestamp": "2026-09-14T17:50:59.946Z",
+      "read": false,
+      "linkUrl": "/challenges/CH-9939",
+      "type": "ALERT"
+    },
+    {
+      "id": "NOTIF-01",
+      "targetRole": "citizen",
+      "userId": "USR-CIT-01",
+      "title": "Challenge Verified by Govt",
+      "message": "Your challenge CH-1024 (Dumka water contamination) has been verified by the Department of Higher & Technical Education.",
+      "timestamp": "2026-09-11T10:45:00Z",
+      "read": false,
+      "linkUrl": "/challenges/CH-1024",
+      "type": "VERIFICATION"
+    },
+    {
+      "id": "NOTIF-02",
+      "targetRole": "university",
+      "title": "New High Priority Match",
+      "message": "A 94% matched challenge (CH-1024 Water Contamination Dumka) has been routed to BIT Mesra Environmental Engineering.",
+      "timestamp": "2026-09-11T11:05:00Z",
+      "read": false,
+      "linkUrl": "/university",
+      "type": "ROUTING"
+    },
+    {
+      "id": "NOTIF-03",
+      "targetRole": "startup",
+      "title": "New Collaboration Opportunity",
+      "message": "Project PRJ-301 (IoT Water Quality Dumka) matches your IoT sensor capabilities (91% match).",
+      "timestamp": "2026-09-12T10:30:00Z",
+      "read": false,
+      "linkUrl": "/startup",
+      "type": "COLLABORATION"
+    },
+    {
+      "id": "NOTIF-04",
+      "targetRole": "government",
+      "title": "High Priority Alert",
+      "message": "CH-1024 has 127 citizens supporting it in Dumka. Milestone M-02 reached 100% completion.",
+      "timestamp": "2026-09-14T08:00:00Z",
+      "read": false,
+      "linkUrl": "/government",
+      "type": "MILESTONE"
+    }
+  ]
+}
