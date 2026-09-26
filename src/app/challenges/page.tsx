@@ -155,28 +155,28 @@ export default function ChallengesExplorer() {
         {filtered.map((ch) => (
           <div
             key={ch.id}
-            className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:border-blue-300 hover:shadow-sm transition"
+            className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-xs hover:border-blue-300 hover:shadow-sm transition"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <span className="font-mono text-xs font-bold text-slate-500">{ch.id}</span>
-                <StatusBadge status={ch.status} />
-                <PriorityBadge level={ch.priority.level} score={ch.priority.score} />
+                <StatusBadge status={ch.status} size="sm" />
+                <PriorityBadge level={ch.priority.level} score={ch.priority.score} showIcon={false} />
                 <span className="text-xs text-slate-500 flex items-center gap-1">
-                  <MapPin className="h-3.5 w-3.5 text-slate-400" />
-                  {ch.district} ({ch.block})
+                  <MapPin className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                  <span>{ch.district} ({ch.block})</span>
                 </span>
               </div>
 
-              <span className="text-xs text-slate-400">
+              <span className="text-[11px] text-slate-400">
                 {new Date(ch.submittedAt).toLocaleDateString()}
               </span>
             </div>
 
-            <div className="mt-3">
+            <div className="mt-2.5">
               <Link
                 href={`/challenges/${ch.id}`}
-                className="text-lg font-bold text-slate-900 hover:text-blue-600 transition"
+                className="text-base sm:text-lg font-bold text-slate-900 hover:text-blue-600 transition leading-snug"
               >
                 {ch.title}
               </Link>
@@ -186,17 +186,17 @@ export default function ChallengesExplorer() {
             </div>
 
             {/* Bottom info bar */}
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 pt-2 text-xs">
-              <div className="flex items-center gap-4 text-slate-600">
+            <div className="mt-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-slate-50 text-xs">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-slate-600 text-[11px] sm:text-xs">
                 <span className="flex items-center gap-1">
-                  <Users className="h-3.5 w-3.5 text-blue-600" />
+                  <Users className="h-3.5 w-3.5 text-blue-600 shrink-0" />
                   <strong>
                     {ch.communitySupport.supportersCount + ch.communitySupport.originalReportsCount}
                   </strong>{' '}
-                  citizens affected / backing
+                  citizens backing
                 </span>
                 {ch.assignedUniversityName && (
-                  <span className="text-emerald-700 font-medium">
+                  <span className="text-emerald-700 font-medium truncate">
                     University: <strong>{ch.assignedUniversityName}</strong>
                   </span>
                 )}
@@ -204,7 +204,7 @@ export default function ChallengesExplorer() {
 
               <Link
                 href={`/challenges/${ch.id}`}
-                className="flex items-center gap-1 text-xs font-bold text-[#0B192C] hover:text-blue-700"
+                className="flex items-center gap-1 text-xs font-bold text-[#0B192C] hover:text-blue-700 pt-1 sm:pt-0"
               >
                 <span>View Full Challenge Journey</span>
                 <ArrowRight className="h-3.5 w-3.5" />

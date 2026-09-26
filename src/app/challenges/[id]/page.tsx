@@ -98,10 +98,10 @@ export default function ChallengeDetailPage() {
   const currentStageIndex = STAGES.indexOf(challenge.status);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-5 sm:py-8">
       {/* Top Breadcrumb & Status */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4 mb-6">
-        <div className="flex items-center gap-2 text-xs text-slate-500">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4 mb-4 sm:mb-6">
+        <div className="flex items-center gap-2 text-xs text-slate-500 flex-wrap">
           <Link href="/challenges" className="hover:underline">
             Challenges
           </Link>
@@ -111,38 +111,60 @@ export default function ChallengeDetailPage() {
           <span>{challenge.district}</span>
         </div>
 
-        <div className="flex items-center gap-2">
-          <StatusBadge status={challenge.status} size="lg" />
+        <div className="flex items-center gap-2 flex-wrap">
+          <StatusBadge status={challenge.status} size="sm" />
           <PriorityBadge level={challenge.priority.level} score={challenge.priority.score} />
         </div>
       </div>
 
       {/* Main Title & Overview Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
         {/* Left Col (8 spans): Details, Evidence, AI analysis */}
-        <div className="lg:col-span-8 space-y-6">
+        <div className="lg:col-span-8 space-y-5 sm:space-y-6">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 leading-tight">
               {challenge.title}
             </h1>
-            <p className="text-xs text-slate-500 mt-2 flex flex-wrap items-center gap-3">
+            <p className="text-xs text-slate-500 mt-2 flex flex-wrap items-center gap-2 sm:gap-3">
               <span className="flex items-center gap-1 font-semibold text-slate-700">
-                <MapPin className="h-4 w-4 text-rose-500" />
-                {challenge.villageOrCity}, {challenge.block}, {challenge.district}
+                <MapPin className="h-4 w-4 text-rose-500 shrink-0" />
+                {challenge.villageOrCity}, {challenge.district}
               </span>
               <span>•</span>
-              <span>Reported by: {challenge.submittedBy.name}</span>
+              <span>By {challenge.submittedBy.name}</span>
               <span>•</span>
               <span>{new Date(challenge.submittedAt).toLocaleDateString()}</span>
             </p>
           </div>
 
+          {/* Quick Support Callout (Mobile only for quick access) */}
+          <div className="block lg:hidden rounded-xl border border-emerald-200 bg-emerald-50/60 p-3.5">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs text-emerald-950 font-bold">Community Backing</span>
+              <span className="font-mono text-xs font-bold text-emerald-800">
+                {supportCount} citizens
+              </span>
+            </div>
+            <button
+              onClick={handleSupportClick}
+              disabled={hasSupported || isSupporting}
+              className={`w-full rounded-xl py-2.5 text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
+                hasSupported
+                  ? 'bg-emerald-200 text-emerald-900 border border-emerald-300'
+                  : 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm'
+              }`}
+            >
+              <Heart className={`h-4 w-4 ${hasSupported ? 'fill-emerald-800' : ''}`} />
+              <span>{hasSupported ? 'Supported ✓' : 'Support this Challenge (+220 pts)'}</span>
+            </button>
+          </div>
+
           {/* Description */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs">
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
               Citizen Field Description
             </h3>
-            <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line">
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed whitespace-pre-line">
               {challenge.description}
             </p>
           </div>

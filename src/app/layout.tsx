@@ -1,6 +1,14 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { ClientLayoutShell } from '@/components/common/ClientLayoutShell';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: '#0B192C',
+};
 
 export const metadata: Metadata = {
   title: 'Samadhan Sangam (समाधान संगम) | Jharkhand Societal Innovation Platform | SIH 2026 PS26043',

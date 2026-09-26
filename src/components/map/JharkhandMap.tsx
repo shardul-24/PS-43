@@ -125,17 +125,17 @@ export function JharkhandMap({ onSelectDistrict, selectedDistrict }: JharkhandMa
         </div>
 
         {/* Legend */}
-        <div className="flex items-center gap-3 text-xs">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-xs">
           <div className="flex items-center gap-1">
-            <span className="h-3 w-3 rounded-full bg-rose-500"></span>
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-rose-500"></span>
             <span className="text-slate-600 font-medium">&gt; 60 High</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="h-3 w-3 rounded-full bg-amber-500"></span>
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-amber-500"></span>
             <span className="text-slate-600 font-medium">35-60 Mod</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="h-3 w-3 rounded-full bg-emerald-500"></span>
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-emerald-500"></span>
             <span className="text-slate-600 font-medium">&lt; 35 Active</span>
           </div>
         </div>
@@ -143,23 +143,23 @@ export function JharkhandMap({ onSelectDistrict, selectedDistrict }: JharkhandMa
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Map Canvas */}
-        <div className="lg:col-span-8 relative h-[380px] rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+        <div className="lg:col-span-8 relative h-[290px] sm:h-[380px] rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
           <div ref={mapContainerRef} className="h-full w-full z-0" />
 
           {/* District Quick Select Overlay */}
-          <div className="absolute bottom-2 left-2 z-10 bg-white/90 backdrop-blur-md rounded-lg p-2 shadow-md border border-slate-200 text-xs max-w-xs">
-            <span className="font-bold text-slate-700 block mb-1">Click a hotspot or select:</span>
+          <div className="absolute bottom-2 left-2 z-10 bg-white/95 backdrop-blur-md rounded-lg p-1.5 sm:p-2 shadow-md border border-slate-200 text-xs max-w-[220px] sm:max-w-xs">
+            <span className="font-bold text-slate-700 block text-[10px] sm:text-xs mb-0.5 sm:mb-1">Select District:</span>
             <select
               value={activeDistrict.name}
               onChange={(e) => {
                 const found = JHARKHAND_DISTRICTS.find((d) => d.name === e.target.value);
                 if (found) handleDistrictChange(found);
               }}
-              className="w-full rounded border border-slate-300 bg-white px-2 py-1 text-xs text-slate-800 font-medium"
+              className="w-full rounded border border-slate-300 bg-white px-1.5 sm:px-2 py-1 text-[11px] sm:text-xs text-slate-800 font-medium"
             >
               {JHARKHAND_DISTRICTS.map((d) => (
                 <option key={d.name} value={d.name}>
-                  {d.name} ({d.challengesCount} issues)
+                  {d.name} ({d.challengesCount})
                 </option>
               ))}
             </select>

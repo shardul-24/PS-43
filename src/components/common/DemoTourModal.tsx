@@ -227,38 +227,38 @@ export function DemoTourModal({ isOpen, onClose }: DemoTourModalProps) {
   const Icon = currentStep.roleIcon;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-3 sm:p-4 backdrop-blur-xs animate-in fade-in duration-200 pb-safe">
+      <div className="relative w-full max-w-2xl max-h-[92vh] flex flex-col rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-4 sm:p-6 shadow-2xl overflow-hidden">
         {/* Header */}
-        <div className="flex items-start justify-between border-b border-slate-100 pb-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0B192C] text-white">
-              <Sparkles className="h-5 w-5 text-emerald-400" />
+        <div className="flex items-start justify-between border-b border-slate-100 pb-3 sm:pb-4 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+            <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-[#0B192C] text-white">
+              <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-400" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-600">
-                  SIH 2026 Judge Demonstration Guide
+                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-amber-600 truncate">
+                  SIH 2026 Judge Guide
                 </span>
-                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-700">
+                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[9px] sm:text-[10px] font-bold text-slate-700 shrink-0">
                   Step {currentStep.number} of 12
                 </span>
               </div>
-              <h2 className="text-lg font-bold text-slate-900 mt-0.5">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5 truncate">
                 {currentStep.title}
               </h2>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition"
+            className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition shrink-0 ml-2"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
         {/* Step Progression Indicators */}
-        <div className="my-4 flex items-center gap-1 overflow-x-auto pb-1">
+        <div className="my-3 sm:my-4 flex items-center gap-1 overflow-x-auto no-scrollbar pb-1 shrink-0">
           {TOUR_STEPS.map((s, idx) => (
             <button
               key={s.number}
@@ -271,50 +271,52 @@ export function DemoTourModal({ isOpen, onClose }: DemoTourModalProps) {
                   : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
               }`}
             >
-              {idx < currentStepIndex ? <CheckCircle2 className="h-3.5 w-3.5 mr-1 text-emerald-600 inline" /> : null}
+              {idx < currentStepIndex ? <CheckCircle2 className="h-3 w-3 mr-1 text-emerald-600 inline" /> : null}
               {s.number}
             </button>
           ))}
         </div>
 
-        {/* Step Body */}
-        <div className="rounded-xl border border-slate-100 bg-slate-50/70 p-4 my-3">
-          <div className="flex items-center justify-between mb-3">
-            <span
-              className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-bold ${currentStep.roleColor}`}
-            >
-              <Icon className="h-3.5 w-3.5" />
-              <span>Role: {currentStep.role}</span>
-            </span>
-            <span className="text-xs text-slate-500 font-medium">
-              Demo Scenario: Dumka Water Contamination
-            </span>
-          </div>
+        {/* Scrollable Step Body */}
+        <div className="flex-1 overflow-y-auto pr-1">
+          <div className="rounded-xl border border-slate-100 bg-slate-50/70 p-3 sm:p-4 mb-3">
+            <div className="flex flex-wrap items-center justify-between gap-1 mb-2.5">
+              <span
+                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] sm:text-xs font-bold ${currentStep.roleColor}`}
+              >
+                <Icon className="h-3.5 w-3.5" />
+                <span>Role: {currentStep.role}</span>
+              </span>
+              <span className="text-[10px] sm:text-xs text-slate-500 font-medium truncate">
+                Scenario: Dumka Water Pilot
+              </span>
+            </div>
 
-          <p className="text-sm font-medium text-slate-800 leading-relaxed">
-            {currentStep.summary}
-          </p>
+            <p className="text-xs sm:text-sm font-medium text-slate-800 leading-relaxed">
+              {currentStep.summary}
+            </p>
 
-          <div className="mt-3 space-y-1.5 border-t border-slate-200/60 pt-3">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-              Key Mechanism Demonstrated:
-            </span>
-            {currentStep.keyDetails.map((detail, dIdx) => (
-              <div key={dIdx} className="flex items-start gap-2 text-xs text-slate-600">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 mt-0.5 shrink-0" />
-                <span>{detail}</span>
-              </div>
-            ))}
+            <div className="mt-3 space-y-1.5 border-t border-slate-200/60 pt-3">
+              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                Key Mechanism Demonstrated:
+              </span>
+              {currentStep.keyDetails.map((detail, dIdx) => (
+                <div key={dIdx} className="flex items-start gap-2 text-xs text-slate-600">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 mt-0.5 shrink-0" />
+                  <span className="leading-snug">{detail}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Footer Controls */}
-        <div className="flex items-center justify-between pt-3 border-t border-slate-100">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-2.5 pt-3 border-t border-slate-100 shrink-0">
+          <div className="flex items-center justify-between w-full sm:w-auto gap-2">
             <button
               disabled={currentStepIndex === 0}
               onClick={() => setCurrentStepIndex((prev) => Math.max(0, prev - 1))}
-              className="flex items-center gap-1 rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-40 transition"
+              className="flex-1 sm:flex-none flex items-center justify-center gap-1 rounded-lg border border-slate-300 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-40 transition"
             >
               <ChevronLeft className="h-4 w-4" />
               <span>Previous</span>
@@ -322,7 +324,7 @@ export function DemoTourModal({ isOpen, onClose }: DemoTourModalProps) {
             <button
               disabled={currentStepIndex === TOUR_STEPS.length - 1}
               onClick={() => setCurrentStepIndex((prev) => Math.min(TOUR_STEPS.length - 1, prev + 1))}
-              className="flex items-center gap-1 rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-40 transition"
+              className="flex-1 sm:flex-none flex items-center justify-center gap-1 rounded-lg border border-slate-300 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-40 transition"
             >
               <span>Next</span>
               <ChevronRight className="h-4 w-4" />
@@ -332,7 +334,7 @@ export function DemoTourModal({ isOpen, onClose }: DemoTourModalProps) {
           <Link
             href={currentStep.actionLink}
             onClick={onClose}
-            className="flex items-center gap-1.5 rounded-lg bg-[#0B192C] px-4 py-2 text-xs font-bold text-white shadow-sm hover:bg-[#1E3E62] transition"
+            className="w-full sm:w-auto flex items-center justify-center gap-1.5 rounded-lg bg-[#0B192C] px-4 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-[#1E3E62] transition text-center"
           >
             <span>{currentStep.actionButtonText}</span>
             <ArrowRight className="h-4 w-4 text-emerald-400" />

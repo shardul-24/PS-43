@@ -18,8 +18,29 @@ const PRESET_PROMPTS = [
   'How is my Citizen Impact Score calculated?',
 ];
 
-export function SangamAIAssistant() {
-  const [isOpen, setIsOpen] = useState(false);
+interface SangamAIAssistantProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+  onOpen?: () => void;
+}
+
+export function SangamAIAssistant({
+  isOpen: controlledIsOpen,
+  onClose: controlledOnClose,
+  onOpen: controlledOnOpen,
+}: SangamAIAssistantProps = {}) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (open: boolean) => {
+    if (open) {
+      if (controlledOnOpen) controlledOnOpen();
+      else setInternalIsOpen(true);
+    } else {
+      if (controlledOnClose) controlledOnClose();
+      else setInternalIsOpen(false);
+    }
+  };
+
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -81,8 +102,8 @@ export function SangamAIAssistant() {
 
   return (
     <>
-      {/* Floating Launcher Button */}
-      <div className="fixed bottom-5 right-5 z-40">
+      {/* Floating Launcher Button - Desktop (on mobile it is in bottom nav) */}
+      <div className="fixed bottom-5 right-5 z-40 hidden md:block">
         {!isOpen && (
           <button
             onClick={() => setIsOpen(true)}
@@ -102,11 +123,16 @@ export function SangamAIAssistant() {
         )}
       </div>
 
-      {/* Expandable Chat Drawer */}
+      {/* Expandable Chat Drawer - Responsive Sheet on Mobile, Floating card on Desktop */}
       {isOpen && (
-        <div className="fixed bottom-5 right-5 z-50 w-96 max-w-[calc(100vw-2rem)] rounded-2xl border border-slate-200 bg-white shadow-2xl ring-1 ring-black/10 flex flex-col h-[520px] animate-in fade-in slide-in-from-bottom-5 duration-200">
+        <div className="fixed inset-x-0 bottom-0 z-50 flex flex-col h-[85vh] sm:h-[530px] sm:w-96 sm:inset-x-auto sm:bottom-5 sm:right-5 rounded-t-3xl sm:rounded-2xl border border-slate-200 bg-white shadow-2xl ring-1 ring-black/10 animate-in fade-in slide-in-from-bottom duration-200 pb-safe">
+          {/* Mobile Sheet Grab Bar */}
+          <div className="flex justify-center pt-2 sm:hidden bg-[#0B192C] rounded-t-3xl">
+            <div className="h-1 w-10 rounded-full bg-slate-500/60" />
+          </div>
+
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-slate-100 bg-[#0B192C] px-4 py-3 rounded-t-2xl text-white">
+          <div className="flex items-center justify-between border-b border-slate-100 bg-[#0B192C] px-4 py-3 sm:rounded-t-2xl text-white">
             <div className="flex items-center gap-2.5">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500 text-slate-900 font-bold">
                 <Bot className="h-4 w-4" />

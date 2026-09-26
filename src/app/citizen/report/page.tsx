@@ -178,14 +178,14 @@ export default function ReportChallengeWizard() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-4xl px-3 sm:px-6 lg:px-8 py-6 sm:py-8">
       {/* Wizard Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4 mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-200 pb-4 mb-4 sm:mb-6">
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">
             Citizen Co-Creation Portal
           </span>
-          <h1 className="text-2xl font-black text-slate-900 mt-0.5">Report a Societal Challenge</h1>
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 mt-0.5">Report a Societal Challenge</h1>
           <p className="text-xs text-slate-500">
             Submit your community concern to be understood by AI, verified by government, and matched with Jharkhand universities.
           </p>
@@ -194,15 +194,39 @@ export default function ReportChallengeWizard() {
         <button
           type="button"
           onClick={handleAutofillDemo}
-          className="flex items-center gap-1.5 rounded-lg bg-amber-500/15 border border-amber-400/30 px-3 py-2 text-xs font-bold text-amber-800 hover:bg-amber-500/25 transition cursor-pointer"
+          className="flex items-center justify-center gap-1.5 rounded-lg bg-amber-500/15 border border-amber-400/30 px-3 py-2 text-xs font-bold text-amber-800 hover:bg-amber-500/25 transition cursor-pointer shrink-0"
         >
-          <Sparkles className="h-4 w-4 text-amber-600" />
-          <span>Autofill Demo: Dumka Water Problem</span>
+          <Sparkles className="h-4 w-4 text-amber-600 shrink-0" />
+          <span>Autofill Demo: Dumka Water</span>
         </button>
       </div>
 
-      {/* Stepper Progress */}
-      <div className="grid grid-cols-5 gap-2 mb-8">
+      {/* Mobile Stepper Header (< sm) */}
+      <div className="sm:hidden mb-4 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+        <div className="flex items-center justify-between mb-1.5">
+          <span className="text-xs font-bold text-slate-800">
+            Step {currentStep} of 5: {[
+              'Describe Problem',
+              'Evidence & Photos',
+              'Location Details',
+              'Impact Assessment',
+              'AI Review & Similar',
+            ][currentStep - 1]}
+          </span>
+          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+            {Math.round((currentStep / 5) * 100)}%
+          </span>
+        </div>
+        <div className="h-1.5 w-full rounded-full bg-slate-100 overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all duration-300 rounded-full"
+            style={{ width: `${(currentStep / 5) * 100}%` }}
+          />
+        </div>
+      </div>
+
+      {/* Desktop Stepper Progress (>= sm) */}
+      <div className="hidden sm:grid grid-cols-5 gap-2 mb-8">
         {[
           { num: 1, label: 'Describe' },
           { num: 2, label: 'Evidence' },
@@ -227,7 +251,7 @@ export default function ReportChallengeWizard() {
       </div>
 
       {/* Wizard Steps Container */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-sm">
         {/* STEP 1: Describe */}
         {currentStep === 1 && (
           <div className="space-y-4">
@@ -294,11 +318,11 @@ export default function ReportChallengeWizard() {
               />
             </div>
 
-            <div className="flex justify-end pt-4">
+            <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2.5 pt-4">
               <button
                 disabled={!title.trim() || !description.trim()}
                 onClick={() => setCurrentStep(2)}
-                className="flex items-center gap-1.5 rounded-lg bg-[#0B192C] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#1E3E62] disabled:opacity-40 transition cursor-pointer"
+                className="w-full sm:w-auto flex items-center justify-center gap-1.5 rounded-lg bg-[#0B192C] px-5 py-3 sm:py-2.5 text-xs font-bold text-white hover:bg-[#1E3E62] disabled:opacity-40 transition cursor-pointer"
               >
                 <span>Continue to Evidence</span>
                 <ChevronRight className="h-4 w-4" />
@@ -346,9 +370,9 @@ export default function ReportChallengeWizard() {
             )}
 
             {/* Audio Voice Note Option */}
-            <div className="rounded-xl border border-slate-200 p-4 flex items-center justify-between bg-white">
+            <div className="rounded-xl border border-slate-200 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
                   <Mic className="h-5 w-5" />
                 </div>
                 <div>
@@ -359,27 +383,27 @@ export default function ReportChallengeWizard() {
               <button
                 type="button"
                 onClick={() => setVoiceNoteActive(!voiceNoteActive)}
-                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
+                className={`w-full sm:w-auto rounded-lg px-3 py-2 sm:py-1.5 text-xs font-bold transition text-center ${
                   voiceNoteActive ? 'bg-rose-100 text-rose-700' : 'bg-slate-100 text-slate-700'
                 }`}
               >
-                {voiceNoteActive ? 'Audio Note Attached (45s)' : 'Simulate Voice Note'}
+                {voiceNoteActive ? 'Audio Attached (45s)' : 'Simulate Voice Note'}
               </button>
             </div>
 
-            <div className="flex justify-between pt-4">
+            <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-4">
               <button
                 onClick={() => setCurrentStep(1)}
-                className="flex items-center gap-1 rounded-lg border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                className="w-full sm:w-auto flex items-center justify-center gap-1 rounded-lg border border-slate-300 px-4 py-2.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
               >
                 <ChevronLeft className="h-4 w-4" />
-                Back
+                <span>Back</span>
               </button>
               <button
                 onClick={() => setCurrentStep(3)}
-                className="flex items-center gap-1 rounded-lg bg-[#0B192C] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#1E3E62]"
+                className="w-full sm:w-auto flex items-center justify-center gap-1 rounded-lg bg-[#0B192C] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#1E3E62]"
               >
-                Continue to Location
+                <span>Continue to Location</span>
                 <ChevronRight className="h-4 w-4" />
               </button>
             </div>
@@ -454,19 +478,19 @@ export default function ReportChallengeWizard() {
               <span className="text-emerald-700 font-semibold">GPS Coordinates Locked</span>
             </div>
 
-            <div className="flex justify-between pt-4">
+            <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-4">
               <button
                 onClick={() => setCurrentStep(2)}
-                className="flex items-center gap-1 rounded-lg border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                className="w-full sm:w-auto flex items-center justify-center gap-1 rounded-lg border border-slate-300 px-4 py-2.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
               >
                 <ChevronLeft className="h-4 w-4" />
-                Back
+                <span>Back</span>
               </button>
               <button
                 onClick={() => setCurrentStep(4)}
-                className="flex items-center gap-1 rounded-lg bg-[#0B192C] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#1E3E62]"
+                className="w-full sm:w-auto flex items-center justify-center gap-1 rounded-lg bg-[#0B192C] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#1E3E62]"
               >
-                Continue to Impact
+                <span>Continue to Impact</span>
                 <ChevronRight className="h-4 w-4" />
               </button>
             </div>
@@ -555,17 +579,17 @@ export default function ReportChallengeWizard() {
               </div>
             </div>
 
-            <div className="flex justify-between pt-4">
+            <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-4">
               <button
                 onClick={() => setCurrentStep(3)}
-                className="flex items-center gap-1 rounded-lg border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                className="w-full sm:w-auto flex items-center justify-center gap-1 rounded-lg border border-slate-300 px-4 py-2.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
               >
                 <ChevronLeft className="h-4 w-4" />
-                Back
+                <span>Back</span>
               </button>
               <button
                 onClick={handleProceedToReview}
-                className="flex items-center gap-1.5 rounded-lg bg-emerald-600 px-6 py-2.5 text-xs font-bold text-white hover:bg-emerald-700 shadow-sm"
+                className="w-full sm:w-auto flex items-center justify-center gap-1.5 rounded-lg bg-emerald-600 px-6 py-3 sm:py-2.5 text-xs font-bold text-white hover:bg-emerald-700 shadow-sm"
               >
                 <Sparkles className="h-4 w-4" />
                 <span>Run AI Review & Duplicate Interception</span>
@@ -705,27 +729,27 @@ export default function ReportChallengeWizard() {
                 )}
 
                 {/* Final Submission Actions */}
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-slate-200">
+                <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4 border-t border-slate-200">
                   <button
                     onClick={() => setCurrentStep(4)}
-                    className="flex items-center gap-1 text-xs font-semibold text-slate-600 hover:text-slate-900"
+                    className="w-full sm:w-auto flex items-center justify-center gap-1 py-2.5 sm:py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 border sm:border-0 border-slate-200 rounded-lg sm:rounded-none"
                   >
                     <ChevronLeft className="h-4 w-4" />
-                    Modify Details
+                    <span>Modify Details</span>
                   </button>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
                     <button
                       type="button"
                       disabled={isSubmitting}
                       onClick={handleSubmitChallenge}
-                      className="flex items-center gap-2 rounded-xl bg-[#0B192C] px-6 py-3 text-xs font-bold text-white shadow-md hover:bg-[#1E3E62] disabled:opacity-50 transition cursor-pointer"
+                      className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-[#0B192C] px-6 py-3.5 sm:py-3 text-xs font-bold text-white shadow-md hover:bg-[#1E3E62] disabled:opacity-50 transition cursor-pointer text-center"
                     >
                       {isSubmitting ? (
                         <>Submitting Challenge...</>
                       ) : (
                         <>
-                          <span>Submit as Separate Verified Challenge</span>
+                          <span>Submit Verified Challenge</span>
                           <ArrowRight className="h-4 w-4 text-emerald-400" />
                         </>
                       )}

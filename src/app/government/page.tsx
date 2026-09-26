@@ -158,11 +158,11 @@ export default function GovernmentCommandCenter() {
           </p>
         </div>
 
-        {/* Quick Tabs */}
-        <div className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-100 p-1 text-xs font-bold">
+        {/* Quick Tabs - Scrollable on mobile */}
+        <div className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-100 p-1 text-xs font-bold overflow-x-auto no-scrollbar max-w-full">
           <button
             onClick={() => setActiveTab('queue')}
-            className={`rounded-lg px-3 py-2 transition cursor-pointer ${
+            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 ${
               activeTab === 'queue' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -170,7 +170,7 @@ export default function GovernmentCommandCenter() {
           </button>
           <button
             onClick={() => setActiveTab('map')}
-            className={`rounded-lg px-3 py-2 transition cursor-pointer ${
+            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 ${
               activeTab === 'map' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -178,7 +178,7 @@ export default function GovernmentCommandCenter() {
           </button>
           <button
             onClick={() => setActiveTab('routing')}
-            className={`rounded-lg px-3 py-2 transition cursor-pointer ${
+            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 ${
               activeTab === 'routing' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -186,7 +186,7 @@ export default function GovernmentCommandCenter() {
           </button>
           <button
             onClick={() => setActiveTab('audit')}
-            className={`rounded-lg px-3 py-2 transition cursor-pointer ${
+            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 ${
               activeTab === 'audit' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -196,8 +196,8 @@ export default function GovernmentCommandCenter() {
       </div>
 
       {/* KPI Cards Strip */}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6 mb-8">
-        <div className="rounded-xl border border-slate-200 bg-white p-4 text-center shadow-xs">
+      <div className="grid grid-cols-2 gap-2 sm:gap-3 sm:grid-cols-4 lg:grid-cols-6 mb-6 sm:mb-8">
+        <div className="rounded-xl border border-slate-200 bg-white p-3 sm:p-4 text-center shadow-xs">
           <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Total Logged</span>
           <div className="text-2xl font-black text-slate-900 mt-1">{analytics?.kpis?.totalChallenges || 58}</div>
           <span className="text-[10px] text-slate-500">Grassroots issues</span>
@@ -272,8 +272,71 @@ export default function GovernmentCommandCenter() {
               </div>
             </div>
 
-            {/* Queue Table */}
-            <div className="overflow-x-auto flex-1">
+            {/* Mobile Card List (< sm) */}
+            <div className="block sm:hidden divide-y divide-slate-100 p-2 space-y-2">
+              {filteredChallenges.map((ch) => {
+                const isSelected = selectedChallenge?.id === ch.id;
+                return (
+                  <div
+                    key={ch.id}
+                    onClick={() => setSelectedChallenge(ch)}
+                    className={`rounded-xl border p-3 transition cursor-pointer ${
+                      isSelected ? 'border-blue-500 bg-blue-50/50 shadow-xs' : 'border-slate-200 bg-white hover:border-slate-300'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-1 mb-1.5">
+                      <span className="font-mono text-xs font-bold text-slate-800">{ch.id}</span>
+                      <div className="flex items-center gap-1.5">
+                        <PriorityBadge level={ch.priority.level} score={ch.priority.score} showIcon={false} />
+                        <StatusBadge status={ch.status} size="sm" />
+                      </div>
+                    </div>
+
+                    <h4 className="text-xs font-bold text-slate-900 leading-snug line-clamp-2">{ch.title}</h4>
+                    <div className="flex items-center justify-between text-[11px] text-slate-500 mt-1">
+                      <span>{ch.district} • {ch.category}</span>
+                      <span className="font-medium text-slate-700">
+                        {ch.communitySupport.supportersCount + ch.communitySupport.originalReportsCount} backers
+                      </span>
+                    </div>
+
+                    <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
+                      <span className="text-[10px] text-blue-600 font-semibold">
+                        {isSelected ? '✓ Inspecting details below' : 'Tap to inspect'}
+                      </span>
+                      {ch.status === 'Submitted' || ch.status === 'Under Review' ? (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleVerify(ch.id);
+                          }}
+                          disabled={actionInProgress === ch.id}
+                          className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-emerald-700 shadow-xs cursor-pointer"
+                        >
+                          Verify
+                        </button>
+                      ) : ch.status === 'Verified' ? (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedChallenge(ch);
+                            setActiveTab('routing');
+                          }}
+                          className="rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 shadow-xs cursor-pointer"
+                        >
+                          Route HEI →
+                        </button>
+                      ) : (
+                        <span className="text-[11px] text-slate-400 font-medium">In Pipeline</span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Desktop Queue Table (>= sm) */}
+            <div className="hidden sm:block overflow-x-auto flex-1">
               <table className="w-full text-left text-xs">
                 <thead className="bg-[#0B192C] text-white uppercase text-[10px] tracking-wider">
                   <tr>
