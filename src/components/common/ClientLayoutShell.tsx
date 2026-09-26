@@ -14,7 +14,7 @@ export function ClientLayoutShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900 selection:bg-emerald-500 selection:text-white">
       <Header onOpenTour={() => setIsTourOpen(true)} onOpenAi={() => setIsAiOpen(true)} />
-      <main className="flex-1 pb-16 md:pb-0">{children}</main>
+      <main className="flex-1 pb-28 md:pb-0">{children}</main>
       <Footer />
       <MobileBottomNav
         onOpenTour={() => setIsTourOpen(true)}

@@ -539,15 +539,15 @@ export default function GovernmentCommandCenter() {
                   }`}
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0B192C] text-white font-bold text-sm">
+                    <div className="flex items-start sm:items-center gap-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0B192C] text-white font-bold text-sm">
                         #{idx + 1}
                       </div>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h4 className="text-base font-bold text-slate-900">{match.universityName}</h4>
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h4 className="text-base font-bold text-slate-900 leading-snug">{match.universityName}</h4>
                           {match.isJharkhand && (
-                            <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
+                            <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800 shrink-0">
                               Tier 1 Jharkhand HEI
                             </span>
                           )}
@@ -556,10 +556,13 @@ export default function GovernmentCommandCenter() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4">
-                      <div className="text-right">
-                        <div className="text-2xl font-black text-emerald-600">{match.overallMatchScore}%</div>
-                        <span className="text-[10px] uppercase font-bold text-slate-400">Match Affinity</span>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between md:justify-end gap-3 w-full md:w-auto">
+                      <div className="flex items-center justify-between sm:justify-end sm:text-right gap-2 sm:gap-0">
+                        <span className="text-[10px] uppercase font-bold text-slate-400 sm:hidden">Match Affinity:</span>
+                        <div>
+                          <div className="text-2xl font-black text-emerald-600 sm:text-right leading-none">{match.overallMatchScore}%</div>
+                          <span className="text-[10px] uppercase font-bold text-slate-400 hidden sm:block">Match Affinity</span>
+                        </div>
                       </div>
 
                       <button
@@ -567,7 +570,7 @@ export default function GovernmentCommandCenter() {
                           handleRouteToUniversity(selectedChallenge.id, match.universityId, match.universityName)
                         }
                         disabled={actionInProgress === selectedChallenge.id || selectedChallenge.assignedUniversityId === match.universityId}
-                        className={`rounded-xl px-4 py-2 text-xs font-bold transition shadow-xs ${
+                        className={`w-full sm:w-auto rounded-xl px-4 py-2.5 sm:py-2 text-xs font-bold transition shadow-xs cursor-pointer text-center ${
                           selectedChallenge.assignedUniversityId === match.universityId
                             ? 'bg-teal-700 text-white cursor-default'
                             : 'bg-[#0B192C] text-white hover:bg-[#1E3E62]'
@@ -581,7 +584,7 @@ export default function GovernmentCommandCenter() {
                   </div>
 
                   {/* Explainable Match Factors Breakdown */}
-                  <div className="mt-3 grid grid-cols-2 sm:grid-cols-6 gap-2 text-[11px] bg-white p-3 rounded-lg border border-slate-100">
+                  <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-[11px] bg-white p-3 rounded-lg border border-slate-100">
                     <div>
                       <span className="text-slate-400 block text-[10px]">Dept Fit (30%)</span>
                       <span className="font-bold text-slate-800">{match.breakdown.departmentExpertise}%</span>

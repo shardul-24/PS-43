@@ -115,15 +115,15 @@ export default function StartupIndustryHub() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Hub Header */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-6 mb-6">
-        <div className="flex items-start gap-4">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-700 to-indigo-900 text-white font-bold text-xl shadow-md">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-5 sm:pb-6 mb-5 sm:mb-6">
+        <div className="flex items-start gap-3 sm:gap-4">
+          <div className="flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-700 to-indigo-900 text-white font-bold text-lg sm:text-xl shadow-md">
             JR
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-black text-slate-900">JalRakshak IoT Technologies</h1>
-              <span className="rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-bold text-purple-900">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <h1 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">JalRakshak IoT Technologies</h1>
+              <span className="rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-bold text-purple-900 shrink-0">
                 Jharkhand CleanTech Enterprise
               </span>
             </div>
@@ -137,16 +137,16 @@ export default function StartupIndustryHub() {
         <div className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-100 p-1 text-xs font-bold overflow-x-auto no-scrollbar max-w-full">
           <button
             onClick={() => setActiveTab('discover')}
-            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 ${
-              activeTab === 'discover' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600'
+            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 whitespace-nowrap ${
+              activeTab === 'discover' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Discover R&D Projects ({projects.length})
           </button>
           <button
             onClick={() => setActiveTab('active')}
-            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 ${
-              activeTab === 'active' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600'
+            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 whitespace-nowrap ${
+              activeTab === 'active' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Active Partnerships ({activeCollaborations.length})
@@ -231,7 +231,7 @@ export default function StartupIndustryHub() {
                   </div>
 
                   {/* Action */}
-                  <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3">
+                  <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-slate-100 pt-3">
                     <span className="text-xs text-slate-500">
                       Estimated Pilot Cost: <strong>₹{proj.proposal.estimatedCostInr.toLocaleString()}</strong>
                     </span>
@@ -241,9 +241,9 @@ export default function StartupIndustryHub() {
                         setSelectedProject(proj);
                         setIsModalOpen(true);
                       }}
-                      className="rounded-xl bg-purple-700 px-4 py-2 text-xs font-bold text-white hover:bg-purple-800 transition shadow-xs cursor-pointer flex items-center gap-1.5"
+                      className="w-full sm:w-auto rounded-xl bg-purple-700 px-4 py-2.5 sm:py-2 text-xs font-bold text-white hover:bg-purple-800 transition shadow-xs cursor-pointer flex items-center justify-center gap-1.5"
                     >
-                      <Briefcase className="h-4 w-4" />
+                      <Briefcase className="h-4 w-4 shrink-0" />
                       <span>Pledge Industry Collaboration</span>
                     </button>
                   </div>
@@ -313,7 +313,7 @@ export default function StartupIndustryHub() {
 
       {/* Collaboration Pledging Modal */}
       {isModalOpen && selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-3 sm:p-4 backdrop-blur-xs pb-safe">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-3 sm:p-4 backdrop-blur-xs pb-safe">
           <div className="w-full max-w-xl max-h-[90vh] flex flex-col rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-2xl space-y-4 overflow-y-auto">
             <div className="border-b border-slate-100 pb-3">
               <span className="text-[10px] font-bold uppercase tracking-wider text-purple-700">
@@ -333,13 +333,13 @@ export default function StartupIndustryHub() {
                 <label className="font-bold text-slate-700 block mb-2">
                   Select Collaboration Offerings:
                 </label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {COLLABORATION_TYPES.map((type) => (
                     <button
                       type="button"
                       key={type}
                       onClick={() => handleToggleType(type)}
-                      className={`rounded-lg p-2 text-left border font-semibold transition ${
+                      className={`rounded-xl p-2.5 text-left border font-semibold transition cursor-pointer ${
                         selectedTypes.includes(type)
                           ? 'border-purple-600 bg-purple-50 text-purple-900'
                           : 'border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -353,10 +353,15 @@ export default function StartupIndustryHub() {
               </div>
 
               {/* Funding Grant Committed */}
-              <div>
-                <label className="font-bold text-slate-700 block mb-1">
-                  Pledged Matching Seed Grant: ₹{fundingAmount.toLocaleString()}
-                </label>
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <div className="flex items-center justify-between mb-1">
+                  <label className="font-bold text-slate-700 block">
+                    Pledged Matching Seed Grant
+                  </label>
+                  <span className="font-mono font-bold text-purple-900 text-xs bg-purple-100 px-2 py-0.5 rounded-full">
+                    ₹{fundingAmount.toLocaleString()}
+                  </span>
+                </div>
                 <input
                   type="range"
                   min="25000"
@@ -364,8 +369,13 @@ export default function StartupIndustryHub() {
                   step="25000"
                   value={fundingAmount}
                   onChange={(e) => setFundingAmount(Number(e.target.value))}
-                  className="w-full accent-purple-600"
+                  className="w-full accent-purple-600 cursor-pointer"
                 />
+                <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                  <span>₹25,000</span>
+                  <span>₹2.5 Lakh</span>
+                  <span>₹5.0 Lakh</span>
+                </div>
               </div>
 
               {/* Contribution Details */}
@@ -377,16 +387,16 @@ export default function StartupIndustryHub() {
                   rows={3}
                   value={contributionDetails}
                   onChange={(e) => setContributionDetails(e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 p-2 text-xs focus:border-purple-600 focus:outline-hidden"
+                  className="w-full rounded-xl border border-slate-300 p-2.5 text-xs focus:border-purple-600 focus:outline-hidden"
                 />
               </div>
 
               {/* Actions */}
-              <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+              <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="text-slate-500 font-semibold hover:underline"
+                  className="w-full sm:w-auto text-center py-2.5 px-4 text-slate-500 font-semibold hover:underline"
                 >
                   Cancel
                 </button>
@@ -394,7 +404,7 @@ export default function StartupIndustryHub() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="rounded-xl bg-purple-700 px-5 py-2.5 font-bold text-white hover:bg-purple-800 transition shadow-sm"
+                  className="w-full sm:w-auto rounded-xl bg-purple-700 px-5 py-3 sm:py-2.5 font-bold text-white hover:bg-purple-800 transition shadow-sm text-center cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>Transmitting Offer...</>
