@@ -164,6 +164,72 @@ export function Header({ onOpenTour, onOpenAi }: HeaderProps) {
           >
             {langHindi ? 'चुनौतियाँ' : 'Challenges'}
           </Link>
+
+          {/* Portals Dropdown for Desktop */}
+          <div className="relative group">
+            <button
+              className={`flex items-center gap-1 rounded-lg px-3 py-1.5 transition hover:bg-slate-100 cursor-pointer ${
+                currentRole !== 'public' ? 'text-emerald-700 font-semibold bg-emerald-50/70' : ''
+              }`}
+            >
+              <span>{langHindi ? 'पोर्टल' : 'Portals'}</span>
+              <ChevronDown className="h-3.5 w-3.5 text-slate-400 group-hover:rotate-180 transition-transform duration-200" />
+            </button>
+            <div className="absolute left-0 mt-1 w-56 rounded-xl border border-slate-200 bg-white p-2 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+              <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                Stakeholder Portals
+              </div>
+              <Link
+                href="/citizen"
+                className={`flex items-center gap-2 rounded-lg p-2 text-xs font-semibold transition ${
+                  currentRole === 'citizen' ? 'bg-blue-50 text-blue-900 font-bold' : 'text-slate-700 hover:bg-slate-50'
+                }`}
+              >
+                <Users className="h-4 w-4 text-blue-600 shrink-0" />
+                <div>
+                  <div>Citizen Portal</div>
+                  <div className="text-[10px] text-slate-400 font-normal">Report & track issues</div>
+                </div>
+              </Link>
+              <Link
+                href="/government"
+                className={`flex items-center gap-2 rounded-lg p-2 text-xs font-semibold transition ${
+                  currentRole === 'government' ? 'bg-amber-50 text-amber-900 font-bold' : 'text-slate-700 hover:bg-slate-50'
+                }`}
+              >
+                <Building2 className="h-4 w-4 text-amber-600 shrink-0" />
+                <div>
+                  <div>Government Center</div>
+                  <div className="text-[10px] text-slate-400 font-normal">Verify & route HEIs</div>
+                </div>
+              </Link>
+              <Link
+                href="/university"
+                className={`flex items-center gap-2 rounded-lg p-2 text-xs font-semibold transition ${
+                  currentRole === 'university' ? 'bg-emerald-50 text-emerald-900 font-bold' : 'text-slate-700 hover:bg-slate-50'
+                }`}
+              >
+                <GraduationCap className="h-4 w-4 text-emerald-600 shrink-0" />
+                <div>
+                  <div>University Portal</div>
+                  <div className="text-[10px] text-slate-400 font-normal">R&D & student teams</div>
+                </div>
+              </Link>
+              <Link
+                href="/startup"
+                className={`flex items-center gap-2 rounded-lg p-2 text-xs font-semibold transition ${
+                  currentRole === 'startup' ? 'bg-purple-50 text-purple-900 font-bold' : 'text-slate-700 hover:bg-slate-50'
+                }`}
+              >
+                <Briefcase className="h-4 w-4 text-purple-600 shrink-0" />
+                <div>
+                  <div>Startup Hub</div>
+                  <div className="text-[10px] text-slate-400 font-normal">Pledge & scale pilots</div>
+                </div>
+              </Link>
+            </div>
+          </div>
+
           <Link
             href="/citizen/leaderboard"
             className={`rounded-lg px-3 py-1.5 transition hover:bg-slate-100 ${
@@ -235,75 +301,6 @@ export function Header({ onOpenTour, onOpenAi }: HeaderProps) {
                 </div>
               </div>
             )}
-          </div>
-        </div>
-      </div>
-
-      {/* Role Switcher Banner - Horizontal Scrollable on Mobile with smooth touch snapping */}
-      <div className="border-t border-slate-100 bg-slate-50/90 px-3 sm:px-4 py-1.5 overflow-hidden">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2">
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar w-full md:w-auto py-0.5">
-            <span className="hidden sm:inline font-semibold text-slate-500 uppercase tracking-wider text-[10px] shrink-0">
-              Role View:
-            </span>
-            <div className="flex items-center bg-slate-200/80 p-0.5 rounded-lg shrink-0 gap-0.5">
-              <Link
-                href="/citizen"
-                className={`flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-semibold transition shrink-0 ${
-                  currentRole === 'citizen'
-                    ? 'bg-white text-slate-900 shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Users className="h-3.5 w-3.5 text-blue-600" />
-                <span>Citizen</span>
-              </Link>
-
-              <Link
-                href="/government"
-                className={`flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-semibold transition shrink-0 ${
-                  currentRole === 'government'
-                    ? 'bg-white text-slate-900 shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Building2 className="h-3.5 w-3.5 text-amber-600" />
-                <span>Government</span>
-              </Link>
-
-              <Link
-                href="/university"
-                className={`flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-semibold transition shrink-0 ${
-                  currentRole === 'university'
-                    ? 'bg-white text-slate-900 shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <GraduationCap className="h-3.5 w-3.5 text-emerald-600" />
-                <span>University</span>
-              </Link>
-
-              <Link
-                href="/startup"
-                className={`flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-semibold transition shrink-0 ${
-                  currentRole === 'startup'
-                    ? 'bg-white text-slate-900 shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Briefcase className="h-3.5 w-3.5 text-purple-600" />
-                <span>Startup / Industry</span>
-              </Link>
-            </div>
-          </div>
-
-          <div className="hidden lg:flex items-center space-x-3 text-slate-500 text-[11px] shrink-0">
-            <span className="flex items-center gap-1">
-              <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-              Dumka Water Pilot Active
-            </span>
-            <span>•</span>
-            <span className="text-slate-600">22 Jharkhand Universities Onboarded</span>
           </div>
         </div>
       </div>
