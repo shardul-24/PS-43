@@ -160,15 +160,17 @@ export default function UniversityPortal() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* University Portal Header */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-6 mb-6">
-        <div className="flex items-start gap-4">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-800 text-white font-bold text-xl shadow-md">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-5 sm:pb-6 mb-5 sm:mb-6">
+        <div className="flex items-start gap-3 sm:gap-4">
+          <div className="flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-800 text-white font-bold text-lg sm:text-xl shadow-md">
             BIT
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-black text-slate-900">Birla Institute of Technology, Mesra</h1>
-              <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <h1 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+                Birla Institute of Technology, Mesra
+              </h1>
+              <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800 shrink-0">
                 Tier 1 Jharkhand HEI
               </span>
             </div>
@@ -182,24 +184,24 @@ export default function UniversityPortal() {
         <div className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-100 p-1 text-xs font-bold overflow-x-auto no-scrollbar max-w-full">
           <button
             onClick={() => setActiveTab('assigned')}
-            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 ${
-              activeTab === 'assigned' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600'
+            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 whitespace-nowrap ${
+              activeTab === 'assigned' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Recommended Challenges ({challenges.filter((c) => c.category === 'Water Resources').length})
           </button>
           <button
             onClick={() => setActiveTab('teamBuilder')}
-            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 ${
-              activeTab === 'teamBuilder' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600'
+            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 whitespace-nowrap ${
+              activeTab === 'teamBuilder' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Team & Proposal Builder
           </button>
           <button
             onClick={() => setActiveTab('projects')}
-            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 ${
-              activeTab === 'projects' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600'
+            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 whitespace-nowrap ${
+              activeTab === 'projects' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Active Projects & Milestones ({projects.length})
@@ -238,10 +240,10 @@ export default function UniversityPortal() {
       {/* TAB 1: Assigned & Recommended Challenges */}
       {activeTab === 'assigned' && (
         <div className="space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-3">
             <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-emerald-600" />
-              Institutional Recommendations for BIT Mesra
+              <Sparkles className="h-5 w-5 text-emerald-600 shrink-0" />
+              <span>Institutional Recommendations for BIT Mesra</span>
             </h3>
             <span className="text-xs text-slate-500">
               Matched by Environmental Engg, IoT Facility, and Water Quality Patents
@@ -256,21 +258,21 @@ export default function UniversityPortal() {
               return (
                 <div
                   key={ch.id}
-                  className={`rounded-2xl border p-5 shadow-xs transition ${
+                  className={`rounded-2xl border p-4 sm:p-5 shadow-xs transition ${
                     isDumka ? 'border-2 border-emerald-500 bg-emerald-50/30' : 'border-slate-200 bg-white'
                   }`}
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <span className="font-mono text-xs font-bold text-slate-500">{ch.id}</span>
                       <StatusBadge status={ch.status} />
                       <PriorityBadge level={ch.priority.level} score={ch.priority.score} />
                       <span className="text-xs text-slate-500">• {ch.district} District</span>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
                       <div className="flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-900">
-                        <Sparkles className="h-3.5 w-3.5 text-emerald-700" />
+                        <Sparkles className="h-3.5 w-3.5 text-emerald-700 shrink-0" />
                         <span>{matchScore}% Institution Match</span>
                       </div>
                     </div>
@@ -279,53 +281,54 @@ export default function UniversityPortal() {
                   <div className="mt-3">
                     <Link
                       href={`/challenges/${ch.id}`}
-                      className="text-lg font-bold text-slate-900 hover:text-emerald-700 transition"
+                      className="text-base sm:text-lg font-bold text-slate-900 hover:text-emerald-700 transition leading-snug"
                     >
                       {ch.title}
                     </Link>
-                    <p className="text-xs text-slate-600 mt-1 line-clamp-2">{ch.description}</p>
+                    <p className="text-xs text-slate-600 mt-1 line-clamp-2 leading-relaxed">{ch.description}</p>
                   </div>
 
                   {/* Why this matches BIT Mesra */}
-                  <div className="mt-3 rounded-lg bg-white p-3 border border-slate-100 text-xs text-slate-700 space-y-1">
-                    <span className="font-bold text-[11px] text-slate-500 uppercase block">
+                  <div className="mt-3 rounded-xl bg-white p-3 border border-slate-100 text-xs text-slate-700 space-y-1.5">
+                    <span className="font-bold text-[11px] text-slate-500 uppercase block tracking-wider">
                       Why BIT Mesra was Recommended:
                     </span>
-                    <div className="flex flex-wrap items-center gap-2 text-[11px]">
-                      <span className="rounded bg-slate-100 px-2 py-0.5 font-medium">
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px]">
+                      <span className="rounded-md bg-slate-100 px-2 py-0.5 font-medium">
                         ✓ Environmental Engineering Department (30%)
                       </span>
-                      <span className="rounded bg-slate-100 px-2 py-0.5 font-medium">
+                      <span className="rounded-md bg-slate-100 px-2 py-0.5 font-medium">
                         ✓ Faculty Expert: Dr. Priya Sharma (25%)
                       </span>
-                      <span className="rounded bg-slate-100 px-2 py-0.5 font-medium">
+                      <span className="rounded-md bg-slate-100 px-2 py-0.5 font-medium">
                         ✓ Water Quality & Toxicology Testing Lab (10%)
                       </span>
-                      <span className="rounded bg-emerald-100 px-2 py-0.5 font-bold text-emerald-900">
+                      <span className="rounded-md bg-emerald-100 px-2 py-0.5 font-bold text-emerald-900">
                         ✓ Tier 1 Jharkhand HEI Priority (+6%)
                       </span>
                     </div>
                   </div>
 
                   {/* Actions */}
-                  <div className="mt-4 flex items-center justify-between pt-2">
+                  <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-slate-100">
                     <span className="text-xs text-slate-500">
-                      <strong>{ch.impactQuestions.peopleAffectedApprox} citizens</strong> awaiting safe water solution
+                      <strong>{ch.impactQuestions.peopleAffectedApprox.toLocaleString()} citizens</strong> awaiting safe water solution
                     </span>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
                       <Link
                         href={`/challenges/${ch.id}`}
-                        className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        className="w-full sm:w-auto text-center rounded-xl border border-slate-300 px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
                       >
                         View Challenge
                       </Link>
 
                       <button
                         onClick={() => handleAcceptChallenge(ch)}
-                        className="rounded-lg bg-emerald-600 px-4 py-1.5 text-xs font-bold text-white hover:bg-emerald-700 shadow-xs"
+                        className="w-full sm:w-auto flex items-center justify-center gap-1.5 rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white hover:bg-emerald-700 shadow-xs transition cursor-pointer"
                       >
-                        Accept & Form Student Team →
+                        <span>Accept & Form Student Team</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
                       </button>
                     </div>
                   </div>
@@ -338,81 +341,131 @@ export default function UniversityPortal() {
 
       {/* TAB 2: Multidisciplinary Team Builder & Proposal Submission */}
       {activeTab === 'teamBuilder' && (
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div className="border-b border-slate-100 pb-4 mb-6">
+        <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 lg:p-8 shadow-sm space-y-6">
+          <div className="border-b border-slate-100 pb-4">
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">
               Multidisciplinary Solution Formulation
             </span>
-            <h3 className="text-xl font-bold text-slate-900 mt-0.5">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 mt-0.5">
               Form Applied Student & Faculty Innovation Team
             </h3>
-            {selectedChallengeForTeam && (
-              <p className="text-xs text-slate-500 mt-1">
-                Linked Challenge: <strong>{selectedChallengeForTeam.id}</strong> — {selectedChallengeForTeam.title} ({selectedChallengeForTeam.district})
-              </p>
-            )}
+            <p className="text-xs text-slate-500 mt-1">
+              Assemble cross-departmental researchers to build prototypes and deploy pilots funded by Jharkhand innovation grants.
+            </p>
           </div>
+
+          {/* Linked Challenge Banner */}
+          {selectedChallengeForTeam ? (
+            <div className="rounded-xl border border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50/50 p-3.5 sm:p-4 text-xs">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="space-y-0.5">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-md bg-emerald-700 text-white font-mono font-bold px-2 py-0.5 text-[11px]">
+                      {selectedChallengeForTeam.id}
+                    </span>
+                    <span className="rounded-full bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 text-[10px]">
+                      Challenge Accepted by BIT Mesra
+                    </span>
+                    <span className="text-slate-500 font-medium">• {selectedChallengeForTeam.district} District</span>
+                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900 pt-1">
+                    {selectedChallengeForTeam.title}
+                  </h4>
+                </div>
+                <Link
+                  href={`/challenges/${selectedChallengeForTeam.id}`}
+                  className="inline-flex items-center gap-1 text-emerald-700 font-bold hover:underline shrink-0 text-xs"
+                >
+                  <span>Challenge Brief</span>
+                  <ArrowRight className="h-3 w-3" />
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className="rounded-xl border border-amber-200 bg-amber-50 p-3.5 text-xs text-amber-900 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>Select an accepted challenge to bind your multidisciplinary proposal.</span>
+              <button
+                type="button"
+                onClick={() => setActiveTab('assigned')}
+                className="font-bold underline text-left sm:text-right cursor-pointer"
+              >
+                Browse Recommended Challenges →
+              </button>
+            </div>
+          )}
 
           <form onSubmit={handleSubmitTeamProposal} className="space-y-6">
             {/* Faculty Mentor */}
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-3.5 sm:p-4">
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-3 flex items-center gap-1.5">
-                <GraduationCap className="h-4 w-4 text-emerald-600" />
-                Principal Investigator & Faculty Mentor
+                <GraduationCap className="h-4 w-4 text-emerald-600 shrink-0" />
+                <span>Principal Investigator & Faculty Mentor</span>
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div>
-                  <label className="block text-slate-600 font-medium mb-1">Faculty Name</label>
+                  <label className="block text-slate-600 font-semibold mb-1 text-xs">Faculty PI Name</label>
                   <input
                     type="text"
                     value={mentorName}
                     onChange={(e) => setMentorName(e.target.value)}
-                    className="w-full rounded-lg border border-slate-300 bg-white p-2 text-xs"
+                    className="w-full rounded-xl border border-slate-300 bg-white p-2.5 text-xs sm:text-sm font-medium focus:border-emerald-600 focus:outline-hidden"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-600 font-medium mb-1">Academic Department</label>
+                  <label className="block text-slate-600 font-semibold mb-1 text-xs">Academic Department</label>
                   <input
                     type="text"
                     value={mentorDept}
                     onChange={(e) => setMentorDept(e.target.value)}
-                    className="w-full rounded-lg border border-slate-300 bg-white p-2 text-xs"
+                    className="w-full rounded-xl border border-slate-300 bg-white p-2.5 text-xs sm:text-sm font-medium focus:border-emerald-600 focus:outline-hidden"
                   />
                 </div>
               </div>
             </div>
 
             {/* Multidisciplinary Student Squad */}
-            <div className="rounded-xl border border-slate-200 p-4">
-              <div className="flex items-center justify-between mb-3">
+            <div className="rounded-xl border border-slate-200 bg-slate-50/40 p-3.5 sm:p-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
-                  <Users className="h-4 w-4 text-blue-600" />
-                  Multidisciplinary Student Squad (4 Departments)
+                  <Users className="h-4 w-4 text-blue-600 shrink-0" />
+                  <span>Multidisciplinary Student Squad (4 Departments)</span>
                 </h4>
-                <span className="text-[11px] text-slate-500">Cross-departmental collaboration</span>
+                <span className="text-[11px] text-slate-500 font-medium">Cross-departmental collaboration</span>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {students.map((st, idx) => (
                   <div
                     key={idx}
-                    className="grid grid-cols-1 sm:grid-cols-4 gap-2 rounded-lg border border-slate-100 bg-slate-50/70 p-2 text-xs"
+                    className="rounded-xl border border-slate-200 bg-white p-3 sm:p-3.5 shadow-2xs hover:border-slate-300 transition"
                   >
-                    <div>
-                      <span className="text-[10px] text-slate-400 block">Student Name</span>
-                      <span className="font-bold text-slate-900">{st.name}</span>
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-slate-400 block">Department</span>
-                      <span className="text-slate-700 font-medium">{st.department}</span>
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-slate-400 block">Academic Year</span>
-                      <span className="text-slate-600">{st.year}</span>
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-slate-400 block">Assigned Role</span>
-                      <span className="font-semibold text-emerald-700">{st.roleInProject}</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 text-xs">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                          Student Researcher #{idx + 1}
+                        </span>
+                        <span className="font-bold text-slate-900 text-xs sm:text-sm">{st.name}</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                          Department
+                        </span>
+                        <span className="text-slate-700 font-medium">{st.department}</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                          Academic Year
+                        </span>
+                        <span className="text-slate-600">{st.year}</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                          Assigned Role
+                        </span>
+                        <span className="inline-block rounded-md bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-800 border border-emerald-200/60 mt-0.5">
+                          {st.roleInProject}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -420,27 +473,32 @@ export default function UniversityPortal() {
             </div>
 
             {/* Solution Proposal Specifications */}
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-3 text-xs">
+            <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-3.5 sm:p-4 space-y-4 text-xs">
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
-                <BookOpen className="h-4 w-4 text-purple-600" />
-                Applied Solution Proposal Specifications
+                <BookOpen className="h-4 w-4 text-purple-600 shrink-0" />
+                <span>Applied Solution Proposal Specifications</span>
               </h4>
 
               <div>
-                <label className="block text-slate-600 font-medium mb-1">Proposed Project Title</label>
+                <label className="block text-slate-700 font-semibold mb-1 text-xs">
+                  Proposed Project / Solution Title <span className="text-rose-500">*</span>
+                </label>
                 <input
                   type="text"
                   value={solutionTitle}
                   onChange={(e) => setSolutionTitle(e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-xs font-semibold"
+                  className="w-full rounded-xl border border-slate-300 bg-white p-2.5 sm:p-3 text-xs sm:text-sm font-semibold focus:border-purple-600 focus:outline-hidden"
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-slate-600 font-medium mb-1">
-                    Estimated Pilot Budget: ₹{solutionCost.toLocaleString()}
-                  </label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="rounded-xl border border-slate-200 bg-white p-3.5">
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="text-slate-700 font-semibold text-xs">Estimated Pilot Budget</label>
+                    <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800 font-mono">
+                      ₹{solutionCost.toLocaleString()}
+                    </span>
+                  </div>
                   <input
                     type="range"
                     min="100000"
@@ -448,14 +506,22 @@ export default function UniversityPortal() {
                     step="25000"
                     value={solutionCost}
                     onChange={(e) => setSolutionCost(Number(e.target.value))}
-                    className="w-full accent-emerald-600"
+                    className="w-full accent-emerald-600 cursor-pointer"
                   />
+                  <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                    <span>₹1.0 Lakh</span>
+                    <span>₹4.5 Lakh</span>
+                    <span>₹8.0 Lakh</span>
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-slate-600 font-medium mb-1">
-                    Implementation Timeline: {solutionDuration} Months
-                  </label>
+                <div className="rounded-xl border border-slate-200 bg-white p-3.5">
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="text-slate-700 font-semibold text-xs">Implementation Timeline</label>
+                    <span className="rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-800 font-mono">
+                      {solutionDuration} Months
+                    </span>
+                  </div>
                   <input
                     type="range"
                     min="2"
@@ -463,26 +529,31 @@ export default function UniversityPortal() {
                     step="1"
                     value={solutionDuration}
                     onChange={(e) => setSolutionDuration(Number(e.target.value))}
-                    className="w-full accent-blue-600"
+                    className="w-full accent-blue-600 cursor-pointer"
                   />
+                  <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                    <span>2 Months (Fast-track)</span>
+                    <span>6 Months</span>
+                    <span>12 Months</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Submit Button */}
-            <div className="flex items-center justify-between pt-2">
+            {/* Submit & Cancel Actions */}
+            <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4 border-t border-slate-100">
               <button
                 type="button"
                 onClick={() => setActiveTab('assigned')}
-                className="text-xs text-slate-500 hover:underline"
+                className="w-full sm:w-auto text-center py-2.5 px-4 text-xs font-semibold text-slate-600 hover:text-slate-900 border sm:border-0 border-slate-200 rounded-xl sm:rounded-none transition cursor-pointer"
               >
-                Cancel
+                Cancel & Return
               </button>
 
               <button
                 type="submit"
                 disabled={isSubmittingProposal}
-                className="flex items-center gap-2 rounded-xl bg-[#0B192C] px-6 py-3 text-xs font-bold text-white hover:bg-[#1E3E62] shadow-sm transition"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-[#0B192C] px-6 py-3.5 sm:py-3 text-xs font-bold text-white hover:bg-[#1E3E62] shadow-md disabled:opacity-50 transition cursor-pointer text-center"
               >
                 {isSubmittingProposal ? (
                   <>Submitting Proposal...</>
@@ -490,7 +561,7 @@ export default function UniversityPortal() {
                   <>Proposal Submitted Successfully ✓</>
                 ) : (
                   <>
-                    <Send className="h-3.5 w-3.5" />
+                    <Send className="h-3.5 w-3.5 shrink-0" />
                     <span>Submit Multidisciplinary Solution Proposal</span>
                   </>
                 )}
@@ -503,30 +574,30 @@ export default function UniversityPortal() {
       {/* TAB 3: Active Projects & Milestones */}
       {activeTab === 'projects' && (
         <div className="space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-3">
             <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
-              <Layers className="h-5 w-5 text-blue-600" />
-              University Projects & 9-Stage Milestone Tracker
+              <Layers className="h-5 w-5 text-blue-600 shrink-0" />
+              <span>University Projects & 9-Stage Milestone Tracker</span>
             </h3>
             <span className="text-xs text-slate-500">Live progress linked to Government and Industry dashboards</span>
           </div>
 
           <div className="space-y-6">
             {projects.map((proj) => (
-              <div key={proj.id} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
+              <div key={proj.id} className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-sm space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
                   <div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <span className="font-mono text-xs font-bold text-slate-500">{proj.id}</span>
                       <StatusBadge status={proj.stage} />
                       <span className="text-xs text-slate-500">• {proj.district} District</span>
                     </div>
-                    <h4 className="text-lg font-bold text-slate-900 mt-1">{proj.title}</h4>
+                    <h4 className="text-base sm:text-lg font-bold text-slate-900 mt-1">{proj.title}</h4>
                   </div>
 
                   <Link
                     href={`/projects/${proj.id}`}
-                    className="flex items-center gap-1 text-xs font-bold text-blue-600 hover:underline"
+                    className="flex items-center gap-1 text-xs font-bold text-blue-600 hover:underline shrink-0"
                   >
                     <span>Inspect Full Project</span>
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -534,20 +605,20 @@ export default function UniversityPortal() {
                 </div>
 
                 {/* Team Info Strip */}
-                <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100">
                   <span>
                     Faculty Mentor: <strong>{proj.facultyMentor.name}</strong> ({proj.facultyMentor.department})
                   </span>
-                  <span>•</span>
+                  <span className="hidden sm:inline">•</span>
                   <span>
                     Team: <strong>{proj.students.length} Student Engineers</strong>
                   </span>
-                  <span>•</span>
+                  <span className="hidden sm:inline">•</span>
                   <span>
                     Budget: <strong>₹{proj.proposal.estimatedCostInr.toLocaleString()}</strong>
                   </span>
                   {proj.collaborations.length > 0 && (
-                    <span className="rounded bg-purple-100 px-2 py-0.5 text-purple-900 font-bold">
+                    <span className="rounded-full bg-purple-100 px-2.5 py-0.5 text-purple-900 font-bold">
                       Industry Partner: {proj.collaborations[0].startupName}
                     </span>
                   )}
@@ -561,7 +632,7 @@ export default function UniversityPortal() {
 
                   <div className="space-y-2">
                     {proj.milestones.map((m) => (
-                      <div key={m.id} className="rounded-lg border border-slate-200 p-3 bg-white space-y-1.5">
+                      <div key={m.id} className="rounded-xl border border-slate-200 p-3 bg-white space-y-1.5 shadow-2xs">
                         <div className="flex items-center justify-between text-xs">
                           <span className="font-bold text-slate-900">{m.title}</span>
                           <span className="font-mono font-bold text-emerald-700">{m.progressPercent}%</span>
@@ -572,7 +643,7 @@ export default function UniversityPortal() {
                             style={{ width: `${m.progressPercent}%` }}
                           />
                         </div>
-                        <div className="flex items-center justify-between text-[11px] text-slate-500">
+                        <div className="flex items-center justify-between text-[11px] text-slate-500 flex-wrap gap-1">
                           <span>Responsible: {m.responsibleLead}</span>
                           <span>Deadline: {m.deadline}</span>
                         </div>
