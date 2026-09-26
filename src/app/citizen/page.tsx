@@ -42,47 +42,49 @@ export default function CitizenDashboard() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Citizen Profile & Impact Score Banner */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm mb-8">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-sm mb-6 sm:mb-8">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 sm:gap-6">
           {/* User Info */}
-          <div className="flex items-start gap-4">
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white font-bold text-2xl shadow-md">
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <div className="flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white font-bold text-xl sm:text-2xl shadow-md">
               RT
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-black text-slate-900">Rameshwar Tudu</h1>
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-2">
+                <h1 className="text-xl sm:text-2xl font-black text-slate-900">Rameshwar Tudu</h1>
                 <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800 flex items-center gap-1">
                   <ShieldCheck className="h-3.5 w-3.5" />
                   Civic Innovator
                 </span>
               </div>
-              <p className="text-xs text-slate-500 mt-1 flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5 text-slate-400" />
-                Shikaripara Block, Dumka District, Jharkhand
+              <p className="text-xs text-slate-500 mt-1 flex flex-wrap items-center gap-1 sm:gap-2">
+                <span className="inline-flex items-center gap-1">
+                  <MapPin className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                  Shikaripara, Dumka
+                </span>
                 <span>•</span>
-                Member since July 2026
+                <span>Member since July 2026</span>
               </p>
-              <div className="mt-3 flex items-center gap-2">
+              <div className="mt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
                 <Link
                   href="/citizen/report"
-                  className="rounded-lg bg-emerald-600 px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-emerald-700 transition"
+                  className="rounded-lg bg-emerald-600 px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-emerald-700 transition text-center"
                 >
                   + Report a New Challenge
                 </Link>
                 <Link
                   href="/citizen/leaderboard"
-                  className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition flex items-center gap-1.5"
+                  className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition flex items-center justify-center gap-1.5 text-center"
                 >
                   <Award className="h-3.5 w-3.5 text-amber-500" />
-                  View Statewide Rank (#1 in Dumka)
+                  <span>Rank #1 in Dumka</span>
                 </Link>
               </div>
             </div>
           </div>
 
           {/* Citizen Impact Score Card */}
-          <div className="rounded-xl border border-slate-100 bg-slate-50 p-4 min-w-[300px]">
+          <div className="rounded-xl border border-slate-100 bg-slate-50 p-4 w-full lg:w-80">
             <div className="flex items-baseline justify-between border-b border-slate-200 pb-2">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">

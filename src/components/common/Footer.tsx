@@ -5,7 +5,7 @@ import { Sparkles, ShieldCheck, Heart, ExternalLink } from 'lucide-react';
 export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-[#0B192C] text-slate-400 text-sm">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12 pb-20 md:pb-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Col 1: Brand & Gov Dept */}
           <div className="space-y-4">

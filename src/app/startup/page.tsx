@@ -133,11 +133,11 @@ export default function StartupIndustryHub() {
           </div>
         </div>
 
-        {/* Tab switcher */}
-        <div className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-100 p-1 text-xs font-bold">
+        {/* Tab switcher - Scrollable on mobile */}
+        <div className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-100 p-1 text-xs font-bold overflow-x-auto no-scrollbar max-w-full">
           <button
             onClick={() => setActiveTab('discover')}
-            className={`rounded-lg px-3 py-2 transition cursor-pointer ${
+            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 ${
               activeTab === 'discover' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600'
             }`}
           >
@@ -145,7 +145,7 @@ export default function StartupIndustryHub() {
           </button>
           <button
             onClick={() => setActiveTab('active')}
-            className={`rounded-lg px-3 py-2 transition cursor-pointer ${
+            className={`rounded-lg px-3 py-2 transition cursor-pointer shrink-0 ${
               activeTab === 'active' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600'
             }`}
           >
@@ -313,8 +313,8 @@ export default function StartupIndustryHub() {
 
       {/* Collaboration Pledging Modal */}
       {isModalOpen && selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-xs">
-          <div className="w-full max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl space-y-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-3 sm:p-4 backdrop-blur-xs pb-safe">
+          <div className="w-full max-w-xl max-h-[90vh] flex flex-col rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-2xl space-y-4 overflow-y-auto">
             <div className="border-b border-slate-100 pb-3">
               <span className="text-[10px] font-bold uppercase tracking-wider text-purple-700">
                 Pledge Resources & Mentorship
